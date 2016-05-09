@@ -1,0 +1,65 @@
+/*
+TODOs:
+- :active state, FF doesn't apply :focus when :activate
+- each kind has it's own active state, so that will be extra work
+
+*/
+
+%ui-button {
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1px;
+  outline: none;
+  line-height: 2em; /* TODO: fix the size scale */
+}
+
+.ui-button {
+  &:focus {
+    box-shadow: 0px 0px 4px #0090ff;
+    background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
+  }
+  &:active {
+    /* TODO: invert the background */
+    .ui-button__label { /* TODO: is this really the best way to refer to the label class? */
+      transform: translateY(1px);
+    }  
+  }
+  
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &--small {
+    font-size: 0.8rem;
+  }
+
+  &--medium {
+    font-size: 1rem;
+  }
+  
+  &--large {
+    font-size: 1.2rem;
+  }
+      
+  &--default {
+    @extend %ui-button;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);  
+  }
+  
+  &--primary {
+    @extend %ui-button;
+    background: linear-gradient(to bottom, #6fbcfc 0%, #408fd1 100%);
+    color: #1787e5;
+  }
+
+  &__wrapper {
+    background: white;
+    border-radius: inherit;
+  }
+  
+  &__label {
+    padding: 0 0.6rem;
+  }
+
+}

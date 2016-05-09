@@ -1,0 +1,11 @@
+<button class="ui-button ui-button--{{kind}} ui-button--{{size}} {{if isDisabled "ui-button--disabled"}}" disabled={{isDisabled}}>
+  <div class="ui-button__wrapper">
+    <div class="ui-button__label">
+      {{#if loading}}
+        Loading...
+      {{else}}
+        {{yield}}
+      {{/if}}
+    </div>
+  </div>
+</button>
