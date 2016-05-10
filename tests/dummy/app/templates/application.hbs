@@ -2,7 +2,19 @@
 
 <h2>Basic</h2>
 
-{{#ui-field label="Label goes here:" as |f|}}
+{{#ui-field label="Small" size="small" as |f|}}
+  {{f.input value=address placeholder="Type something..."}}
+{{/ui-field}}
+
+<br />
+
+{{#ui-field label="Medium" as |f|}}
+  {{f.input value=address placeholder="Type something..."}}
+{{/ui-field}}
+
+<br />
+
+{{#ui-field label="Large" size="large" as |f|}}
   {{f.input value=address placeholder="Type something..."}}
 {{/ui-field}}
 

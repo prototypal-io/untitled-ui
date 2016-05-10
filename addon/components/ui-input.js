@@ -3,17 +3,25 @@ import layout from '../templates/components/ui-input';
 
 export default Ember.Component.extend({
   layout,
-  
+
   tagName: '',
-  
-  classes: Ember.computed('class', 'error', function() {
-    let classes = ['ui-input'];
+  kind: 'default',
+  disabled: false,
 
-    let error = this.get('error');
-    if (error) { classes.push('ui-input--error'); }
+  classes: Ember.computed('kind', 'size', 'error', 'disabled', function() {
+    let classes = [
+      'ui-input', `ui-input--${this.get('kind')}`,
+      `ui-fontSize--${this.get('size')}`
+    ];
 
-    let providedClass = this.get('class');
-    if (providedClass) { classes.push(providedClass); }
-    return classes;
+    if (this.get('error')) {
+      classes.push('ui-input--error');
+    }
+
+    if (this.get('disabled')) {
+      classes.push('ui-input--disabled');
+    }
+
+    return classes.join(' ');
   })
 });
