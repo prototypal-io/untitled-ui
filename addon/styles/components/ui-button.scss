@@ -14,6 +14,7 @@ TODOs:
   line-height: 2.3em;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align: middle;
+  position: relative;
 }
 
 %ui-button--active {
@@ -67,6 +68,32 @@ TODOs:
     }
   }
 
+  &--loading {
+    /*
+      TODO Placeholder until we can replace with proper spinner
+      Copied from http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner
+    */
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: calc(50% - 12px);
+      left: calc(50% - 12px);
+      height: 15px;
+      width: 15px;
+      animation: ui-button--loading--rotation .6s infinite linear;
+      border-left: 4px solid rgba(0, 174, 239, .15);
+      border-right: 4px solid rgba(0, 174, 239, .15);
+      border-bottom: 4px solid rgba(0, 174, 239, .15);
+      border-top: 4px solid rgba(0, 174, 239, .8);
+      border-radius: 100%;
+    }
+
+    .ui-button__label {
+      opacity: 0;
+    }
+  }
+
   &__wrapper {
     background: white;
     border-radius: inherit;
@@ -80,5 +107,14 @@ TODOs:
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+
+@-webkit-keyframes ui-button--loading--rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
   }
 }
