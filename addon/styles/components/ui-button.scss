@@ -11,35 +11,60 @@ TODOs:
   cursor: pointer;
   padding: 1px;
   outline: none;
-  line-height: 2em; /* TODO: fix the size scale */
+  line-height: 2.3em;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+}
+
+%ui-button--active {
+  box-shadow: none;
+
+  .ui-button__label {
+    transform: translateY(1px);
+  }
+
+  .ui-button__wrapper {
+    background: #f9f9f9;
+  }
 }
 
 .ui-button {
-  &:focus {
-    box-shadow: 0px 0px 4px #0090ff;
-    background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
-  }
-  &:active {
-    /* TODO: invert the background */
-    .ui-button__label { /* TODO: is this really the best way to refer to the label class? */
-      transform: translateY(1px);
-    }
-  }
-
-  &--disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
   &--default {
     @extend %ui-button;
+    /* TODO: gradient colors should be customizeable and not repeated under active state */
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
+    color: #6a6a6a;
+
+    &:active {
+      @extend %ui-button--active;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
+    }
   }
 
   &--primary {
     @extend %ui-button;
     background: linear-gradient(to bottom, #6fbcfc 0%, #408fd1 100%);
     color: #1787e5;
+
+    &:active {
+      @extend %ui-button--active;
+      background: linear-gradient(to top, #6fbcfc 0%, #408fd1 100%);
+    }
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 4px #0090ff;
+    background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
+  }
+
+  &--disabled {
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
+    color: #ababab;
+
+    .ui-button__wrapper {
+      background: #f9f9f9;
+    }
   }
 
   &__wrapper {
@@ -48,7 +73,12 @@ TODOs:
   }
 
   &__label {
-    padding: 0 0.6em;
+    padding: 0 0.9em;
+    min-height: 10px;
+    font-style: normal;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
-
 }
