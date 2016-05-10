@@ -6,6 +6,14 @@ html {
 
 $untitled-ui--border-radius: 0.3rem;
 
+$untitled-ui--fontSize--x-small: .875rem;
+$untitled-ui--fontSize--small: 1rem;
+$untitled-ui--fontSize--medium: 1.25rem;
+$untitled-ui--fontSize--large: 1.5rem;
+$untitled-ui--fontSize--x-large: 2.25rem;
+
+@import './ui-type-scale';
+
 @import './components/ui-button';
 @import './components/ui-field';
 @import './components/ui-input';

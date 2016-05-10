@@ -30,18 +30,6 @@ TODOs:
     pointer-events: none;
   }
 
-  &--small {
-    font-size: 0.8rem;
-  }
-
-  &--medium {
-    font-size: 1rem;
-  }
-  
-  &--large {
-    font-size: 1.2rem;
-  }
-      
   &--default {
     @extend %ui-button;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);  
