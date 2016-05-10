@@ -15,6 +15,7 @@ TODOs:
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align: middle;
   position: relative;
+  user-select: none;
 }
 
 %ui-button--active {
