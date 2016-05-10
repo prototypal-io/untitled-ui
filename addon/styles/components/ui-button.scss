@@ -16,6 +16,16 @@ TODOs:
   vertical-align: middle;
   position: relative;
   user-select: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  /* Overrides normalize.css */
+  &:-moz-focusring {
+    outline: none;
+  }
 }
 
 %ui-button--active {
