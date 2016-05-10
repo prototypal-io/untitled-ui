@@ -1,0 +1,16 @@
+/*
+TODOs:
+- inputs are like buttons
+
+*/
+
+.ui-input {
+  border: 1px solid #ccc;
+  border-radius: $untitled-ui--border-radius;
+  padding: 0 0.6rem;
+  outline: none;
+  
+  &--error {
+    border-color: red;
+  }
+}

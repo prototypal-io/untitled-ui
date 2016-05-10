@@ -1,3 +1,24 @@
+<h1>Field</h1>
+
+<h2>Basic</h2>
+
+{{#ui-field label="Label goes here:" as |f|}}
+  {{f.input value=address placeholder="Type something..."}}
+{{/ui-field}}
+
+<h2>Disabled</h2>
+
+{{#ui-field label="Label goes here:" as |f|}}
+  {{f.input value=address placeholder="Type something..." disabled=true}}
+{{/ui-field}}
+
+<h2>Error</h2>
+
+{{#ui-field label="Label goes here:" as |f|}}
+  {{f.input value=address placeholder="Type something..." error=true errorMessage="FML"}}
+{{/ui-field}}
+
+
 <h1>Buttons</h1>
 
 <h2>Sizes</h2>
