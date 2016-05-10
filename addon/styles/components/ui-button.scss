@@ -31,6 +31,7 @@ TODOs:
 %ui-button--active {
   box-shadow: none;
 
+  /* TODO: Scope labels to button instance only */
   .ui-button__label {
     transform: translateY(1px);
   }
