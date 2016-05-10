@@ -11,44 +11,122 @@ TODOs:
   cursor: pointer;
   padding: 1px;
   outline: none;
-  line-height: 2em; /* TODO: fix the size scale */
+  line-height: 2.3em;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+  position: relative;
+  user-select: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  /* Overrides normalize.css */
+  &:-moz-focusring {
+    outline: none;
+  }
+}
+
+%ui-button--active {
+  box-shadow: none;
+
+  /* TODO: Scope labels to button instance only */
+  .ui-button__label {
+    transform: translateY(1px);
+  }
+
+  .ui-button__wrapper {
+    background: #f9f9f9;
+  }
 }
 
 .ui-button {
-  &:focus {
-    box-shadow: 0px 0px 4px #0090ff;
-    background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
-  }
-  &:active {
-    /* TODO: invert the background */
-    .ui-button__label { /* TODO: is this really the best way to refer to the label class? */
-      transform: translateY(1px);
-    }  
-  }
-  
-  &--disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
   &--default {
     @extend %ui-button;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);  
+    /* TODO: gradient colors should be customizeable and not repeated under active state */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
+    color: #6a6a6a;
+
+    &:active {
+      @extend %ui-button--active;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
+    }
   }
-  
+
   &--primary {
     @extend %ui-button;
     background: linear-gradient(to bottom, #6fbcfc 0%, #408fd1 100%);
     color: #1787e5;
+
+    &:active {
+      @extend %ui-button--active;
+      background: linear-gradient(to top, #6fbcfc 0%, #408fd1 100%);
+    }
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 4px #0090ff;
+    background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
+  }
+
+  &--disabled {
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
+    color: #ababab;
+
+    .ui-button__wrapper {
+      background: #f9f9f9;
+    }
+  }
+
+  &--loading {
+    /*
+      TODO Placeholder until we can replace with proper spinner
+      Copied from http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner
+    */
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: calc(50% - 12px);
+      left: calc(50% - 12px);
+      height: 15px;
+      width: 15px;
+      animation: ui-button--loading--rotation .6s infinite linear;
+      border-left: 4px solid rgba(0, 174, 239, .15);
+      border-right: 4px solid rgba(0, 174, 239, .15);
+      border-bottom: 4px solid rgba(0, 174, 239, .15);
+      border-top: 4px solid rgba(0, 174, 239, .8);
+      border-radius: 100%;
+    }
+
+    .ui-button__label {
+      opacity: 0;
+    }
   }
 
   &__wrapper {
     background: white;
     border-radius: inherit;
   }
-  
-  &__label {
-    padding: 0 0.6rem;
-  }
 
+  &__label {
+    padding: 0 0.9em;
+    min-height: 10px;
+    font-style: normal;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@-webkit-keyframes ui-button--loading--rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
 }

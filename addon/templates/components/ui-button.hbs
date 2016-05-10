@@ -1,11 +1,7 @@
 <button class={{classes}} disabled={{isDisabled}}>
   <div class="ui-button__wrapper">
     <div class="ui-button__label">
-      {{#if loading}}
-        Loading...
-      {{else}}
-        {{yield}}
-      {{/if}}
+      {{yield}}
     </div>
   </div>
 </button>
