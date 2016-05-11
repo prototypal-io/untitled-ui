@@ -88,3 +88,13 @@
 {{/ui-select}}
 
 selected: {{selectedValue}}
+
+<h1>Modal</h1>
+
+<label>{{input type="checkbox" checked=showingModal}} Show modal</label>
+
+{{#if showingModal}}
+  {{#ui-modal onclose=(action (toggle "showingModal" this))}}
+    stuff inside modal
+  {{/ui-modal}}
+{{/if}}

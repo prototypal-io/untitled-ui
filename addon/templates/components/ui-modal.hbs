@@ -1,0 +1,7 @@
+{{#ember-wormhole to="ui-modal"}}
+  <div class="ui-modal__backdrop" onclick={{action "dismiss"}}>
+    <div class="ui-modal__modal">
+      {{yield}}
+    </div>
+  </div>
+{{/ember-wormhole}}
