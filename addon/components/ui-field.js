@@ -4,14 +4,15 @@ import layout from '../templates/components/ui-field';
 export default Ember.Component.extend({
   layout,
   tagName: '',
-    
+
   label: null,
   type: 'ui-input',
+  size: 'medium',
   
   generatedInputId: Ember.computed(function() {
     return `${Ember.guidFor(this)}__input`;
   }),
-  
+
   generatedLabelId: Ember.computed(function() {
     return `${Ember.guidFor(this)}__label`;
   }),
