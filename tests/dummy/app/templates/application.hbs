@@ -157,5 +157,13 @@ selected: {{selectedValue}}
 {{#if showingModal}}
   {{#ui-modal onclose=(action (toggle "showingModal" this))}}
     stuff inside modal
+
+    <br />
+    <br />
+    {{#ui-button kind="primary" onclick=(action (toggle "showingModal" this))}}
+      Close
+    {{/ui-button}}
+    <br />
+    <br />
   {{/ui-modal}}
 {{/if}}
