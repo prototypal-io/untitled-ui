@@ -27,5 +27,11 @@ export default Ember.Component.extend({
     }
 
     return classes.join(' ');
-  })
+  }),
+
+  actions: {
+    onclick(event) {
+      this.sendAction('onclick');
+    }
+  }
 });
