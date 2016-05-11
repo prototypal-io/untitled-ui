@@ -2,7 +2,19 @@
 
 <h2>Basic</h2>
 
-{{#ui-field label="Label goes here:" as |f|}}
+{{#ui-field label="Small" size="small" as |f|}}
+  {{f.input value=address placeholder="Type something..."}}
+{{/ui-field}}
+
+<br />
+
+{{#ui-field label="Medium" as |f|}}
+  {{f.input value=address placeholder="Type something..."}}
+{{/ui-field}}
+
+<br />
+
+{{#ui-field label="Large" size="large" as |f|}}
   {{f.input value=address placeholder="Type something..."}}
 {{/ui-field}}
 
@@ -16,6 +28,55 @@
 
 {{#ui-field label="Label goes here:" as |f|}}
   {{f.input value=address placeholder="Type something..." error=true errorMessage="FML"}}
+{{/ui-field}}
+
+
+<h1>Checkbox</h1>
+
+{{#ui-field size="small" type="ui-checkbox" as |f|}}
+  {{#f.input}}
+    Small
+  {{/f.input}}
+{{/ui-field}}
+
+<br />
+
+{{#ui-field size="medium" type="ui-checkbox" as |f|}}
+  {{#f.input}}
+    Medium
+  {{/f.input}}
+{{/ui-field}}
+
+<br />
+
+{{#ui-field size="large" type="ui-checkbox" as |f|}}
+  {{#f.input}}
+    Large
+  {{/f.input}}
+{{/ui-field}}
+
+<h2>Disabled</h2>
+
+{{#ui-field size="small" type="ui-checkbox" as |f|}}
+  {{#f.input disabled=true}}
+    False
+  {{/f.input}}
+{{/ui-field}}
+
+<br />
+
+{{#ui-field size="small" type="ui-checkbox" as |f|}}
+  {{#f.input disabled=true value=true}}
+    True
+  {{/f.input}}
+{{/ui-field}}
+
+<h2>Error</h2>
+
+{{#ui-field size="small" type="ui-checkbox" as |f|}}
+  {{#f.input error=true}}
+    In error state
+  {{/f.input}}
 {{/ui-field}}
 
 
