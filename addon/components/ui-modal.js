@@ -5,6 +5,8 @@ export default Ember.Component.extend({
   layout,
 
   attributeBindings: ['tabindex'],
+  kind: 'default',
+  size: 'medium',
 
   // Allows modal to reveive focus so we can catch key presses
   tabindex: 0,
@@ -18,6 +20,15 @@ export default Ember.Component.extend({
   modalElement: Ember.computed('generatedModalId', function() {
     const generatedModalId = this.get('generatedModalId');
     return $(`#${generatedModalId}`);
+  }),
+
+  classes: Ember.computed('kind', 'size', function() {
+    let classes = [
+      'ui-modal', `ui-modal--${this.get('kind')}`,
+      `ui-fontSize--${this.get('size')}`
+    ];
+
+    return classes.join(' ');
   }),
 
   didInsertElement() {

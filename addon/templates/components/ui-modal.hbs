@@ -1,5 +1,5 @@
 {{#ember-wormhole to="ui-modal"}}
-  <div class="ui-modal" id={{generatedModalId}}>
+  <div class={{classes}} id={{generatedModalId}}>
     <div class="ui-modal__modal">
       {{yield (hash
           close=(action "close")

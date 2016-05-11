@@ -15,14 +15,25 @@
     width: 0px;
     width: 100vw;
     height: 100vh;
-    background: rgba(64, 77, 88, 0.5);
     z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
   }
 
   &__modal {
     background: white;
     border-radius: $untitled-ui--border-radius;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     z-index: 2;
+  }
+}
+
+.ui-modal--default {
+  .ui-modal {
+    &__backdrop {
+      background: rgba(64, 77, 88, 0.5);
+    }
+
+    &__modal {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
   }
 }
