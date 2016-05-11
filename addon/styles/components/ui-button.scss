@@ -44,24 +44,23 @@ TODOs:
 .ui-button {
   &--default {
     @extend %ui-button;
-    /* TODO: gradient colors should be customizeable and not repeated under active state */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
-    color: #6a6a6a;
+    background: linear-gradient(to bottom, lighten($untitled-ui--button-default-border-color, 15%) 0%, $untitled-ui--button-default-border-color 100%);
+    color: $untitled-ui--button-default-label-color;
 
     &:active {
       @extend %ui-button--active;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
+      background: linear-gradient(to top, lighten($untitled-ui--button-default-border-color, 15%) 0%, $untitled-ui--button-default-border-color 100%);
     }
   }
 
   &--primary {
     @extend %ui-button;
-    background: linear-gradient(to bottom, #6fbcfc 0%, #408fd1 100%);
-    color: #1787e5;
+    background: linear-gradient(to bottom, lighten($untitled-ui--button-primary-border-color, 15%) 0%, $untitled-ui--button-primary-border-color 100%);
+    color: $untitled-ui--button-primary-label-color;
 
     &:active {
       @extend %ui-button--active;
-      background: linear-gradient(to top, #6fbcfc 0%, #408fd1 100%);
+      background: linear-gradient(to top, lighten($untitled-ui--button-primary-border-color, 15%) 0%, $untitled-ui--button-primary-border-color 100%);
     }
   }
 
@@ -72,7 +71,7 @@ TODOs:
 
   &--disabled {
     pointer-events: none;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.25) 100%);
+    background: linear-gradient(to bottom, lighten($untitled-ui--button-default-border-color, 15%) 0%, $untitled-ui--button-default-border-color 100%);
     color: #ababab;
 
     .ui-button__wrapper {
