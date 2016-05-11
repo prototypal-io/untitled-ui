@@ -34,6 +34,7 @@
     "ember-cli-release": "0.2.8",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-cli-velocity": "0.4.0",
     "ember-composable-helpers": "0.23.1",
     "ember-data": "^2.6.0-beta.1",
     "ember-disable-prototype-extensions": "^1.1.0",
@@ -44,7 +45,8 @@
     "ember-wormhole": "0.3.5",
     "emberx-select": "2.1.2",
     "flexi": "1.1.7",
-    "loader.js": "^4.0.1"
+    "loader.js": "^4.0.1",
+    "velocity-animate": "^1.2.3"
   },
   "keywords": [
     "ember-addon"

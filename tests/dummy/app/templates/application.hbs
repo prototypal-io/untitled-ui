@@ -155,12 +155,12 @@ selected: {{selectedValue}}
 <label>{{input type="checkbox" checked=showingModal}} Show modal</label>
 
 {{#if showingModal}}
-  {{#ui-modal onclose=(action (toggle "showingModal" this))}}
+  {{#ui-modal onclose=(action (toggle "showingModal" this)) as |modal|}}
     stuff inside modal
 
     <br />
     <br />
-    {{#ui-button kind="primary" onclick=(action (toggle "showingModal" this))}}
+    {{#ui-button kind="primary" onclick=modal.close}}
       Close
     {{/ui-button}}
     <br />

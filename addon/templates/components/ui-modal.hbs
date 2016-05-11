@@ -1,9 +1,11 @@
 {{#ember-wormhole to="ui-modal"}}
-  <div class="ui-modal">
+  <div class="ui-modal" id={{generatedModalId}}>
     <div class="ui-modal__modal">
-      {{yield}}
+      {{yield (hash
+          close=(action "close")
+        )}}
     </div>
 
-    <div class="ui-modal__backdrop" onclick={{action "dismiss"}}></div>
+    <div class="ui-modal__backdrop" onclick={{action "close"}}></div>
   </div>
 {{/ember-wormhole}}
