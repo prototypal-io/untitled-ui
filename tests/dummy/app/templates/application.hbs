@@ -78,3 +78,13 @@
 {{#ui-button loading=true}}
   hello world
 {{/ui-button}}
+
+<h1>Select</h1>
+
+{{#ui-select value=selectedValue as |x|}}
+  {{#x.option value=1}}1{{/x.option}}
+  {{#x.option value=2}}2{{/x.option}}
+  {{#x.option value=3}}3{{/x.option}}
+{{/ui-select}}
+
+selected: {{selectedValue}}
