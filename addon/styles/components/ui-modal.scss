@@ -20,9 +20,12 @@
   }
 
   &__modal {
+    display: flex;
+    flex-direction: column;
     background: white;
     border-radius: $untitled-ui--border-radius;
     z-index: 2;
+    max-height: 80vh;
   }
 }
 

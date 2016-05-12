@@ -152,21 +152,6 @@ selected: {{selectedValue}}
 
 <h1>Modal</h1>
 
-<label>{{input type="checkbox" checked=showingModal}} Show modal</label>
+{{link-to "View Modal" "modal"}}
 
-{{#if showingModal}}
-  {{#ui-modal
-    kind="default"
-    size="medium"
-    onclose=(action (toggle "showingModal" this)) as |modal|}}
-      stuff inside modal
-
-      <br />
-      <br />
-      {{#ui-button kind="primary" onclick=modal.close}}
-        Close
-      {{/ui-button}}
-      <br />
-      <br />
-  {{/ui-modal}}
-{{/if}}
+{{outlet}}

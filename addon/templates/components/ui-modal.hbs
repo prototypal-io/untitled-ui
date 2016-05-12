@@ -3,6 +3,8 @@
     <div class="ui-modal__modal">
       {{yield (hash
           close=(action "close")
+          titlebar=(component "ui-modal-titlebar" kind=kind)
+          content=(component "ui-modal-content" kind=kind)
         )}}
     </div>
 

@@ -1,0 +1,22 @@
+.ui-modal-titlebar {
+  padding: 10px;
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.ui-modal-titlebar--default {
+  position: relative;
+  padding: 0.5em 7em;
+  font-size: 1.15em;
+  line-height: 2.1em;
+  min-height: 2.1em;
+  color: #576b7a;
+  text-shadow: 1px 1px #fff;
+  background: #f3f7fa;
+  border-bottom: solid 1px #dfe8ee;
+}
