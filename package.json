@@ -52,9 +52,16 @@
     "ember-addon"
   ],
   "dependencies": {
+    "broccoli-caching-writer": "^2.2.1",
+    "broccoli-merge-trees": "^1.1.1",
+    "broccoli-persistent-filter": "^1.2.0",
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.5",
-    "ember-cli-sass": "5.3.1"
+    "ember-cli-sass": "5.3.1",
+    "mkdirp": "^0.5.1",
+    "query-ast": "^1.0.0",
+    "scss-parser": "^1.0.0",
+    "walk-sync": "^0.2.6"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
