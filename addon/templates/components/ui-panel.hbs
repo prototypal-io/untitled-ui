@@ -1,0 +1,8 @@
+<div class={{classes}}>
+  <div class="ui-panel__wrapper">
+    {{yield (hash
+      titlebar=(component "ui-panel-titlebar")
+      content=(component "ui-panel-content")
+    )}}
+  </div>
+</div>
