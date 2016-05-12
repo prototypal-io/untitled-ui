@@ -1,3 +1,6 @@
 <div class={{classes}}>
-  {{yield}}
+  {{yield (hash
+    left=(component "ui-modal-titlebar-action" kind="left")
+    right=(component "ui-modal-titlebar-action" kind="right")
+  )}}
 </div>

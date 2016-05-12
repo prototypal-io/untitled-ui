@@ -3,20 +3,26 @@
   size="medium"
   onclose=(action "onModalClose") as |modal|}}
 
-    {{#modal.titlebar}}
+    {{#modal.titlebar as |titlebar|}}
+      {{#titlebar.left}}
+        {{#ui-button onclick=modal.close}}
+          Cancel
+        {{/ui-button}}
+      {{/titlebar.left}}
+
       Example Modal
+
+      {{#titlebar.right}}
+        {{#ui-button kind="primary" onclick=modal.close}}
+          Save
+        {{/ui-button}}
+      {{/titlebar.right}}
     {{/modal.titlebar}}
 
     {{#modal.content}}
       scroll down...
 
-      <div style="height: 300px;"></div>
-
-      {{#ui-button kind="primary" onclick=modal.close}}
-        Close
-      {{/ui-button}}
-
-      <div style="height: 300px;"></div>
+      <div style="height: 800px;"></div>
 
       End of content
     {{/modal.content}}

@@ -1,5 +1,5 @@
 .ui-modal-titlebar {
-  padding: 10px;
+  position: relative;
   border-top-right-radius: inherit;
   border-top-left-radius: inherit;
   font-weight: 300;
@@ -7,14 +7,29 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-}
-
-.ui-modal-titlebar--default {
-  position: relative;
-  padding: 0.5em 7em;
+  padding: 0.5em 8em;
   font-size: 1.15em;
   line-height: 2.1em;
   min-height: 2.1em;
+}
+
+.ui-modal-titlebar-action {
+  position: absolute;
+  top: 0.5em;
+  line-height: 2.1em;
+  min-height: 2.1em;
+
+  &--left {
+    left: 0.5em;
+  }
+
+  &--right {
+    right: 0.5em;
+  }
+}
+
+/* KINDS */
+.ui-modal-titlebar--default {
   color: #576b7a;
   text-shadow: 1px 1px #fff;
   background: #f3f7fa;
