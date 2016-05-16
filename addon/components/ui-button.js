@@ -5,16 +5,15 @@ export default Ember.Component.extend({
   layout,
 
   tagName: '',
-  kind: 'default',
   size: 'medium',
   disabled: false,
   loading: false,
 
   isDisabled: Ember.computed.or('disabled', 'loading'),
 
-  classes: Ember.computed('size', 'kind', 'loading', function() {
+  classes: Ember.computed('size', 'loading', function() {
     let classes = [
-      'ui-button', `ui-button--${this.get('kind')}`,
+      'ui-button',
       `ui-fontSize--${this.get('size')}`
     ];
 
