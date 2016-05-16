@@ -9,23 +9,12 @@ export default Ember.Component.extend({
   disabled: false,
   loading: false,
 
+  frame: "ui-button--default",
+
   isDisabled: Ember.computed.or('disabled', 'loading'),
 
-  classes: Ember.computed('size', 'loading', function() {
-    let classes = [
-      'ui-button',
-      `ui-fontSize--${this.get('size')}`
-    ];
-
-    if (this.get('isDisabled')) {
-      classes.push('ui-button--disabled');
-    }
-
-    if (this.get('loading')) {
-      classes.push('ui-button--loading');
-    }
-
-    return classes.join(' ');
+  sizeClass: Ember.computed('size', function() {
+    return `ui-fontSize--${this.get('size')}`;
   }),
 
   actions: {

@@ -1,0 +1,9 @@
+<div class="{{baseClass}}__button
+            {{if disabled (concat baseClass '--disabled')}}
+            {{if loading (concat baseClass '--loading')}}">
+  <div class="{{baseClass}}__wrapper">
+    <div class="{{baseClass}}__label">
+      {{yield}}
+    </div>
+  </div>
+</div>
