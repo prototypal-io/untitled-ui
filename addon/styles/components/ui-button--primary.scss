@@ -1,3 +1,3 @@
 .ui-button--primary {
-  @include ui-button--default($bgcolor: $untitled-ui--button-primary-border-color)
+  @include ui-button--default($bgcolor: $untitled-ui--button-primary-border-color, $color: $untitled-ui--button-primary-label-color)
 }

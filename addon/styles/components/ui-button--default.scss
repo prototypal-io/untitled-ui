@@ -1,4 +1,4 @@
-@mixin ui-button--default($bgcolor: $untitled-ui--button-default-border-color) {
+@mixin ui-button--default($bgcolor: $untitled-ui--button-default-border-color, $color: $untitled-ui--button-default-label-color) {
   @at-root {
     @-webkit-keyframes ui-button--default--loading--rotation {
       from {
@@ -17,20 +17,23 @@
     line-height: 2.3em;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
     background: linear-gradient(to bottom, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
-    color: $untitled-ui--button-default-label-color;
+    color: $color;
 
     &--active {
       background: linear-gradient(to top, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
     }
+
     &--focus {
       box-shadow: 0px 0px 4px #0090ff;
       background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
     }
+
     &--disabled {
       pointer-events: none;
       background: linear-gradient(to bottom, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
       color: #ababab;
     }
+
     &--loading {
       /*
         TODO Placeholder until we can replace with proper spinner
