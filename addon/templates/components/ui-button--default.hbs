@@ -1,8 +1,10 @@
-<div class="{{baseClass}}__button
-            {{if disabled (concat baseClass '--disabled')}}
-            {{if loading (concat baseClass '--loading')}}">
-  <div class="{{baseClass}}__wrapper">
-    <div class="{{baseClass}}__label">
+<div class="ui-button--default__button
+            {{if active 'ui-button--default__button--active'}}
+            {{if focus 'ui-button--default__button--focus'}}
+            {{if disabled 'ui-button--default__button--disabled'}}
+            {{if loading 'ui-button--default__button--loading'}}">
+  <div class="ui-button--default__wrapper {{if active 'ui-button--default__wrapper--active'}}">
+    <div class="ui-button--default__label {{if loading 'ui-button--default__label--loading'}} {{if active 'ui-button--default__label--active'}}">
       {{yield}}
     </div>
   </div>

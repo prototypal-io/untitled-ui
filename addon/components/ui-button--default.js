@@ -4,6 +4,5 @@ import layout from 'untitled-ui/templates/components/ui-button--default';
 export default Ember.Component.extend({
   layout,
 
-  tagName: '',
-  baseClass: 'ui-button-default'
+  tagName: ''
 });

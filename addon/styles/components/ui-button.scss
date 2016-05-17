@@ -1,18 +1,15 @@
-/*
-TODOs:
-- :active state, FF doesn't apply :focus when :activate
-- each kind has it's own active state, so that will be extra work
-
-*/
-
-.ui-button {
-  padding: 0;
-  background: transparent;
-  border: none;
-  outline: none;
-  vertical-align: middle;
-  position: relative;
-  user-select: none;
+@mixin ui-button() {
+  & {
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    vertical-align: middle;
+    position: relative;
+    user-select: none;
+    opacity: 0.99;
+    transition: opacity .1s linear;
+  }
 
   &::-moz-focus-inner {
     border: 0;
@@ -26,187 +23,11 @@ TODOs:
 
   &:active {
     box-shadow: none;
+    opacity: 1;
+    transition: opacity .1s linear;
   }
 }
 
-
-/* Default Style */
-.ui-button-default {
-  &__button {
-    border-radius: $untitled-ui--border-radius;
-    cursor: pointer;
-    padding: 1px;
-    line-height: 2.3em;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(to bottom, lighten($untitled-ui--button-default-border-color, 15%) 0%, $untitled-ui--button-default-border-color 100%);
-    color: $untitled-ui--button-default-label-color;
-  }
-
-  &__wrapper {
-    border-radius: inherit;
-    background: white;
-  }
-
-  &__label {
-    padding: 0 0.9em;
-    min-height: 10px;
-    font-style: normal;
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
-
-.ui-button:active {
-  .ui-button-default__button {
-    background: linear-gradient(to top, lighten($untitled-ui--button-default-border-color, 15%) 0%, $untitled-ui--button-default-border-color 100%);
-  }
-
-  .ui-button-default__label {
-    transform: translateY(1px);
-  }
-
-  .ui-button-default__wrapper {
-    background: #f9f9f9;
-  }
-}
-
-.ui-button:focus {
-  .ui-button-default__button {
-    box-shadow: 0px 0px 4px #0090ff;
-    background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
-  }
-}
-
-.ui-button-default--disabled {
-  pointer-events: none;
-  background: linear-gradient(to bottom, lighten($untitled-ui--button-default-border-color, 15%) 0%, $untitled-ui--button-default-border-color 100%);
-  color: #ababab;
-
-  .ui-button-default__wrapper {
-    background: #f9f9f9;
-  }
-}
-
-.ui-button-default--loading {
-  /*
-    TODO Placeholder until we can replace with proper spinner
-    Copied from http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner
-  */
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: calc(50% - 12px);
-    left: calc(50% - 12px);
-    height: 15px;
-    width: 15px;
-    animation: ui-button--loading--rotation .6s infinite linear;
-    border-left: 4px solid rgba(0, 174, 239, .15);
-    border-right: 4px solid rgba(0, 174, 239, .15);
-    border-bottom: 4px solid rgba(0, 174, 239, .15);
-    border-top: 4px solid rgba(0, 174, 239, .8);
-    border-radius: 100%;
-  }
-
-  .ui-button-default__label {
-    opacity: 0;
-  }
-}
-
-
-/* Primary Style */
-/* TODO: Should be possible to inherited from default style */
-.ui-button-primary {
-  &__button {
-    border-radius: $untitled-ui--border-radius;
-    cursor: pointer;
-    padding: 1px;
-    line-height: 2.3em;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(to bottom, lighten($untitled-ui--button-primary-border-color, 15%) 0%, $untitled-ui--button-primary-border-color 100%);
-    color: $untitled-ui--button-primary-label-color;
-  }
-
-  &__wrapper {
-    border-radius: inherit;
-    background: white;
-  }
-
-  &__label {
-    padding: 0 0.9em;
-    min-height: 10px;
-    font-style: normal;
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
-
-.ui-button:active {
-  .ui-button-primary__button {
-    background: linear-gradient(to top, lighten($untitled-ui--button-primary-border-color, 15%) 0%, $untitled-ui--button-primary-border-color 100%);
-  }
-
-  .ui-button-primary__label {
-    transform: translateY(1px);
-  }
-
-  .ui-button-primary__wrapper {
-    background: #f9f9f9;
-  }
-}
-
-.ui-button:focus {
-  .ui-button-primary__button {
-    box-shadow: 0px 0px 4px #0090ff;
-    background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
-  }
-}
-
-.ui-button-primary--disabled {
-  pointer-events: none;
-  background: linear-gradient(to bottom, lighten($untitled-ui--button-default-border-color, 15%) 0%, $untitled-ui--button-default-border-color 100%);
-  color: #ababab;
-
-  .ui-button-default__wrapper {
-    background: #f9f9f9;
-  }
-}
-
-.ui-button-primary--loading {
-  /*
-    TODO Placeholder until we can replace with proper spinner
-    Copied from http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner
-  */
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: calc(50% - 12px);
-    left: calc(50% - 12px);
-    height: 15px;
-    width: 15px;
-    animation: ui-button--loading--rotation .6s infinite linear;
-    border-left: 4px solid rgba(0, 174, 239, .15);
-    border-right: 4px solid rgba(0, 174, 239, .15);
-    border-bottom: 4px solid rgba(0, 174, 239, .15);
-    border-top: 4px solid rgba(0, 174, 239, .8);
-    border-radius: 100%;
-  }
-
-  .ui-button-default__label {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes ui-button--loading--rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(359deg);
-  }
+.ui-button {
+  @include ui-button()
 }
