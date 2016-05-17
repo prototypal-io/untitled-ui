@@ -10,8 +10,11 @@ export default Ember.Component.extend({
   loading: false,
   active: false,
   focus: false,
+  kind: "default",
 
-  frame: "ui-button--default",
+  frame: Ember.computed('kind', function() {
+    return `ui-button--${this.get('kind')}`;
+  }),
 
   isDisabled: Ember.computed.or('disabled', 'loading'),
 
