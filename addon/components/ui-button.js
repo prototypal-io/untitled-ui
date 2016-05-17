@@ -25,7 +25,7 @@ export default Ember.Component.extend({
   },
 
   didInsertElement() {
-    this.$().on('webkitTransitionEnd', () => {
+    this.$().on('webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd', () => {
       this.toggleProperty('active');
     });
     this.$().on('focusin', () => {
