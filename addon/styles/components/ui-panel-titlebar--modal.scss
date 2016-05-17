@@ -1,7 +1,7 @@
-.ui-modal-titlebar {
+@mixin ui-panel-titlebar--modal() {
   position: relative;
-  border-top-right-radius: inherit;
-  border-top-left-radius: inherit;
+  border-top-right-radius: $untitled-ui--border-radius;
+  border-top-left-radius: $untitled-ui--border-radius;
   font-weight: 300;
   white-space: nowrap;
   overflow: hidden;
@@ -11,27 +11,12 @@
   font-size: 1.15em;
   line-height: 2.1em;
   min-height: 2.1em;
-}
-
-.ui-modal-titlebar-action {
-  position: absolute;
-  top: 0.5em;
-  line-height: 2.1em;
-  min-height: 2.1em;
-
-  &--left {
-    left: 0.5em;
-  }
-
-  &--right {
-    right: 0.5em;
-  }
-}
-
-/* KINDS */
-.ui-modal-titlebar--default {
   color: #576b7a;
   text-shadow: 1px 1px #fff;
   background: #f3f7fa;
   border-bottom: solid 1px #dfe8ee;
+}
+
+.ui-panel-titlebar--modal {
+  @include ui-panel-titlebar--modal()
 }

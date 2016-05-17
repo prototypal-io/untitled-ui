@@ -1,7 +1,7 @@
-.ui-panel-content {
-  padding: 1em;
+@mixin ui-panel-content() {
+  overflow: auto;
 }
 
-.ui-panel-content--default {
-
+.ui-panel-content {
+  @include ui-panel-content();
 }

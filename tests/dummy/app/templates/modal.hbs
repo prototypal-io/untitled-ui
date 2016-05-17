@@ -1,22 +1,17 @@
 {{#ui-modal
-  kind="default"
   size="medium"
   onclose=(action "onModalClose") as |modal|}}
 
     {{#modal.titlebar as |titlebar|}}
-      {{#titlebar.left}}
-        {{#ui-button onclick=modal.close}}
-          Cancel
-        {{/ui-button}}
-      {{/titlebar.left}}
+      {{#ui-button onclick=modal.close}}
+        Cancel
+      {{/ui-button}}
 
       Example Modal
 
-      {{#titlebar.right}}
-        {{#ui-button kind="primary" onclick=modal.close}}
-          Save
-        {{/ui-button}}
-      {{/titlebar.right}}
+      {{#ui-button kind="primary" onclick=modal.close}}
+        Save
+      {{/ui-button}}
     {{/modal.titlebar}}
 
     {{#modal.content}}

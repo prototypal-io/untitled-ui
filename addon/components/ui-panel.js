@@ -8,12 +8,11 @@ export default Ember.Component.extend({
   kind: 'default',
   size: 'medium',
 
-  classes: Ember.computed('kind', 'size', function() {
-    let classes = [
-      'ui-panel', `ui-panel--${this.get('kind')}`,
-      `ui-fontSize--${this.get('size')}`
-    ];
+  sizeClass: Ember.computed('size', function() {
+    return `ui-fontSize--${this.get('size')}`;
+  }),
 
-    return classes.join(' ');
-  })
+  frame: Ember.computed('kind', function() {
+    return `ui-panel--${this.get('kind')}`;
+  }),
 });

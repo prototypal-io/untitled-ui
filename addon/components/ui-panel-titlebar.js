@@ -7,11 +7,7 @@ export default Ember.Component.extend({
 
   kind: 'default',
 
-  classes: Ember.computed('kind', function() {
-    let classes = [
-      'ui-panel-titlebar', `ui-panel-titlebar--${this.get('kind')}`
-    ];
-
-    return classes.join(' ');
+  frame: Ember.computed('kind', function() {
+    return `ui-panel-titlebar--${this.get('kind')}`;
   })
 });

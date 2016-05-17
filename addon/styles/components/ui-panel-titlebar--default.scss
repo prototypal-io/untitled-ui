@@ -1,0 +1,10 @@
+@mixin ui-panel-titlebar--default() {
+  padding: 0.5em 0.8em;
+  font-size: 1.25em;
+  line-height: 2.1em;
+  border-bottom: solid 1px #dae5e9;
+}
+
+.ui-panel-titlebar--default {
+  @include ui-panel-titlebar--default()
+}

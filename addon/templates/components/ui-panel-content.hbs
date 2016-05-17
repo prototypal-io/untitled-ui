@@ -1,3 +1,7 @@
-<div class={{classes}}>
- {{yield}}
+<div class="ui-panel-content">
+  {{#component frame
+    kind=kind
+    size=size}}
+      {{yield}}
+  {{/component}}
 </div>

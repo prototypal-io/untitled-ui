@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   layout,
 
   attributeBindings: ['tabindex'],
-  kind: 'default',
+  kind: 'modal',
   size: 'medium',
 
   // Allows modal to reveive focus so we can catch key presses
@@ -22,13 +22,8 @@ export default Ember.Component.extend({
     return $(`#${generatedModalId}`);
   }),
 
-  classes: Ember.computed('kind', 'size', function() {
-    let classes = [
-      'ui-modal', `ui-modal--${this.get('kind')}`,
-      `ui-fontSize--${this.get('size')}`
-    ];
-
-    return classes.join(' ');
+  sizeClass: Ember.computed('size', function() {
+    return `ui-fontSize--${this.get('size')}`;
   }),
 
   didInsertElement() {
@@ -42,7 +37,7 @@ export default Ember.Component.extend({
 
   animateIn(element) {
     const modal = $(element).find('.ui-modal__modal');
-    const backdrop = $(element).find('.ui-modal__backdrop');
+    const backdrop = $(element).find('.ui-modal-backdrop');
 
     const modalAnimation = window.$.Velocity.animate(modal, {
       opacity: [1, 0],
@@ -63,7 +58,7 @@ export default Ember.Component.extend({
 
   animateOut(element) {
     const modal = $(element).find('.ui-modal__modal');
-    const backdrop = $(element).find('.ui-modal__backdrop');
+    const backdrop = $(element).find('.ui-modal-backdrop');
 
     const modalAnimation = window.$.Velocity.animate(modal, {
       opacity: [0, 1],

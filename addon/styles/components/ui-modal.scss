@@ -1,4 +1,4 @@
-.ui-modal {
+@mixin ui-modal() {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,34 +9,14 @@
   align-items: center;
   justify-content: center;
 
-  &__backdrop {
-    position: absolute;
-    left: 0px;
-    width: 0px;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.5);
-  }
-
   &__modal {
     display: flex;
     flex-direction: column;
-    background: white;
-    border-radius: $untitled-ui--border-radius;
     z-index: 2;
     max-height: calc(100vh - 100px);
   }
 }
 
-.ui-modal--default {
-  .ui-modal {
-    &__backdrop {
-      background: rgba(64, 77, 88, 0.5);
-    }
-
-    &__modal {
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    }
-  }
+.ui-modal {
+  @include ui-modal();
 }

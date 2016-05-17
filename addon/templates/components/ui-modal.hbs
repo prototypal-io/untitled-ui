@@ -1,13 +1,17 @@
 {{#ember-wormhole to="ui-modal"}}
-  <div class={{classes}} id={{generatedModalId}}>
+  <div class="ui-modal {{sizeClass}}" id={{generatedModalId}}>
     <div class="ui-modal__modal">
-      {{yield (hash
-          close=(action "close")
-          titlebar=(component "ui-modal-titlebar" kind=kind)
-          content=(component "ui-modal-content" kind=kind)
-        )}}
+      {{#ui-panel
+        kind=kind
+        size=size}}
+          {{yield (hash
+            close=(action "close")
+            titlebar=(component "ui-panel-titlebar" kind=kind)
+            content=(component "ui-panel-content" kind=kind)
+          )}}
+      {{/ui-panel}}
     </div>
 
-    <div class="ui-modal__backdrop" onclick={{action "close"}}></div>
+    {{ui-modal-backdrop kind=kind onclick=(action "close")}}
   </div>
 {{/ember-wormhole}}
