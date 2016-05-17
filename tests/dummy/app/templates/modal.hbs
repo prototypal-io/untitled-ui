@@ -3,15 +3,20 @@
   onclose=(action "onModalClose") as |modal|}}
 
     {{#modal.titlebar as |titlebar|}}
-      {{#ui-button onclick=modal.close}}
-        Cancel
-      {{/ui-button}}
+      {{#titlebar.left}}
+        {{#ui-button onclick=modal.close}}
+          Cancel
+        {{/ui-button}}
+      {{/titlebar.left}}
 
       Example Modal
 
-      {{#ui-button kind="primary" onclick=modal.close}}
-        Save
-      {{/ui-button}}
+      {{#titlebar.right}}
+        {{#ui-button kind="primary" onclick=modal.close}}
+          Save
+        {{/ui-button}}
+      {{/titlebar.right}}
+
     {{/modal.titlebar}}
 
     {{#modal.content}}

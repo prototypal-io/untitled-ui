@@ -1,7 +1,7 @@
 <div class="ui-panel-titlebar">
   {{#component frame
     kind=kind
-    size=size}}
-      {{yield}}
+    size=size as |component|}}
+      {{yield component}}
   {{/component}}
 </div>
