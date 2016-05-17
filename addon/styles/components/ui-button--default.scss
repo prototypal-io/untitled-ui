@@ -21,11 +21,12 @@
 
     &--active {
       background: linear-gradient(to top, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
+      box-shadow: none;
     }
 
     &--focus {
-      box-shadow: 0px 0px 4px #0090ff;
       background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
+      box-shadow: 0px 0px 4px #0090ff;
     }
 
     &--disabled {
