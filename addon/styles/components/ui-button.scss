@@ -7,8 +7,9 @@
     vertical-align: middle;
     position: relative;
     user-select: none;
-    opacity: 0.99;
-    transition: opacity .1s linear;
+    /* z-index & transition is for :active detection */
+    z-index: 0;
+    transition: z-index .1s linear;
   }
 
   &::-moz-focus-inner {
@@ -23,8 +24,9 @@
 
   &:active {
     box-shadow: none;
-    opacity: 1;
-    transition: opacity .1s linear;
+    /* z-index & transition is for :active detection */
+    z-index: 1;
+    transition: z-index .1s linear;
   }
 }
 
