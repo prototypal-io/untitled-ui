@@ -1,7 +1,8 @@
-<button class={{classes}} disabled={{isDisabled}} {{action "onclick"}}>
-  <div class="ui-button__wrapper">
-    <div class="ui-button__label">
+<button class="ui-button {{sizeClass}}" disabled={{isDisabled}} {{action "onclick"}}>
+  {{#component frame
+    disabled=isDisabled
+    loading=loading
+    size=size}}
       {{yield}}
-    </div>
-  </div>
+  {{/component}}
 </button>

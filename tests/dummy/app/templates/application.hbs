@@ -98,19 +98,19 @@
   {{#panel.content}}
     <h2>Sizes</h2>
 
-    {{#ui-button kind="default" size="x-small"}}
+    {{#ui-button size="x-small"}}
       X-Small
     {{/ui-button}}
 
-    {{#ui-button kind="primary" size="x-small"}}
+    {{#ui-button frame=(component "ui-button--primary") size="x-small"}}
       X-Small
     {{/ui-button}}
 
-    {{#ui-button kind="default" size="small"}}
+    {{#ui-button size="small"}}
       Small
     {{/ui-button}}
 
-    {{#ui-button kind="primary" size="small"}}
+    {{#ui-button frame=(component "ui-button--primary") size="small"}}
       Small
     {{/ui-button}}
 
@@ -118,23 +118,23 @@
       Medium
     {{/ui-button}}
 
-    {{#ui-button kind="primary"}}
+    {{#ui-button frame=(component "ui-button--primary")}}
       Medium
     {{/ui-button}}
 
-    {{#ui-button kind="default" size="large"}}
+    {{#ui-button size="large"}}
       Large
     {{/ui-button}}
 
-    {{#ui-button kind="primary" size="large"}}
+    {{#ui-button frame=(component "ui-button--primary") size="large"}}
       Large
     {{/ui-button}}
 
-    {{#ui-button kind="default" size="x-large"}}
+    {{#ui-button size="x-large"}}
       X-Large
     {{/ui-button}}
 
-    {{#ui-button kind="primary" size="x-large"}}
+    {{#ui-button frame=(component "ui-button--primary")size="x-large"}}
       X-Large
     {{/ui-button}}
 
@@ -144,7 +144,7 @@
       hello world
     {{/ui-button}}
 
-    {{#ui-button kind="primary" disabled=true}}
+    {{#ui-button frame=(component "ui-button--primary") disabled=true}}
       hello world
     {{/ui-button}}
 
