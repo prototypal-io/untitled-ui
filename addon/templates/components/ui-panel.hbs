@@ -3,8 +3,8 @@
     kind=kind
     size=size}}
       {{yield (hash
-        titlebar=(component "ui-panel-titlebar")
-        content=(component "ui-panel-content")
+        titlebar=(component "ui-panel-titlebar" kind=kind)
+        content=(component "ui-panel-content" kind=kind)
       )}}
   {{/component}}
 </div>
