@@ -1,60 +1,47 @@
 @mixin ui-button--default($bgcolor: $untitled-ui--button-default-border-color, $color: $untitled-ui--button-default-label-color) {
-  @at-root {
-    @-webkit-keyframes ui-button--default--loading--rotation {
-      from {
-        -webkit-transform: rotate(0deg);
-      }
-      to {
-        -webkit-transform: rotate(359deg);
-      }
-    }
+  border-radius: $untitled-ui--border-radius;
+  cursor: pointer;
+  padding: 1px;
+  line-height: 2.3em;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
+  color: $color;
+
+  &--active {
+    background: linear-gradient(to top, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
+    box-shadow: none;
   }
 
-  &__button {
-    border-radius: $untitled-ui--border-radius;
-    cursor: pointer;
-    padding: 1px;
-    line-height: 2.3em;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  &--focus {
+    background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
+    box-shadow: 0px 0px 4px #0090ff;
+  }
+
+  &--disabled {
+    pointer-events: none;
     background: linear-gradient(to bottom, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
-    color: $color;
+    color: #ababab;
+  }
 
-    &--active {
-      background: linear-gradient(to top, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
-      box-shadow: none;
-    }
-
-    &--focus {
-      background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
-      box-shadow: 0px 0px 4px #0090ff;
-    }
-
-    &--disabled {
-      pointer-events: none;
-      background: linear-gradient(to bottom, lighten($bgcolor, 15%) 0%, $bgcolor 100%);
-      color: #ababab;
-    }
-
-    &--loading {
-      /*
-        TODO Placeholder until we can replace with proper spinner
-        Copied from http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner
-      */
-      &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: calc(50% - 12px);
-        left: calc(50% - 12px);
-        height: 15px;
-        width: 15px;
-        animation: ui-button--default--loading--rotation .6s infinite linear;
-        border-left: 4px solid rgba(0, 174, 239, .15);
-        border-right: 4px solid rgba(0, 174, 239, .15);
-        border-bottom: 4px solid rgba(0, 174, 239, .15);
-        border-top: 4px solid rgba(0, 174, 239, .8);
-        border-radius: 100%;
-      }
+  &--loading {
+    /*
+      TODO Placeholder until we can replace with proper spinner
+      Copied from http://www.designcouch.com/home/why/2013/05/23/dead-simple-pure-css-loading-spinner
+    */
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: calc(50% - 12px);
+      left: calc(50% - 12px);
+      height: 15px;
+      width: 15px;
+      animation: ui-button--default--loading--rotation .6s infinite linear;
+      border-left: 4px solid rgba(0, 174, 239, .15);
+      border-right: 4px solid rgba(0, 174, 239, .15);
+      border-bottom: 4px solid rgba(0, 174, 239, .15);
+      border-top: 4px solid rgba(0, 174, 239, .8);
+      border-radius: 100%;
     }
   }
 
@@ -82,6 +69,17 @@
 
     &--loading {
       opacity: 0;
+    }
+  }
+
+  @at-root {
+    @-webkit-keyframes ui-button--default--loading--rotation {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(359deg);
+      }
     }
   }
 }

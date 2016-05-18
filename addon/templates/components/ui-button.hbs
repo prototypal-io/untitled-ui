@@ -1,10 +1,9 @@
-<button class="ui-button {{sizeClass}}" disabled={{isDisabled}} {{action "onclick"}}>
-  {{#component frame
-    disabled=isDisabled
-    loading=loading
-    active=active
-    focus=focus
-    size=size}}
-      {{yield}}
-  {{/component}}
-</button>
+{{#component frame
+  classes=classes
+  states=states
+  size=size
+  action=(hash
+    onclick=(action "onclick"))
+  }}
+    {{yield}}
+{{/component}}

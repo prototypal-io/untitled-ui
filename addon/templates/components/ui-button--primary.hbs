@@ -1,11 +1,19 @@
-<div class="ui-button--primary__button
-            {{if active 'ui-button--primary__button--active'}}
-            {{if focus 'ui-button--primary__button--focus'}}
-            {{if disabled 'ui-button--primary__button--disabled'}}
-            {{if loading 'ui-button--primary__button--loading'}}">
-  <div class="ui-button--primary__wrapper {{if active 'ui-button--primary__wrapper--active'}}">
-    <div class="ui-button--primary__label {{if loading 'ui-button--primary__label--loading'}} {{if active 'ui-button--primary__label--active'}}">
+<button
+  {{action action.onclick}}
+  disabled={{isDisabled}}
+  class="{{classes.parent}}
+         {{classes.size}}
+         ui-button--primary
+         {{if states.active 'ui-button--primary--active'}}
+         {{if states.focus 'ui-button--primary--focus'}}
+         {{if states.disabled 'ui-button--primary--disabled'}}
+         {{if states.loading 'ui-button--primary--loading'}}">
+  <div class="ui-button--primary__wrapper
+             {{if states.active 'ui-button--primary__wrapper--active'}}">
+    <div class="ui-button--primary__label
+               {{if states.loading 'ui-button--primary__label--loading'}}
+               {{if states.active 'ui-button--primary__label--active'}}">
       {{yield}}
     </div>
   </div>
-</div>
+</button>

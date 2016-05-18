@@ -1,7 +1,12 @@
-<div class="ui-button--simple
-            {{if active 'ui-button--simple--active'}}
-            {{if focus 'ui-button--simple--focus'}}
-            {{if disabled 'ui-button--simple--disabled'}}
-            {{if loading 'ui-button--simple--loading'}}">
-  {{yield}}
-</div>
+<button
+  {{action action.onclick}}
+  disabled={{isDisabled}}
+  class="{{classes.parent}}
+         {{classes.size}}
+         ui-button--simple
+         {{if states.active 'ui-button--simple--active'}}
+         {{if states.focus 'ui-button--simple--focus'}}
+         {{if states.disabled 'ui-button--simple--disabled'}}
+         {{if states.loading 'ui-button--simple--loading'}}">
+    {{yield}}
+</button>
