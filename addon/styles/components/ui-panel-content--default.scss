@@ -1,7 +1,0 @@
-@mixin ui-panel-content--default() {
-  padding: 1em;
-}
-
-.ui-panel-content--default {
-  @include ui-panel-content--default();
-}

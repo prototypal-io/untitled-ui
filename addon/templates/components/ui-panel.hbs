@@ -1,10 +1,7 @@
 <div class="ui-panel {{sizeClass}}">
   {{#component frame
     kind=kind
-    size=size}}
-      {{yield (hash
-        titlebar=(component "ui-panel-titlebar" kind=kind)
-        content=(component "ui-panel-content" kind=kind)
-      )}}
+    size=size as |component|}}
+      {{yield component}}
   {{/component}}
 </div>

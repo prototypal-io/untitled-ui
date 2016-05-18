@@ -1,4 +1,4 @@
-@mixin ui-panel-titlebar--modal() {
+@mixin ui-panel--modal-titlebar() {
   position: relative;
   border-top-right-radius: $untitled-ui--border-radius;
   border-top-left-radius: $untitled-ui--border-radius;
@@ -17,6 +17,6 @@
   border-bottom: solid 1px #dfe8ee;
 }
 
-.ui-panel-titlebar--modal {
-  @include ui-panel-titlebar--modal()
+.ui-panel--modal-titlebar {
+  @include ui-panel--modal-titlebar()
 }
