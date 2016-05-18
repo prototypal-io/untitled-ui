@@ -11,7 +11,7 @@ export default Ember.Component.extend({
   classes: Ember.computed('kind', 'size', 'error', 'disabled', 'value', function() {
     let classes = [
       'ui-checkbox', `ui-checkbox--${this.get('kind')}`,
-      `ui-fontSize--${this.get('size')}`
+      `ui-font-size--${this.get('size')}`
     ];
 
     if (this.get('error')) {

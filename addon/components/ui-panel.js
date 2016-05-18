@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   size: 'medium',
 
   sizeClass: Ember.computed('size', function() {
-    return `ui-fontSize--${this.get('size')}`;
+    return `ui-font-size--${this.get('size')}`;
   }),
 
   frame: Ember.computed('kind', function() {

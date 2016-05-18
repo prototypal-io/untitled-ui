@@ -23,7 +23,7 @@ export default Ember.Component.extend({
   }),
 
   sizeClass: Ember.computed('size', function() {
-    return `ui-fontSize--${this.get('size')}`;
+    return `ui-font-size--${this.get('size')}`;
   }),
 
   didInsertElement() {
