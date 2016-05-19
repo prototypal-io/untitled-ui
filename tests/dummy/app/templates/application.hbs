@@ -6,31 +6,51 @@
   {{/panel.titlebar}}
 
   {{#panel.content}}
-    {{#ui-field label="Small" size="small" as |f|}}
+    {{#ui-field size="small" as |f|}}
+      {{#f.label}}
+        Small
+      {{/f.label}}
+      {{#f.description}}
+        This is an example of a field description.
+      {{/f.description}}
       {{f.input value=address placeholder="Type something..."}}
     {{/ui-field}}
 
-    <br />
-
-    {{#ui-field label="Medium" as |f|}}
+    {{#ui-field as |f|}}
+      {{#f.label}}
+        Medium
+      {{/f.label}}
+      {{#f.description}}
+        This is an example of a field description.
+      {{/f.description}}
       {{f.input value=address placeholder="Type something..."}}
     {{/ui-field}}
 
-    <br />
-
-    {{#ui-field label="Large" size="large" as |f|}}
+    {{#ui-field size="large" as |f|}}
+      {{#f.label}}
+        Large
+      {{/f.label}}
+      {{#f.description}}
+        This is an example of a field description.
+      {{/f.description}}
       {{f.input value=address placeholder="Type something..."}}
     {{/ui-field}}
 
     <h2>Disabled</h2>
 
-    {{#ui-field label="Label goes here:" as |f|}}
+    {{#ui-field as |f|}}
+      {{#f.label}}
+        Disabled
+      {{/f.label}}
       {{f.input value=address placeholder="Type something..." disabled=true}}
     {{/ui-field}}
 
     <h2>Error</h2>
 
-    {{#ui-field label="Label goes here:" as |f|}}
+    {{#ui-field as |f|}}
+      {{#f.label}}
+        Error State
+      {{/f.label}}
       {{f.input value=address placeholder="Type something..." error=true errorMessage="FML"}}
     {{/ui-field}}
   {{/panel.content}}
@@ -48,15 +68,11 @@
       {{/f.input}}
     {{/ui-field}}
 
-    <br />
-
     {{#ui-field size="medium" type="ui-checkbox" as |f|}}
       {{#f.input}}
         Medium
       {{/f.input}}
     {{/ui-field}}
-
-    <br />
 
     {{#ui-field size="large" type="ui-checkbox" as |f|}}
       {{#f.input}}
@@ -71,8 +87,6 @@
         False
       {{/f.input}}
     {{/ui-field}}
-
-    <br />
 
     {{#ui-field size="small" type="ui-checkbox" as |f|}}
       {{#f.input disabled=true value=true}}

@@ -1,0 +1,15 @@
+<div class="{{classes.parent}} {{classes.size}} ui-field--default">
+  {{yield (hash
+    input=(component
+      type
+      ids=ids
+      size=size)
+    label=(component
+      "ui-field--default-label"
+      ids=ids
+      size=size)
+    description=(component
+      "ui-field--default-description"
+      size=size)
+    )}}
+</div>

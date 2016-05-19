@@ -1,0 +1,9 @@
+@mixin ui-field--default-label() {
+  display: block;
+  font-weight: 500;
+  margin: 0.3em 0;
+}
+
+.ui-field--default-label {
+  @include ui-field--default-label()
+}

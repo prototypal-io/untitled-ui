@@ -1,0 +1,7 @@
+@mixin ui-field--default() {
+  margin: 1em 0;
+}
+
+.ui-field--default {
+  @include ui-field--default()
+}
