@@ -36,7 +36,7 @@ export default Ember.Component.extend({
   }),
 
   $(sel) {
-    let el = this._renderNode.firstNode.nextSibling;
+    let el = this._renderNode.firstNode.nextElementSibling;
     return sel ? $(sel, el) : $(el);
   },
 

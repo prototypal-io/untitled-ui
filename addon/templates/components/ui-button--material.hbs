@@ -1,0 +1,17 @@
+{{#ui-ripple as |ripple|}}
+  <button
+    {{action action.onclick}}
+    disabled={{isDisabled}}
+    class="{{classes.parent}}
+           {{classes.size}}
+           ui-button--material
+           {{if states.active 'ui-button--material--active'}}
+           {{if states.focus 'ui-button--material--focus'}}
+           {{if states.disabled 'ui-button--material--disabled'}}
+           {{if states.loading 'ui-button--material--loading'}}">
+      <div class="ui-button--material__label">
+        {{yield}}
+      </div>
+      {{ripple.animation}}
+  </button>
+{{/ui-ripple}}

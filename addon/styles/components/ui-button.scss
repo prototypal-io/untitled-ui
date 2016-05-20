@@ -23,7 +23,6 @@
   }
 
   &:active {
-    box-shadow: none;
     /* z-index & transition is for :active detection */
     z-index: 1;
     transition: z-index .001s linear;
