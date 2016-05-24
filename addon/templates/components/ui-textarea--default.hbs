@@ -1,0 +1,14 @@
+<div class="ui-textarea--default
+            {{if states.disabled 'ui-textarea--default--disabled'}}
+            {{if error 'ui-textarea--default--error'}}">
+  <div class="ui-textarea--default__wrapper">
+    {{textarea
+      id=ids.input
+      placeholder=placeholder
+      disabled=states.disabled
+      aria-labelledby=ids.label
+      class="ui-textarea--default__input"
+      rows=rows
+      focus-out=focus-out}}
+  </div>
+</div>

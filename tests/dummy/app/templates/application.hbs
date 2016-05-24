@@ -72,6 +72,46 @@
 
 {{#ui-panel as |panel|}}
   {{#panel.titlebar}}
+    Textarea
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    {{#ui-field type="textarea" as |f|}}
+      {{#f.label}}
+        Medium
+      {{/f.label}}
+      {{f.input value=address placeholder="4 rows" rows=4}}
+    {{/ui-field}}
+
+    {{#ui-field size="large" type="textarea" as |f|}}
+      {{#f.label}}
+        Large
+      {{/f.label}}
+      {{f.input value=address placeholder="4 rows" rows=4}}
+    {{/ui-field}}
+
+    <h2>Disabled</h2>
+
+    {{#ui-field type="textarea" as |f|}}
+      {{#f.label}}
+        Medium
+      {{/f.label}}
+      {{f.input value=address placeholder="Type something..." disabled=true}}
+    {{/ui-field}}
+
+    <h2>Error</h2>
+
+    {{#ui-field type="textarea" as |f|}}
+      {{#f.label}}
+        Medium
+      {{/f.label}}
+      {{f.input value=address placeholder="Type something..." error=true}}
+    {{/ui-field}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
     Checkbox
   {{/panel.titlebar}}
 
