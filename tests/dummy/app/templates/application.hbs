@@ -76,19 +76,19 @@
   {{/panel.titlebar}}
 
   {{#panel.content}}
-    {{#ui-field size="small" type="ui-checkbox" as |f|}}
+    {{#ui-field size="small" type="checkbox" as |f|}}
       {{#f.input}}
         Small
       {{/f.input}}
     {{/ui-field}}
 
-    {{#ui-field size="medium" type="ui-checkbox" as |f|}}
+    {{#ui-field size="medium" type="checkbox" as |f|}}
       {{#f.input}}
         Medium
       {{/f.input}}
     {{/ui-field}}
 
-    {{#ui-field size="large" type="ui-checkbox" as |f|}}
+    {{#ui-field size="large" type="checkbox" as |f|}}
       {{#f.input}}
         Large
       {{/f.input}}
@@ -96,13 +96,13 @@
 
     <h2>Disabled</h2>
 
-    {{#ui-field size="small" type="ui-checkbox" as |f|}}
+    {{#ui-field size="small" type="checkbox" as |f|}}
       {{#f.input disabled=true}}
         False
       {{/f.input}}
     {{/ui-field}}
 
-    {{#ui-field size="small" type="ui-checkbox" as |f|}}
+    {{#ui-field size="small" type="checkbox" as |f|}}
       {{#f.input disabled=true value=true}}
         True
       {{/f.input}}
@@ -110,7 +110,7 @@
 
     <h2>Error</h2>
 
-    {{#ui-field size="small" type="ui-checkbox" as |f|}}
+    {{#ui-field size="small" type="checkbox" as |f|}}
       {{#f.input error=true}}
         In error state
       {{/f.input}}

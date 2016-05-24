@@ -5,8 +5,7 @@ export default Ember.Component.extend({
   layout,
   tagName: '',
 
-  type: 'ui-input',
-
+  type: 'input',
   kind: 'default',
   size: 'medium',
 
@@ -20,6 +19,10 @@ export default Ember.Component.extend({
 
   frame: Ember.computed('kind', function() {
     return `ui-field--${this.get('kind')}`;
+  }),
+
+  input: Ember.computed('type', function() {
+    return `ui-${this.get('type')}`;
   }),
 
   classes: Ember.computed('size', function() {
