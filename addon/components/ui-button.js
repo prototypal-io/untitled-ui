@@ -66,7 +66,9 @@ export default Ember.Component.extend({
     });
 
     if (this.attrs.register) {
-      this.attrs.register(this);
+      Ember.run.next(this, function() {
+        this.attrs.register(this);
+      });
     }
   },
 
