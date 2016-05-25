@@ -7,7 +7,10 @@
          {{if states.active 'ui-button--primary--active'}}
          {{if states.focus 'ui-button--primary--focus'}}
          {{if states.disabled 'ui-button--primary--disabled'}}
-         {{if states.loading 'ui-button--primary--loading'}}">
+         {{if states.loading 'ui-button--primary--loading'}}
+         {{if group 'ui-button--primary--group-button'}}
+         {{if group.isFirstChild 'ui-button--primary--first-child'}}
+         {{if group.isLastChild 'ui-button--primary--last-child'}}">
   <div class="ui-button--primary__wrapper
              {{if states.active 'ui-button--primary__wrapper--active'}}">
     <div class="ui-button--primary__label

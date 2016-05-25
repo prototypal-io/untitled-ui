@@ -7,7 +7,10 @@
          {{if states.active 'ui-button--default--active'}}
          {{if states.focus 'ui-button--default--focus'}}
          {{if states.disabled 'ui-button--default--disabled'}}
-         {{if states.loading 'ui-button--default--loading'}}">
+         {{if states.loading 'ui-button--default--loading'}}
+         {{if group 'ui-button--default--group-button'}}
+         {{if group.isFirstChild 'ui-button--default--first-child'}}
+         {{if group.isLastChild 'ui-button--default--last-child'}}">
   <div class="ui-button--default__wrapper
              {{if states.active 'ui-button--default__wrapper--active'}}">
     <div class="ui-button--default__label

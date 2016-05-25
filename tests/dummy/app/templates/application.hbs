@@ -246,6 +246,62 @@
 
 {{#ui-panel as |panel|}}
   {{#panel.titlebar}}
+    Button Group
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    <h2>Default</h2>
+
+    {{#ui-button-group as |group|}}
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+    {{/ui-button-group}}
+
+    <h2>Acting as tabs (aesthetic only)</h2>
+
+    {{#ui-button-group as |group|}}
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button active=true}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+    {{/ui-button-group}}
+
+    <h2>Themes</h2>
+
+    {{#ui-button-group kind="primary" as |group|}}
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+    {{/ui-button-group}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
     Select
   {{/panel.titlebar}}
 

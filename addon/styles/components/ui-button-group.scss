@@ -1,0 +1,7 @@
+@mixin ui-button-group() {
+  display: flex;
+}
+
+.ui-button-group {
+  @include ui-button-group()
+}

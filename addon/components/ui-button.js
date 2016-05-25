@@ -10,8 +10,9 @@ export default Ember.Component.extend({
 
   disabled: false,
   loading: false,
-  active: false,
   focus: false,
+  browserActive: false,
+  active: false,
 
   frame: Ember.computed('kind', function() {
     return `ui-button--${this.get('kind')}`;
@@ -26,13 +27,24 @@ export default Ember.Component.extend({
 
   isDisabled: Ember.computed.or('disabled', 'loading'),
 
-  states: Ember.computed('isDisabled', 'loading', 'active', 'focus', function() {
+  states: Ember.computed('isDisabled', 'loading', 'active', 'browserActive', 'focus', function() {
     return {
       disabled: this.get('isDisabled'),
       loading: this.get('loading'),
-      active: this.get('active'),
+      active: this.get('browserActive') || this.get('active'),
       focus: this.get('focus')
     }
+  }),
+
+  group: Ember.computed('buttonGroup.[]', function() {
+    if (Ember.isEmpty(this.get('buttonGroup'))) {
+      return null;
+    }
+
+    return {
+      isFirstChild: this.get('buttonGroup.firstChild') === this,
+      isLastChild: this.get('buttonGroup.lastChild') === this
+    };
   }),
 
   $(sel) {
@@ -42,7 +54,7 @@ export default Ember.Component.extend({
 
   didInsertElement() {
     this.$().on('webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd', () => {
-      this.toggleProperty('active');
+      this.toggleProperty('browserActive');
     });
 
     this.$().on('focusin', () => {
@@ -52,6 +64,10 @@ export default Ember.Component.extend({
     this.$().on('focusout', () => {
       this.set('focus', false);
     });
+
+    if (this.attrs.register) {
+      this.attrs.register(this);
+    }
   },
 
   actions: {
