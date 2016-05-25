@@ -336,4 +336,48 @@
   {{/panel.content}}
 {{/ui-panel}}
 
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Pagination
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    content
+
+    {{#ui-pagination as |pagination|}}
+      {{#pagination.previousButton}}
+        Previous
+      {{/pagination.previousButton}}
+
+      {{#pagination.pages as |page|}}
+        {{#page.page "index"}}
+          1
+        {{/page.page}}
+
+        {{#page.page "modal"}}
+          2
+        {{/page.page}}
+
+        {{#page.page "modal"}}
+          3
+        {{/page.page}}
+
+        {{#page.page "modal"}}
+          4
+        {{/page.page}}
+
+        ...
+
+        {{#page.page "modal"}}
+          55
+        {{/page.page}}
+      {{/pagination.pages}}
+
+      {{#pagination.nextButton}}
+        Next
+      {{/pagination.nextButton}}
+    {{/ui-pagination}}
+  {{/panel.content}}
+{{/ui-panel}}
+
 {{outlet}}

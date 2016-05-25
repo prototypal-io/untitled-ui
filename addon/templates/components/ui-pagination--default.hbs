@@ -1,0 +1,10 @@
+<div class="{{classes.parent}}
+       {{classes.size}}
+       ui-pagination--default">
+
+  {{yield (hash
+      previousButton=(component "ui-button" class="ui-pagination--default__previous")
+      nextButton=(component "ui-button" class="ui-pagination--default__next")
+      pages=(component "ui-pagination--default-pages")
+    )}}
+</div>

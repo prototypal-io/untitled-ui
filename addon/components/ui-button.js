@@ -8,6 +8,8 @@ export default Ember.Component.extend({
   kind: "default",
   size: "medium",
 
+  class: null,
+
   disabled: false,
   loading: false,
   focus: false,
@@ -21,7 +23,8 @@ export default Ember.Component.extend({
   classes: Ember.computed('size', function() {
     return {
       parent: 'ui-button',
-      size: `ui-font-size--${this.get('size')}`
+      size: `ui-font-size--${this.get('size')}`,
+      class: this.get('class')
     }
   }),
 
