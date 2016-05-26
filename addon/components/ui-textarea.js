@@ -20,9 +20,10 @@ export default Ember.Component.extend({
     }
   }),
 
-  states: Ember.computed('disabled', 'states', function() {
+  states: Ember.computed('disabled', 'error', function() {
     return {
-      disabled: this.get('disabled')
+      disabled: this.get('disabled'),
+      error: this.get('error')
     };
   })
 });
