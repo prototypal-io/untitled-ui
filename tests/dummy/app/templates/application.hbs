@@ -380,4 +380,32 @@
   {{/panel.content}}
 {{/ui-panel}}
 
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Tabs
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+
+    {{#ui-tabs as |tabs|}}
+      {{#tabs.link-to "index"}}
+        Index
+      {{/tabs.link-to}}
+
+      {{#tabs.link-to "modal"}}
+        Modal
+      {{/tabs.link-to}}
+
+      {{#tabs.link-to "modal"}}
+        Tab 3
+      {{/tabs.link-to}}
+
+      {{#tabs.link-to "modal"}}
+        Tab 4
+      {{/tabs.link-to}}
+    {{/ui-tabs}}
+
+  {{/panel.content}}
+{{/ui-panel}}
+
 {{outlet}}

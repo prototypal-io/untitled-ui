@@ -1,0 +1,36 @@
+@mixin ui-tabs--default(
+  $link-color: #1787e5,
+  $hover-background: #e6f3fd,
+  $hover-color: #1165ad,
+  $active-background: #1787e5,
+  $active-color: #ffffff,
+  $border-radius: 3px,
+  $align: flex-start
+) {
+  display: flex;
+  justify-content: $align;
+
+  &__tab--link {
+    text-decoration: none;
+    color: $link-color;
+    display: block;
+    padding: 0 0.75em;
+    margin: 0 1px;
+    line-height: 2em;
+    border-radius: $border-radius;
+
+    &:hover {
+      background: $hover-background;
+      color: $hover-color;
+    }
+
+    &.active {
+      background: $active-background;
+      color: $active-color;
+    }
+  }
+}
+
+.ui-tabs--default {
+  @include ui-tabs--default();
+}
