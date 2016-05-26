@@ -7,21 +7,23 @@ export default Ember.Component.extend({
   tagName: '',
   kind: 'default',
   disabled: false,
+  error: false,
+
+  frame: Ember.computed('kind', function() {
+    return `ui-input--${this.get('kind')}`;
+  }),
 
   classes: Ember.computed('kind', 'size', 'error', 'disabled', function() {
-    let classes = [
-      'ui-input', `ui-input--${this.get('kind')}`,
-      `ui-font-size--${this.get('size')}`
-    ];
-
-    if (this.get('error')) {
-      classes.push('ui-input--error');
+    return {
+      parent: 'ui-input',
+      size: `ui-font-size--${this.get('size')}`
     }
+  }),
 
-    if (this.get('disabled')) {
-      classes.push('ui-input--disabled');
+  states: Ember.computed('disabled', 'error', function() {
+    return {
+      disabled: this.get('disabled'),
+      error: this.get('error')
     }
-
-    return classes.join(' ');
-  })
+  }),
 });

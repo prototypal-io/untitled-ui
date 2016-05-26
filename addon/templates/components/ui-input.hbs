@@ -1,12 +1,9 @@
-<div class={{classes}}>
-  <div class="ui-input__wrapper">
-    {{input
-      id=ids.input
-      type=type
-      placeholder=placeholder
-      disabled=disabled
-      aria-labelledby=ids.label
-      class="ui-input__input"
-      focus-out=focus-out}}
-  </div>
-</div>
+{{#component frame
+  classes=classes
+  states=states
+  kind=kind
+  ids=ids
+  placeholder=placeholder
+  size=size as |component|}}
+    {{yield component}}
+{{/component}}

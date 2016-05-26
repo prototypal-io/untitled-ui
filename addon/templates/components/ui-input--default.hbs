@@ -1,0 +1,18 @@
+<div class="{{classes.parent}}
+            {{classes.size}}
+            ui-input--default">
+  <div class="ui-input--default__wrapper">
+    {{input
+      id=ids.input
+      type=type
+      placeholder=placeholder
+      disabled=states.disabled
+      aria-labelledby=ids.label
+      class=(concat "ui-input--default__input"
+                    " "
+                    (if states.disabled "ui-input--default--disabled__input")
+                    " "
+                    (if states.error "ui-input--default--error__input"))
+      focus-out=focus-out}}
+  </div>
+</div>
