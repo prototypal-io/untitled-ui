@@ -3,31 +3,30 @@ import layout from '../templates/components/ui-checkbox';
 
 export default Ember.Component.extend({
   layout,
-
   tagName: '',
+
   kind: 'default',
   disabled: false,
+  error: false,
+  value: false,
 
-  classes: Ember.computed('kind', 'size', 'error', 'disabled', 'value', function() {
-    let classes = [
-      'ui-checkbox', `ui-checkbox--${this.get('kind')}`,
-      `ui-font-size--${this.get('size')}`
-    ];
+  frame: Ember.computed('kind', function() {
+    return `ui-checkbox--${this.get('kind')}`;
+  }),
 
-    if (this.get('error')) {
-      classes.push('ui-checkbox--error');
+  classes: Ember.computed('size', function() {
+    return {
+      parent: 'ui-checkbox',
+      size: `ui-font-size--${this.get('size')}`,
+      class: this.get('class')
     }
+  }),
 
-    if (this.get('disabled')) {
-      classes.push('ui-checkbox--disabled');
-    } else {
-      classes.push('ui-checkbox--enabled');
+  states: Ember.computed('disabled', 'error', 'value', function() {
+    return {
+      disabled: this.get('disabled'),
+      error: this.get('error'),
+      checked: this.get('value')
     }
-
-    if (this.get('value')) {
-      classes.push('ui-checkbox--checked');
-    }
-
-    return classes.join(' ');
   })
 });

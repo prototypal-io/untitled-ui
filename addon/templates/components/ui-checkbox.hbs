@@ -1,15 +1,7 @@
-<label class={{classes}}>
-  {{input
-    class="ui-checkbox__input"
-    type="checkbox"
-    checked=value
-    disabled=disabled}}
-
-  <div class="ui-checkbox__component">
-    <div class="ui-checkbox__component__wrapper">
-      <div class="ui-checkbox__component__icon"></div>
-    </div>
-  </div>
-
-  {{yield}}
-</label>
+{{#component frame
+  classes=classes
+  states=states
+  size=size
+  value=value}}
+    {{yield}}
+{{/component}}
