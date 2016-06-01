@@ -1,0 +1,424 @@
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Ripple Test
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+
+    {{#ui-button kind="material"}}
+      Medium
+    {{/ui-button}}
+
+  {{/panel.content}}
+{{/ui-panel}}
+
+<h1>Field</h1>
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Input
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    {{#ui-field size="small" as |f|}}
+      {{#f.label}}
+        Small
+      {{/f.label}}
+      {{#f.description}}
+        This is an example of a field description.
+      {{/f.description}}
+      {{f.input value=address placeholder="Type something..."}}
+    {{/ui-field}}
+
+    {{#ui-field as |f|}}
+      {{#f.label}}
+        Medium
+      {{/f.label}}
+      {{#f.description}}
+        This is an example of a field description.
+      {{/f.description}}
+      {{f.input value=address placeholder="Type something..."}}
+    {{/ui-field}}
+
+    {{#ui-field size="large" as |f|}}
+      {{#f.label}}
+        Large
+      {{/f.label}}
+      {{#f.description}}
+        This is an example of a field description.
+      {{/f.description}}
+      {{f.input value=address placeholder="Type something..."}}
+    {{/ui-field}}
+
+    <h2>Disabled</h2>
+
+    {{#ui-field as |f|}}
+      {{#f.label}}
+        Disabled
+      {{/f.label}}
+      {{f.input value=address placeholder="Type something..." disabled=true}}
+    {{/ui-field}}
+
+    <h2>Error</h2>
+
+    {{#ui-field as |f|}}
+      {{#f.label}}
+        Error State
+      {{/f.label}}
+      {{f.input value=address placeholder="Type something..." error=true errorMessage="FML"}}
+    {{/ui-field}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Textarea
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    {{#ui-field type="textarea" as |f|}}
+      {{#f.label}}
+        Medium
+      {{/f.label}}
+      {{f.input value=address placeholder="4 rows" rows=4}}
+    {{/ui-field}}
+
+    {{#ui-field size="large" type="textarea" as |f|}}
+      {{#f.label}}
+        Large
+      {{/f.label}}
+      {{f.input value=address placeholder="4 rows" rows=4}}
+    {{/ui-field}}
+
+    <h2>Disabled</h2>
+
+    {{#ui-field type="textarea" as |f|}}
+      {{#f.label}}
+        Medium
+      {{/f.label}}
+      {{f.input value=address placeholder="Type something..." disabled=true}}
+    {{/ui-field}}
+
+    <h2>Error</h2>
+
+    {{#ui-field type="textarea" as |f|}}
+      {{#f.label}}
+        Medium
+      {{/f.label}}
+      {{f.input value=address placeholder="Type something..." error=true}}
+    {{/ui-field}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Checkbox
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    {{#ui-field size="small" type="checkbox" as |f|}}
+      {{#f.input}}
+        Small
+      {{/f.input}}
+    {{/ui-field}}
+
+    {{#ui-field size="medium" type="checkbox" as |f|}}
+      {{#f.input}}
+        Medium
+      {{/f.input}}
+    {{/ui-field}}
+
+    {{#ui-field size="large" type="checkbox" as |f|}}
+      {{#f.input}}
+        Large
+      {{/f.input}}
+    {{/ui-field}}
+
+    <h2>Disabled</h2>
+
+    {{#ui-field size="small" type="checkbox" as |f|}}
+      {{#f.input disabled=true}}
+        False
+      {{/f.input}}
+    {{/ui-field}}
+
+    {{#ui-field size="small" type="checkbox" as |f|}}
+      {{#f.input disabled=true value=true}}
+        True
+      {{/f.input}}
+    {{/ui-field}}
+
+    <h2>Error</h2>
+
+    {{#ui-field size="small" type="checkbox" as |f|}}
+      {{#f.input error=true}}
+        In error state
+      {{/f.input}}
+    {{/ui-field}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Buttons
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    <h2>Sizes</h2>
+
+    {{#ui-button size="x-small"}}
+      X-Small
+    {{/ui-button}}
+
+    {{#ui-button kind="primary" size="x-small"}}
+      X-Small
+    {{/ui-button}}
+
+    {{#ui-button kind="simple" size="x-small"}}
+      X-Small
+    {{/ui-button}}
+
+    {{#ui-button size="small"}}
+      Small
+    {{/ui-button}}
+
+    {{#ui-button kind="primary" size="small"}}
+      Small
+    {{/ui-button}}
+
+    {{#ui-button kind="simple" size="small"}}
+      Small
+    {{/ui-button}}
+
+    {{#ui-button}}
+      Medium
+    {{/ui-button}}
+
+    {{#ui-button kind="primary"}}
+      Medium
+    {{/ui-button}}
+
+    {{#ui-button kind="simple"}}
+      Medium
+    {{/ui-button}}
+
+    {{#ui-button size="large"}}
+      Large
+    {{/ui-button}}
+
+    {{#ui-button kind="primary" size="large"}}
+      Large
+    {{/ui-button}}
+
+    {{#ui-button kind="simple" size="large"}}
+      Large
+    {{/ui-button}}
+
+    {{#ui-button size="x-large"}}
+      X-Large
+    {{/ui-button}}
+
+    {{#ui-button kind="primary" size="x-large"}}
+      X-Large
+    {{/ui-button}}
+
+    {{#ui-button kind="simple" size="x-large"}}
+      X-Large
+    {{/ui-button}}
+
+    <h2>Disabled</h2>
+
+    {{#ui-button disabled=true}}
+      hello world
+    {{/ui-button}}
+
+    {{#ui-button kind="primary" disabled=true}}
+      hello world
+    {{/ui-button}}
+
+    <h2>Loading</h2>
+
+    {{#ui-button loading=true}}
+      hello world
+    {{/ui-button}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Button Group
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    <h2>Default</h2>
+
+    {{#ui-button-group as |group|}}
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+    {{/ui-button-group}}
+
+    <h2>Acting as tabs (aesthetic only)</h2>
+
+    {{#ui-button-group as |group|}}
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button active=true}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+    {{/ui-button-group}}
+
+    <h2>Themes</h2>
+
+    {{#ui-button-group kind="primary" as |group|}}
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+
+      {{#group.button}}
+        Button
+      {{/group.button}}
+    {{/ui-button-group}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Select
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    {{#ui-select value=selectedValue as |x|}}
+      {{#x.option value=1}}1{{/x.option}}
+      {{#x.option value=2}}2{{/x.option}}
+      {{#x.option value=3}}3{{/x.option}}
+    {{/ui-select}}
+
+    selected: {{selectedValue}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Modal
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    {{link-to "View Modal" "index.modal"}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Panel Titlebar
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    content
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Pagination
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    content
+
+    {{#ui-pagination as |pagination|}}
+      {{#pagination.previousButton}}
+        Previous
+      {{/pagination.previousButton}}
+
+      {{#pagination.pages as |page|}}
+        {{#page.page "index"}}
+          1
+        {{/page.page}}
+
+        {{#page.page "index.modal"}}
+          2
+        {{/page.page}}
+
+        {{#page.page "index.modal"}}
+          3
+        {{/page.page}}
+
+        {{#page.page "index.modal"}}
+          4
+        {{/page.page}}
+
+        ...
+
+        {{#page.page "index.modal"}}
+          55
+        {{/page.page}}
+      {{/pagination.pages}}
+
+      {{#pagination.nextButton}}
+        Next
+      {{/pagination.nextButton}}
+    {{/ui-pagination}}
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Tabs
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+
+    {{#ui-tabs as |tabs|}}
+      {{#tabs.link-to "index"}}
+        Index
+      {{/tabs.link-to}}
+
+      {{#tabs.link-to "index.modal"}}
+        Modal
+      {{/tabs.link-to}}
+
+      {{#tabs.link-to "index.modal"}}
+        Tab 3
+      {{/tabs.link-to}}
+
+      {{#tabs.link-to "index.modal"}}
+        Tab 4
+      {{/tabs.link-to}}
+    {{/ui-tabs}}
+
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Table
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+
+    {{link-to "View Table" "table"}}
+
+  {{/panel.content}}
+{{/ui-panel}}
+
+
+{{outlet}}

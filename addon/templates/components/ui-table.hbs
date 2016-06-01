@@ -1,0 +1,7 @@
+<ul class="ui-table">
+  {{yield (hash rowLayout=(component "ui-table-row-layout"
+                                      data=sortedData
+                                      register=(action "registerLayout")
+                                      activeBreakpoint=activeBreakpoint)
+  )}}
+</ul>
