@@ -10,6 +10,10 @@ Router.map(function() {
     this.route('modal');
   });
   this.route('table');
+  this.route('panel', function() {
+    this.route('one');
+    this.route('two');
+  });
 });
 
 export default Router;

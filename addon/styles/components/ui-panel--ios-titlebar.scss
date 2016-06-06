@@ -1,0 +1,21 @@
+@mixin ui-panel--ios-titlebar() {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  line-height: 44px;
+  height: 44px;
+  color: #060608;
+  text-shadow: 1px 1px #fff;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+}
+
+.ui-panel--ios-titlebar {
+  @include ui-panel--ios-titlebar()
+}

@@ -1,0 +1,33 @@
+@mixin ui-panel--ios-titlebar-action() {
+  position: absolute;
+  color: #2d89f4;
+  z-index: 1;
+  display: flex;
+
+  &--previous {
+    left: 7px;
+  }
+
+  &--action {
+    right: 7px;
+  }
+
+  &__chevron {
+    width: 14px;
+    fill: #007aff;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    width: 20px;
+    text-align: left;
+  }
+
+  &__label {
+    flex: 1;
+  }
+}
+
+.ui-panel--ios-titlebar-action {
+  @include ui-panel--ios-titlebar-action()
+}
