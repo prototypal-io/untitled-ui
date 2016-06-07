@@ -18,7 +18,6 @@ export default Ember.Component.extend({
 
   classes: Ember.computed('size', function() {
     return {
-      parent: 'ui-pagination',
       size: `ui-font-size--${this.get('size')}`
     }
   })

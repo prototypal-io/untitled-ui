@@ -1,49 +1,8 @@
-@mixin ui-pagination--default(
-  $link-color: #1787e5,
-  $hover-background: #e6f3fd,
-  $hover-color: #1165ad,
-  $active-background: #e6f3fd,
-  $border-radius: 3px
-) {
+@mixin ui-pagination--default() {
   position: relative;
   margin-top: 1em;
   display: flex;
   line-height: 2.4em;
-
-  &__previous {
-  }
-
-  &__pages {
-    flex: 1;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-
-    &__page {
-      display: block;
-      padding: 0 0.5em;
-      margin: 0 1px;
-      text-decoration: none;
-      color: $link-color;
-      transition:
-        background 0.2s,
-        color 0.2s;
-      border-radius: $border-radius;
-      text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
-
-      &:hover {
-        background: $hover-background;
-        color: $hover-color;
-      }
-
-      &.active {
-        background: $active-background;
-      }
-    }
-  }
-
-  &__next {
-  }
 }
 
 .ui-pagination--default {
