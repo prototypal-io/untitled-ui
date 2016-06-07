@@ -1,4 +1,7 @@
 @mixin ui-button--material() {
+  @include ui-button();
+  @include ui-button--base();
+
   letter-spacing: .010em;
   border-radius: 3px;
   box-sizing: border-box;
@@ -35,10 +38,4 @@
     position: relative;
     z-index: 1;
   }
-}
-
-.ui-button--material {
-  @include ui-button();
-  @include ui-button--base()
-  @include ui-button--material()
 }

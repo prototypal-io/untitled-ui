@@ -1,10 +1,6 @@
-@mixin ui-panel-ios() {
+@mixin ui-panel--ios() {
   max-height: inherit;
   width: 100vw;
   height: 100vh;
   z-index: 1;
-}
-
-.ui-panel-ios {
-  @include ui-panel-ios();
 }

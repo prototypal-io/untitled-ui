@@ -1,11 +1,8 @@
 @mixin ui-button--simple($border-color: #ccc, $padding: 0 0.9em) {
+  @include ui-button();
+  @include ui-button--base();
+
   border: 1px solid $border-color;
   padding: $padding;
   line-height: 2em;
-}
-
-.ui-button--simple {
-  @include ui-button();
-  @include ui-button--base()
-  @include ui-button--simple()
 }
