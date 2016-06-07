@@ -12,8 +12,18 @@
   height: 44px;
   color: #060608;
   text-shadow: 1px 1px #fff;
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+  border-bottom: solid 1px #dcdcdc;
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__background {
+    background: rgba(255, 255, 255, 0.95);
+    height: 100%;
+    z-index: -1;
+  }
 }
 
 .ui-panel--ios-titlebar {

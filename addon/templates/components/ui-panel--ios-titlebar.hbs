@@ -1,7 +1,10 @@
 <div class="ui-panel--ios-titlebar">
-  {{yield (hash
-    previous=(component "ui-panel--ios-titlebar-action" location="previous")
-    action=(component "ui-panel--ios-titlebar-action" location="action")
-    title=(component "ui-panel--ios-titlebar-title")
-  )}}
+  <div class="ui-panel--ios-titlebar__content">
+    {{yield (hash
+      previous=(component "ui-panel--ios-titlebar-action" location="previous")
+      action=(component "ui-panel--ios-titlebar-action" location="action")
+      title=(component "ui-panel--ios-titlebar-title")
+    )}}
+  </div>
+  <div class="ui-panel--ios-titlebar__background"></div>
 </div>
