@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   tabindex: 0,
 
   generatedModalId: Ember.computed(function() {
-    return `${Ember.guidFor(this)}__modal`;
+    return `${Ember.guidFor(this)}--modal`;
   }),
 
   // Because ember-wormhole relocates the content of the modal we need to
@@ -36,7 +36,7 @@ export default Ember.Component.extend({
   },
 
   animateIn(element) {
-    const modal = $(element).find('.ui-modal__modal');
+    const modal = $(element).find('.ui-modal--modal');
     const backdrop = $(element).find('.ui-modal-backdrop');
 
     const modalAnimation = window.$.Velocity.animate(modal, {
@@ -57,7 +57,7 @@ export default Ember.Component.extend({
   },
 
   animateOut(element) {
-    const modal = $(element).find('.ui-modal__modal');
+    const modal = $(element).find('.ui-modal--modal');
     const backdrop = $(element).find('.ui-modal-backdrop');
 
     const modalAnimation = window.$.Velocity.animate(modal, {

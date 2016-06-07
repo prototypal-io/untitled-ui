@@ -18,7 +18,7 @@ export default Ember.Component.extend({
 
   createRipple(left, top, container) {
     let ctrl = this;
-    let ripple = $('<div class="ui-ripple__animation__ripple"></div>');
+    let ripple = $('<div class="ui-ripple-animation--ripple"></div>');
     let width = container.clientWidth;
     let height = container.clientHeight;
     let size = Math.max(width, height);

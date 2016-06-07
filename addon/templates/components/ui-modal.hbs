@@ -1,6 +1,6 @@
 {{#ember-wormhole to="ui-modal"}}
   <div class=":component {{sizeClass}}" id={{generatedModalId}}>
-    <div class="__modal">
+    <div class="modal">
       {{yield (hash
         panel=(component "ui-panel" kind="modal")
         close=(action "close")

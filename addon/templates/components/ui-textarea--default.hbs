@@ -1,15 +1,15 @@
-<div class="{{classes.parent}} ui-textarea--default">
-  <div class="ui-textarea--default__wrapper">
+<div class=":component">
+  <div class="wrapper">
     {{textarea
       id=ids.input
       placeholder=placeholder
       disabled=states.disabled
       aria-labelledby=ids.label
-      class=(concat "ui-textarea--default__input"
+      class=(concat "input"
                     " "
-                    (if states.disabled "ui-textarea--default--disabled__input")
+                    (if states.disabled "input--disabled")
                     " "
-                    (if states.error "ui-textarea--default--error__input"))
+                    (if states.error "input--error"))
       rows=rows
       focus-out=focus-out}}
   </div>

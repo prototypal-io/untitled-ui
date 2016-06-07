@@ -1,20 +1,19 @@
-<label class="{{classes.parent}}
+<label class=":component
               {{classes.size}}
               {{classes.class}}
-              ui-checkbox--default
-              {{unless states.disabled 'ui-checkbox--default--enabled'}}
-              {{if states.disabled 'ui-checkbox--default--disabled'}}
-              {{if states.checked 'ui-checkbox--default--checked'}}
-              {{if states.error 'ui-checkbox--default--error'}}">
+              {{unless states.disabled 'enabled'}}
+              {{if states.disabled 'disabled'}}
+              {{if states.checked 'checked'}}
+              {{if states.error 'error'}}">
   {{input
-    class="ui-checkbox--default__input"
+    class="input"
     type="checkbox"
     checked=value
     disabled=states.disabled}}
 
-  <div class="ui-checkbox--default__component">
-    <div class="ui-checkbox--default__component__wrapper">
-      <div class="ui-checkbox--default__component__icon"></div>
+  <div class="component">
+    <div class="component--wrapper">
+      <div class="component--icon"></div>
     </div>
   </div>
 

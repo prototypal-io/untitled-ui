@@ -1,4 +1,4 @@
-.ui-ripple__animation {
+.ui-ripple-animation {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -6,7 +6,7 @@
   height: 100%;
 }
 
-  .ui-ripple__animation__ripple {
+  .ui-ripple-animation--ripple {
     position: absolute;
     border-radius: 500px;
     background: #e2e2e2;

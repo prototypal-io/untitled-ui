@@ -5,10 +5,10 @@ export default function (options) {
 
   const animations = Ember.A([]);
 
-  const oldPrevious = $(this.oldElement).find('.ui-panel--ios-titlebar-action__label--previous');
-  const oldPreviousIcon = $(this.oldElement).find('.ui-panel--ios-titlebar-action__icon');
+  const oldPrevious = $(this.oldElement).find('.ui-panel--ios-titlebar-action--label--previous');
+  const oldPreviousIcon = $(this.oldElement).find('.ui-panel--ios-titlebar-action--icon');
   const oldTitle = $(this.oldElement).find('.ui-panel--ios-titlebar-title');
-  const oldAction = $(this.oldElement).find('.ui-panel--ios-titlebar-action__label--action');
+  const oldAction = $(this.oldElement).find('.ui-panel--ios-titlebar-action--label--action');
   const oldContent = $(this.oldElement).find('.ui-panel--ios-content');
 
   animations.pushObject(animate(oldPrevious, {
@@ -44,10 +44,10 @@ export default function (options) {
     duration: 500
   }));
 
-  const newPrevious = $(this.newElement).find('.ui-panel--ios-titlebar-action__label--previous');
-  const newPreviousIcon = $(this.newElement).find('.ui-panel--ios-titlebar-action__icon');
+  const newPrevious = $(this.newElement).find('.ui-panel--ios-titlebar-action--label--previous');
+  const newPreviousIcon = $(this.newElement).find('.ui-panel--ios-titlebar-action--icon');
   const newTitle = $(this.newElement).find('.ui-panel--ios-titlebar-title');
-  const newAction = $(this.newElement).find('.ui-panel--ios-titlebar-action__label--action');
+  const newAction = $(this.newElement).find('.ui-panel--ios-titlebar-action--label--action');
   const newContent = $(this.newElement).find('.ui-panel--ios-content');
 
   animations.pushObject(animate(this.newElement, { opacity: 1 }, { duration: 0 }));

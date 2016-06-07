@@ -10,11 +10,11 @@ export default Ember.Component.extend({
   size: 'medium',
 
   generatedInputId: Ember.computed(function() {
-    return `${Ember.guidFor(this)}__input`;
+    return `${Ember.guidFor(this)}--input`;
   }),
 
   generatedLabelId: Ember.computed(function() {
-    return `${Ember.guidFor(this)}__label`;
+    return `${Ember.guidFor(this)}--label`;
   }),
 
   frame: Ember.computed('kind', function() {
@@ -27,7 +27,6 @@ export default Ember.Component.extend({
 
   classes: Ember.computed('size', function() {
     return {
-      parent: 'ui-field',
       size: `ui-font-size--${this.get('size')}`
     }
   }),

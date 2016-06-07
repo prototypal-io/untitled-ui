@@ -15,7 +15,6 @@ export default Ember.Component.extend({
 
   classes: Ember.computed('kind', 'size', 'error', 'disabled', function() {
     return {
-      parent: 'ui-input',
       size: `ui-font-size--${this.get('size')}`
     }
   }),

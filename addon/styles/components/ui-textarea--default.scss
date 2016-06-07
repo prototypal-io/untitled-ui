@@ -3,12 +3,12 @@
   padding: 1px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.12) 100%);
 
-  &__wrapper {
+  &--wrapper {
     background: white;
     border-radius: inherit;
   }
 
-  &__input {
+  &--input {
     display: block;
     resize: none;
     border: none;
@@ -27,18 +27,18 @@
       border: solid 1px #7fb5ff;
       box-shadow: 0px 0px 4px #0090ff, inset 0px 1px 2px rgba(0, 0, 0, 0.15);
     }
-  }
 
-  &--error__input {
-    margin: -1px;
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    border: solid 1px #ff7f7f;
-    box-shadow: 0px 0px 4px #ff0000, inset 0px 2px 3px rgba(0, 0, 0, 0.1);
-  }
+    &--error {
+      margin: -1px;
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      border: solid 1px #ff7f7f;
+      box-shadow: 0px 0px 4px #ff0000, inset 0px 2px 3px rgba(0, 0, 0, 0.1);
+    }
 
-  &--disabled__input {
-    background: #f9f9f9;
-    color: #777777;
+    &--disabled {
+      background: #f9f9f9;
+      color: #777777;
+    }
   }
 }

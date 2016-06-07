@@ -1,18 +1,17 @@
-<div class="{{classes.parent}}
-            {{classes.size}}
-            ui-input--default">
-  <div class="ui-input--default__wrapper">
+<div class=":component
+            {{classes.size}}">
+  <div class="wrapper">
     {{input
       id=ids.input
       type=type
       placeholder=placeholder
       disabled=states.disabled
       aria-labelledby=ids.label
-      class=(concat "ui-input--default__input"
+      class=(concat "input"
                     " "
-                    (if states.disabled "ui-input--default--disabled__input")
+                    (if states.disabled "input--disabled")
                     " "
-                    (if states.error "ui-input--default--error__input"))
+                    (if states.error "input--error"))
       focus-out=focus-out}}
   </div>
 </div>
