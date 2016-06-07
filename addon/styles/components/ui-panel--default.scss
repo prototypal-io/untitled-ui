@@ -1,4 +1,4 @@
-@mixin ui-panel-default() {
+@mixin ui-panel--default() {
   display: flex;
   border-radius: $untitled-ui--border-radius;
   padding: 1px;
@@ -14,6 +14,6 @@
   }
 }
 
-.ui-panel-default {
-  @include ui-panel-default();
+.ui-panel--default {
+  @include ui-panel--default();
 }

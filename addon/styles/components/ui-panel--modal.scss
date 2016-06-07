@@ -1,4 +1,4 @@
-@mixin ui-panel-modal() {
+@mixin ui-panel--modal() {
   max-height: inherit;
   display: flex;
   flex-direction: column;
@@ -8,6 +8,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.ui-panel-modal {
-  @include ui-panel-modal();
+.ui-panel--modal {
+  @include ui-panel--modal();
 }
