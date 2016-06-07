@@ -68,7 +68,7 @@
     border-bottom-right-radius: $radius;
   }
 
-  &__wrapper {
+  &--wrapper {
     border-radius: inherit;
     background: $background;
 
@@ -77,7 +77,7 @@
     }
   }
 
-  &__label {
+  &--label {
     padding: 0 0.9em;
     min-height: 10px;
     font-style: normal;

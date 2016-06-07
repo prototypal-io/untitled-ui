@@ -4,11 +4,11 @@
     disabled={{isDisabled}}
     class="{{classes.size}}
            :component
-           {{if states.active '--active'}}
-           {{if states.focus '--focus'}}
-           {{if states.disabled '--disabled'}}
-           {{if states.loading '--loading'}}">
-      <div class="__label">
+           {{if states.active 'active'}}
+           {{if states.focus 'focus'}}
+           {{if states.disabled 'disabled'}}
+           {{if states.loading 'loading'}}">
+      <div class="label">
         {{yield}}
       </div>
       {{ripple.animation}}

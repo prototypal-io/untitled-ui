@@ -4,18 +4,18 @@
   class="{{classes.size}}
          {{classes.class}}
          :component
-         {{if states.active '--active'}}
-         {{if states.focus '--focus'}}
-         {{if states.disabled '--disabled'}}
-         {{if states.loading '--loading'}}
-         {{if group '--group-button'}}
-         {{if group.isFirstChild '--first-child'}}
-         {{if group.isLastChild '--last-child'}}">
-  <div class="__wrapper
-             {{if states.active '__wrapper--active'}}">
-    <div class="__label
-               {{if states.loading '__label--loading'}}
-               {{if states.active '__label--active'}}">
+         {{if states.active 'active'}}
+         {{if states.focus 'focus'}}
+         {{if states.disabled 'disabled'}}
+         {{if states.loading 'loading'}}
+         {{if group 'group-button'}}
+         {{if group.isFirstChild 'first-child'}}
+         {{if group.isLastChild 'last-child'}}">
+  <div class="wrapper
+             {{if states.active 'wrapper--active'}}">
+    <div class="label
+               {{if states.loading 'label--loading'}}
+               {{if states.active 'label--active'}}">
       {{yield}}
     </div>
   </div>
