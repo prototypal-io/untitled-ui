@@ -14,12 +14,12 @@
   text-shadow: 1px 1px #fff;
   border-bottom: solid 1px #dcdcdc;
 
-  &__content {
+  &--content {
     position: relative;
     z-index: 1;
   }
 
-  &__background {
+  &--background {
     background: rgba(255, 255, 255, 0.95);
     height: 100%;
     z-index: -1;

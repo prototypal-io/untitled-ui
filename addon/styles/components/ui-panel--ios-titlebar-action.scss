@@ -12,18 +12,18 @@
     right: 7px;
   }
 
-  &__chevron {
+  &--chevron {
     width: 14px;
     fill: #007aff;
     vertical-align: middle;
   }
 
-  &__icon {
+  &--icon {
     width: 20px;
     text-align: left;
   }
 
-  &__label {
+  &--label {
     flex: 1;
   }
 }
