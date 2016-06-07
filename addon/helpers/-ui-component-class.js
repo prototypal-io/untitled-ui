@@ -4,11 +4,13 @@ const FONT_SIZE_PATTERN = /font-size/;
 
 export default Ember.Helper.helper(function ([prefix, ...classNames]) {
   let normalizedClassNames = classNames.reduce(function(names, name) {
-    name.split(/\s/).forEach(function(part) {
-      if (part && part !== '') {
-        names.push(part);
-      }
-    });
+    if (typeof name === 'string') {
+      name.split(/\s/).forEach(function(part) {
+        if (part && part !== '') {
+          names.push(part);
+        }
+      });
+    }
 
     return names;
   }, []);
