@@ -1,20 +1,21 @@
 import Ember from 'ember';
 
+const FONT_SIZE_PATTERN = /font-size/;
+
 export default Ember.Helper.helper(function ([prefix, ...classNames]) {
-  var classString = '';
+  return classNames.reduce(function(string, name) {
+    if (!name) return string;
 
-  classNames.forEach(function(name) {
-    if (!name) return;
+    let trimmedName = name.replace(/\s/g, '');
+    if (trimmedName === '') return string;
 
-    var trimmedName = name.replace(/\s/g, '');
-    if (trimmedName === '') return;
-
-    if (trimmedName === ':component') {
-      classString += `${prefix} `;
-    } else {
-      classString += `${prefix}${trimmedName} `;
+    switch (true) {
+      case (trimmedName === ':component'):
+        return string += `${prefix} `;
+      case (FONT_SIZE_PATTERN.test(trimmedName)):
+        return string += `${trimmedName} `;
+      default:
+        return string += `${prefix}${trimmedName} `;
     }
-  });
-
-  return classString;
+  }, '');
 });
