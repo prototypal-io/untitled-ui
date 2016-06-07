@@ -1,34 +1,12 @@
 @mixin ui-button() {
+  /* z-index & transition is for :active detection */
   & {
-    padding: 0;
-    background: transparent;
-    border: none;
-    outline: none;
-    vertical-align: middle;
-    position: relative;
-    user-select: none;
-    /* z-index & transition is for :active detection */
     z-index: 0;
     transition: z-index .001s linear;
   }
 
-  &::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-  }
-
-  /* Overrides normalize.css */
-  &:-moz-focusring {
-    outline: none;
-  }
-
   &:active {
-    /* z-index & transition is for :active detection */
     z-index: 1;
     transition: z-index .001s linear;
   }
-}
-
-.ui-button {
-  @include ui-button()
 }

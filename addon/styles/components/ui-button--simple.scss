@@ -5,5 +5,7 @@
 }
 
 .ui-button--simple {
+  @include ui-button();
+  @include ui-button--base()
   @include ui-button--simple()
 }

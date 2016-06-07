@@ -22,7 +22,6 @@ export default Ember.Component.extend({
 
   classes: Ember.computed('size', function() {
     return {
-      parent: 'ui-button',
       size: `ui-font-size--${this.get('size')}`,
       class: this.get('class')
     }

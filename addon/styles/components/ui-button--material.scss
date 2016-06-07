@@ -1,4 +1,4 @@
-.ui-button--material {
+@mixin ui-button--material() {
   letter-spacing: .010em;
   border-radius: 3px;
   box-sizing: border-box;
@@ -30,9 +30,15 @@
   &--active {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
   }
+
+  &__label {
+    position: relative;
+    z-index: 1;
+  }
 }
 
-.ui-button--material__label {
-  position: relative;
-  z-index: 1;
+.ui-button--material {
+  @include ui-button();
+  @include ui-button--base()
+  @include ui-button--material()
 }

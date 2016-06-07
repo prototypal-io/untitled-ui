@@ -1,4 +1,6 @@
 .ui-button--primary {
+  @include ui-button();
+  @include ui-button--base()
   @include ui-button--default(
     $radius: 2.2em,
     $border-color: #0d518b,

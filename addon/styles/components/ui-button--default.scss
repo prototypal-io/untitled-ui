@@ -108,5 +108,7 @@
 }
 
 .ui-button--default {
+  @include ui-button();
+  @include ui-button--base()
   @include ui-button--default()
 }

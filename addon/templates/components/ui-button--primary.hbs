@@ -1,22 +1,21 @@
 <button
   {{action action.onclick}}
   disabled={{isDisabled}}
-  class="{{classes.parent}}
-         {{classes.size}}
+  class="{{classes.size}}
          {{classes.class}}
-         ui-button--primary
-         {{if states.active 'ui-button--primary--active'}}
-         {{if states.focus 'ui-button--primary--focus'}}
-         {{if states.disabled 'ui-button--primary--disabled'}}
-         {{if states.loading 'ui-button--primary--loading'}}
-         {{if group 'ui-button--primary--group-button'}}
-         {{if group.isFirstChild 'ui-button--primary--first-child'}}
-         {{if group.isLastChild 'ui-button--primary--last-child'}}">
-  <div class="ui-button--primary__wrapper
-             {{if states.active 'ui-button--primary__wrapper--active'}}">
-    <div class="ui-button--primary__label
-               {{if states.loading 'ui-button--primary__label--loading'}}
-               {{if states.active 'ui-button--primary__label--active'}}">
+         :component
+         {{if states.active '--active'}}
+         {{if states.focus '--focus'}}
+         {{if states.disabled '--disabled'}}
+         {{if states.loading '--loading'}}
+         {{if group '--group-button'}}
+         {{if group.isFirstChild '--first-child'}}
+         {{if group.isLastChild '--last-child'}}">
+  <div class="__wrapper
+             {{if states.active '__wrapper--active'}}">
+    <div class="__label
+               {{if states.loading '__label--loading'}}
+               {{if states.active '__label--active'}}">
       {{yield}}
     </div>
   </div>
