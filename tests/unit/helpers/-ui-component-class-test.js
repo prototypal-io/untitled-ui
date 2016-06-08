@@ -3,8 +3,7 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | ui component class');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
-  let result = uiComponentClass([42]);
-  assert.ok(result);
+test('it uses the prefix without dashes for :component', function(assert) {
+  let result = uiComponentClass(['foo-component--', ':component']);
+  assert.equal(result, 'foo-component');
 });
