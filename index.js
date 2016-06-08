@@ -1,6 +1,7 @@
 /* jshint node: true */
 'use strict';
 
+var MixinClasses = require('./lib/broccoli-mixin-classes');
 var TransformComponentClasses = require('./lib/transform-component-classes');
 
 module.exports = {
@@ -14,6 +15,13 @@ module.exports = {
 
   setupPreprocessorRegistry: function(type, registry) {
     if (type !== 'self') return;
+
+    registry.add('css', {
+      name: 'mixin-classes',
+      toTree: function(tree) {
+        return new MixinClasses(tree);
+      }
+    })
 
     registry.add('htmlbars-ast-plugin', {
       name: 'transform-component-classes',

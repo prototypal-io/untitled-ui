@@ -6,6 +6,9 @@
     $disabled-color: #ababab,
     $disabled-background: #f9f9f9
   ) {
+  @include ui-button();
+  @include ui-button--base();
+
   border-radius: $radius;
   cursor: pointer;
   padding: 1px;
@@ -105,10 +108,4 @@
       }
     }
   }
-}
-
-.ui-button--default {
-  @include ui-button();
-  @include ui-button--base()
-  @include ui-button--default()
 }

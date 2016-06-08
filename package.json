@@ -53,6 +53,7 @@
     "ember-addon"
   ],
   "dependencies": {
+    "broccoli-persistent-filter": "^1.2.0",
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.5",
     "ember-cli-sass": "5.3.1"

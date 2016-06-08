@@ -1,7 +1,3 @@
 @mixin ui-panel() {
   max-height: inherit;
 }
-
-.ui-panel {
-  @include ui-panel();
-}
