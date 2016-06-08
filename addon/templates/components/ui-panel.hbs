@@ -1,0 +1,7 @@
+<div class=":component {{sizeClass}}">
+  {{#component frame
+    kind=kind
+    size=size as |component|}}
+      {{yield component}}
+  {{/component}}
+</div>

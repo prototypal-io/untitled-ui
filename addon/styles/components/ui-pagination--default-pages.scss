@@ -1,0 +1,38 @@
+@mixin ui-pagination--default-pages(
+  $link-color: #1787e5,
+  $hover-background: #e6f3fd,
+  $hover-color: #1165ad,
+  $active-background: #e6f3fd,
+  $border-radius: 3px
+) {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  &--page {
+    display: block;
+    padding: 0 0.5em;
+    margin: 0 1px;
+    text-decoration: none;
+    color: $link-color;
+    transition:
+      background 0.2s,
+      color 0.2s;
+    border-radius: $border-radius;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+
+    &:hover {
+      background: $hover-background;
+      color: $hover-color;
+    }
+
+    &.active {
+      background: $active-background;
+    }
+  }
+}
+
+.ui-pagination--default-pages {
+  @include ui-pagination--default-pages();
+}

@@ -1,0 +1,12 @@
+@mixin ui-panel--modal-titlebar-action() {
+  position: absolute;
+  top: 10px;
+
+  &--left {
+    left: 10px;
+  }
+
+  &--right {
+    right: 10px;
+  }
+}

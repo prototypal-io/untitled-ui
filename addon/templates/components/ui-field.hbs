@@ -1,0 +1,10 @@
+{{#component frame
+  classes=classes
+  states=states
+  size=size
+  ids=(hash
+    label=generatedLabelId
+    input=generatedInputId)
+  input=input as |component|}}
+    {{yield component}}
+{{/component}}

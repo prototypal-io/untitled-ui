@@ -1,0 +1,12 @@
+@mixin ui-button() {
+  /* z-index & transition is for :active detection */
+  & {
+    z-index: 0;
+    transition: z-index .001s linear;
+  }
+
+  &:active {
+    z-index: 1;
+    transition: z-index .001s linear;
+  }
+}

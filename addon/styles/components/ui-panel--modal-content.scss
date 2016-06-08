@@ -1,0 +1,3 @@
+@mixin ui-panel--modal-content {
+  @include ui-panel--default-content();
+}

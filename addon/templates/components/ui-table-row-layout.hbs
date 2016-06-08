@@ -1,0 +1,8 @@
+{{#if isActiveBreakpoint}}
+  {{#each data as |rowData|}}
+    <li class=":component">
+      {{yield (hash column=(component "ui-table-column")
+                    data=rowData)}}
+    </li>
+  {{/each}}
+{{/if}}

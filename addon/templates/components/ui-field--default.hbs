@@ -1,0 +1,15 @@
+<div class=":component {{classes.size}}">
+  {{yield (hash
+    input=(component
+      input
+      ids=ids
+      size=size)
+    label=(component
+      "ui-field--default-label"
+      ids=ids
+      size=size)
+    description=(component
+      "ui-field--default-description"
+      size=size)
+    )}}
+</div>
