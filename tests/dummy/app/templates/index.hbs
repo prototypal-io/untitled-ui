@@ -429,10 +429,10 @@
   {{#panel.content}}
 
     {{#ui-tooltip as |tooltip|}}
-      {{#tooltip.target attach='top center'}}
+      {{#tooltip.target}}
         Help?
       {{/tooltip.target}}
-      {{#tooltip.popup attach='bottom center'}}
+      {{#tooltip.popup attachment='top center' targetAttachment='bottom center'}}
         Hello World
       {{/tooltip.popup}}
     {{/ui-tooltip}}
@@ -440,15 +440,21 @@
     &ndash;
 
     {{#ui-tooltip as |tooltip|}}
-      {{#tooltip.target attach='top center'}}
+      {{#tooltip.target}}
         Edge Cases
       {{/tooltip.target}}
-      {{#tooltip.popup attach='bottom center'}}
+      {{#tooltip.popup attachment='center left' targetAttachment='center right'}}
         This is a really long tooltip that should span multiple lines and not get clipped by the window.
       {{/tooltip.popup}}
     {{/ui-tooltip}}
 
   {{/panel.content}}
 {{/ui-panel}}
+
+<br />
+<br />
+<br />
+<br />
+<br />
 
 {{outlet}}

@@ -9,35 +9,4 @@
     color: #1787e5;
     border-bottom: dotted 1px;
   }
-
-  &-popup {
-    &--tooltip {
-      border-radius: 0.2em;
-      background: linear-gradient(to bottom, #f4e0bd 0%, #e3cca5 100%);
-      font-size: 0.8em;
-      padding: 1px;
-      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-      margin: 10px;
-      max-width: 300px;
-
-      &--wrapper {
-        padding: 0.3em;
-        background: #fff2da;
-        border-radius: inherit;
-      }
-    }
-
-    &--overlay {
-      position: fixed;
-      z-index: 1;
-      top: 0px;
-      left: 0px;
-      width: 100vw;
-      height: 100vw;
-    }
-  }
-
-  .ember-tether {
-    z-index: 2;
-  }
 }

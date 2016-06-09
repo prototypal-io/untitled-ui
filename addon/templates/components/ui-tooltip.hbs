@@ -1,16 +1,10 @@
 {{#component frame
   kind=kind
   tooltip=(hash targetId=targetId
-                showTooltip=showTooltip
-                show=(action "show")
-                hide=(action "hide")
-                targetAttachment=targetAttachment
-                attachment=attachment
-                constraints=constraints
-                tether=(component "ember-tether" target=(concat '#' targetId)
-                                                 targetAttachment=targetAttachment
-                                                 attachment=attachment
-                                                 constraints=constraints))
+                action=(hash show=(action "show")
+                             hide=(action "hide")
+                             toggle=(action "toggle"))
+                showTooltip=showTooltip)
   size=size as |component|}}
     {{yield component}}
 {{/component}}

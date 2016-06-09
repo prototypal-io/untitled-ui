@@ -1,0 +1,11 @@
+{{#component frame
+  action=(hash show=show
+               hide=hide
+               toggle=toggle)
+  tether=(component "ember-tether" target=(concat '#' targetId)
+                                   targetAttachment=targetAttachment
+                                   attachment=attachment
+                                   constraints=constraints)
+  showPopup=showPopup as |component|}}
+    {{yield component}}
+{{/component}}

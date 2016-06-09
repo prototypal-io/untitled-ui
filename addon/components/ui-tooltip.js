@@ -8,14 +8,6 @@ export default Ember.Component.extend({
   kind: 'default',
   size: 'medium',
 
-  constraints: [{
-    to: 'scrollParent',
-    attachment: 'together'
-  }],
-
-  targetAttachment: 'top center',
-  attachment: 'bottom center',
-
   showTooltip: false,
 
   sizeClass: Ember.computed('size', function() {
@@ -37,6 +29,10 @@ export default Ember.Component.extend({
 
     hide() {
       this.set('showTooltip', false);
+    },
+
+    toggle() {
+      this.toggleProperty('showTooltip');
     }
   }
 });

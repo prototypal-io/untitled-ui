@@ -1,0 +1,11 @@
+{{#if showPopup}}
+  <div class="overlay" {{action action.hide}}></div>
+
+  {{#component tether}}
+    <div class="window">
+      <div class="window--wrapper">
+        {{yield}}
+      </div>
+    </div>
+  {{/component}}
+{{/if}}
