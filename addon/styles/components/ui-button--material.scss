@@ -1,3 +1,6 @@
+@import './ui-button';
+@import './ui-button--base';
+
 @mixin ui-button--material() {
   @include ui-button();
   @include ui-button--base();

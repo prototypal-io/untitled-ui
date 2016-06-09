@@ -18,5 +18,5 @@ test('it renders the correctly prefixed class names', function(assert) {
   assert.equal(this.$('.ui-font-size-md').length, 1, 'didnt transform font-size class');
   assert.equal(this.$('.ui-button--primary').length, 1, 'transformed main component class');
   assert.equal(this.$('.ui-button--primary--active').length, 1, 'transformed mustache statement');
-  assert.equal(this.$('div.ui-button--primary--wrapper').length, 1, 'transformed child element class')
+  assert.equal(this.$('div.ui-button--primary--wrapper').length, 1, 'transformed child element class');
 });

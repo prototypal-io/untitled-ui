@@ -1,3 +1,5 @@
+@import './ui-tooltip--base';
+
 @mixin ui-tooltip--default() {
   @include ui-tooltip--base();
 
