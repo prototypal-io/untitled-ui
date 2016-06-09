@@ -1,7 +1,7 @@
 /* jshint node: true */
 'use strict';
 
-var MixinClasses = require('./lib/broccoli-mixin-classes');
+var preprocessScss = require('./lib/scss-preprocessor');
 var TransformComponentClasses = require('./lib/transform-component-classes');
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
     registry.add('css', {
       name: 'mixin-classes',
       toTree: function(tree) {
-        return new MixinClasses(tree);
+        return preprocessScss(tree);
       }
     })
 
