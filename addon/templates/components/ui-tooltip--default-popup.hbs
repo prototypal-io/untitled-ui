@@ -1,0 +1,10 @@
+{{#if tooltip.showTooltip}}
+  {{#tooltip.tether}}
+    <div class="tooltip">
+      <div class="tooltip--wrapper">
+        {{yield}}
+      </div>
+    </div>
+  {{/tooltip.tether}}
+  <div class="overlay" {{action tooltip.hide}}></div>
+{{/if}}
