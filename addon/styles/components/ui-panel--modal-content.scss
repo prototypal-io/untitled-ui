@@ -1,5 +1,5 @@
 @import './ui-panel--default-content';
 
-@mixin ui-panel--modal-content {
+@component() {
   @include ui-panel--default-content();
 }
