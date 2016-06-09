@@ -1,4 +1,4 @@
-@mixin ui-field--default-label(
+@component(
   $color: inherit
 ) {
   display: block;

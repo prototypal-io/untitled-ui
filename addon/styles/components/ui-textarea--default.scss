@@ -1,4 +1,4 @@
-@mixin ui-textarea--default {
+@component() {
   border-radius: $untitled-ui--border-radius;
   padding: 1px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.12) 100%);

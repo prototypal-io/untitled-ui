@@ -1,4 +1,4 @@
-@mixin ui-panel--default-titlebar() {
+@component() {
   padding: 0.5em 0.8em;
   font-size: 1.25em;
   line-height: 2.1em;

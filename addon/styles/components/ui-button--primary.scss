@@ -2,7 +2,7 @@
 @import './ui-button--base';
 @import './ui-button--default';
 
-@mixin ui-button--primary() {
+@component() {
   @include ui-button();
   @include ui-button--base();
   @include ui-button--default(

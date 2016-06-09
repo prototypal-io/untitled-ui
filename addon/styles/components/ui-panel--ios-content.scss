@@ -1,4 +1,4 @@
-@mixin ui-panel--ios-content() {
+@component() {
   overflow: auto;
   padding-top: 45px;
   height: 100vh;

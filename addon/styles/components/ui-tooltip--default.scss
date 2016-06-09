@@ -1,6 +1,6 @@
 @import './ui-tooltip--base';
 
-@mixin ui-tooltip--default() {
+@component() {
   @include ui-tooltip--base();
 
   &-target {
