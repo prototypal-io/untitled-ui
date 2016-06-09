@@ -430,7 +430,7 @@
 
     {{#ui-tooltip as |tooltip|}}
       {{#tooltip.target}}
-        Help?
+        Below
       {{/tooltip.target}}
       {{#tooltip.popup attachment='top center' targetAttachment='bottom center'}}
         Hello World
@@ -441,10 +441,34 @@
 
     {{#ui-tooltip as |tooltip|}}
       {{#tooltip.target}}
-        Edge Cases
+        Above
+      {{/tooltip.target}}
+      {{#tooltip.popup attachment='bottom center' targetAttachment='top center'}}
+        Hello World
+      {{/tooltip.popup}}
+    {{/ui-tooltip}}
+
+    &ndash;
+
+    {{#ui-tooltip as |tooltip|}}
+      {{#tooltip.target}}
+        Left
+      {{/tooltip.target}}
+      {{#tooltip.popup attachment='center right' targetAttachment='center left'}}
+        Hello World
+      {{/tooltip.popup}}
+    {{/ui-tooltip}}
+
+    &ndash;
+
+    {{#ui-tooltip as |tooltip|}}
+      {{#tooltip.target}}
+        Right
       {{/tooltip.target}}
       {{#tooltip.popup attachment='center left' targetAttachment='center right'}}
         This is a really long tooltip that should span multiple lines and not get clipped by the window.
+        <div style="height: 500px"></div>
+        End of content
       {{/tooltip.popup}}
     {{/ui-tooltip}}
 

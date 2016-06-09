@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   tagName: '',
 
   kind: 'tooltip',
+  size: 'medium',
 
   targetId: null,
   attachment: 'bottom center',
@@ -18,5 +19,11 @@ export default Ember.Component.extend({
 
   frame: Ember.computed('kind', function() {
     return `ui-popup--${this.get('kind')}`;
+  }),
+
+  classes: Ember.computed('size', function() {
+    return {
+      size: `ui-font-size--${this.get('size')}`
+    }
   })
 });
