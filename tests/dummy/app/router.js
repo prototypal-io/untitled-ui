@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('index', { path: '/' }, function () {
     this.route('modal');
   });
+  this.route('lookup-test');
   this.route('table');
   this.route('panel', function() {
     this.route('inbox');
