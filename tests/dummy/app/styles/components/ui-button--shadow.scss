@@ -1,0 +1,12 @@
+@import './ui-button';
+@import './ui-button--base';
+
+@component($border-color: #000, $padding: 0 0.9em) {
+  @include ui-button();
+  @include ui-button--base();
+
+  color: #fff;
+  border: 5px solid $border-color;
+  padding: $padding;
+  line-height: 2em;
+}
