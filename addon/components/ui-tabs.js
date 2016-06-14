@@ -12,8 +12,9 @@ export default Ember.Component.extend({
     return `ui-tabs--${this.get('kind')}`;
   }),
 
-  classes: Ember.computed('size', function() {
+  classes: Ember.computed('class', 'size', function() {
     return {
+      class: this.get('class'),
       parent: 'ui-tabs',
       size: `ui-font-size--${this.get('size')}`
     }

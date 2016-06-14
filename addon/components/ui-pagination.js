@@ -8,17 +8,14 @@ export default Ember.Component.extend({
   kind: 'default',
   size: 'medium',
 
-  sizeClass: Ember.computed('size', function() {
-    return `ui-font-size--${this.get('size')}`;
+  classes: Ember.computed('class', 'size', function() {
+    return {
+      class: this.get('class'),
+      size: `ui-font-size--${this.get('size')}`
+    };
   }),
 
   frame: Ember.computed('kind', function() {
     return `ui-pagination--${this.get('kind')}`;
-  }),
-
-  classes: Ember.computed('size', function() {
-    return {
-      size: `ui-font-size--${this.get('size')}`
-    }
   })
 });

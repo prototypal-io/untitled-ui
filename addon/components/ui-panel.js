@@ -8,8 +8,9 @@ export default Ember.Component.extend({
   kind: 'default',
   size: 'medium',
 
-  classes: Ember.computed('size', function() {
+  classes: Ember.computed('class', 'size', function() {
     return {
+      class: this.get('class'),
       size: `ui-font-size--${this.get('size')}`
     };
   }),
