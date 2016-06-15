@@ -1,0 +1,46 @@
+@component(
+  $background: #f9f9f9,
+  $border-color: #d7d7d7,
+  $color: #5e5e5e,
+  $radius: 0.3em
+) {
+  padding: 1px;
+  border-radius: $radius;
+  background: linear-gradient(to bottom, lighten($border-color, 7.5%) 0%, $border-color 100%);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1em;
+
+  &--wrapper {
+    background: $background;
+    border-radius: inherit;
+    padding: 0.5em;
+    color: $color;
+    position: relative;
+  }
+
+  &--message {
+    padding-right: 2em;
+    line-height: 1.3em;
+  }
+
+  &--close {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    width: 1em;
+    height: 1em;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow:
+      inset 1px 1px 0px rgba(0, 0, 0, 0.1),
+      1px 1px 0px rgba(255, 255, 255, 0.4);
+    border-radius: 1em;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.17);
+      transform: scale(1.15);
+    }
+  }
+}

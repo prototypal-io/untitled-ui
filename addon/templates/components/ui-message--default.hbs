@@ -1,0 +1,16 @@
+<div class=":component
+            {{classes.class}}
+            {{classes.size}}">
+  <div class="wrapper">
+    <div class="message">
+      {{yield}}
+    </div>
+
+    {{#if action.close}}
+      <div class="close" {{action action.close}}>
+        <!-- TODO: Use svg icon -->
+        X
+      </div>
+    {{/if}}
+  </div>
+</div>

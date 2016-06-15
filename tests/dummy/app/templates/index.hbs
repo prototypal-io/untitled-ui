@@ -475,10 +475,31 @@
   {{/panel.content}}
 {{/ui-panel}}
 
-<br />
-<br />
-<br />
-<br />
-<br />
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    Message
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+
+    {{#if showMessage}}
+      {{#ui-message onclose=(action "toggleMessage")}}
+        Closeable message.<br />
+        Second line
+      {{/ui-message}}
+    {{else}}
+      {{#ui-button onclick=(action "toggleMessage")}}
+        Show Message
+      {{/ui-button}}
+      <br />
+      <br />
+    {{/if}}
+
+    {{#ui-message}}
+      Message goes here!
+    {{/ui-message}}
+
+  {{/panel.content}}
+{{/ui-panel}}
 
 {{outlet}}
