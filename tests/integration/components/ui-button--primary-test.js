@@ -10,9 +10,9 @@ test('it renders the correctly prefixed class names', function(assert) {
   this.set('states', { active: true });
 
   this.render(hbs`
-    {{#ui-button--primary classes=classes states=states}}
+    {{#ui-button kind="primary" classes=classes states=states}}
       foo
-    {{/ui-button--primary}}
+    {{/ui-button}}
   `);
 
   assert.equal(this.$('.ui-font-size-md').length, 1, 'didnt transform font-size class');
