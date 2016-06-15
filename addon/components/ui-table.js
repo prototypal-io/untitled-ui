@@ -1,7 +1,8 @@
 import Ember from 'ember';
+import UIComponent from './ui-component';
 import layout from '../templates/components/ui-table';
 
-export default Ember.Component.extend({
+export default UIComponent.extend({
   layout,
 
   data: null,

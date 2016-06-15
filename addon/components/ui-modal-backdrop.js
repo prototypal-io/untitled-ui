@@ -1,12 +1,6 @@
-import Ember from 'ember';
+import UIComponent from './ui-component';
 import layout from '../templates/components/ui-modal-backdrop';
 
-export default Ember.Component.extend({
-  layout,
-
-  tagName: '',
-
-  frame: Ember.computed('kind', function() {
-    return `ui-modal-backdrop--${this.get('kind')}`;
-  })
+export default UIComponent.extend({
+  layout
 });

@@ -1,25 +1,13 @@
 import Ember from 'ember';
+import UIComponent from './ui-component';
 import layout from '../templates/components/ui-checkbox';
 
-export default Ember.Component.extend({
+export default UIComponent.extend({
   layout,
-  tagName: '',
 
-  kind: 'default',
   disabled: false,
   error: false,
   value: false,
-
-  frame: Ember.computed('kind', function() {
-    return `ui-checkbox--${this.get('kind')}`;
-  }),
-
-  classes: Ember.computed('size', function() {
-    return {
-      size: `ui-font-size--${this.get('size')}`,
-      class: this.get('class')
-    }
-  }),
 
   states: Ember.computed('disabled', 'error', 'value', function() {
     return {

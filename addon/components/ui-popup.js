@@ -1,30 +1,18 @@
 import Ember from 'ember';
+import UIComponent from './ui-component';
 import layout from '../templates/components/ui-popup';
 
-export default Ember.Component.extend({
+export default UIComponent.extend({
   layout,
-  tagName: '',
 
   kind: 'tooltip',
-  size: 'medium',
 
-  targetId: null,
   attachment: 'bottom center',
   targetAttachment: 'top center',
+  targetId: null,
 
   constraints: [{
     to: 'window',
     attachment: 'together'
-  }],
-
-  frame: Ember.computed('kind', function() {
-    return `ui-popup--${this.get('kind')}`;
-  }),
-
-  classes: Ember.computed('class', 'size', function() {
-    return {
-      class: this.get('class'),
-      size: `ui-font-size--${this.get('size')}`
-    }
-  })
+  }]
 });

@@ -1,31 +1,15 @@
 import Ember from 'ember';
+import UIComponent from './ui-component';
 import layout from 'untitled-ui/templates/components/ui-button';
 
-export default Ember.Component.extend({
+export default UIComponent.extend({
   layout,
-
-  tagName: "",
-  kind: "default",
-  size: "medium",
-
-  class: null,
 
   disabled: false,
   loading: false,
   focus: false,
   browserActive: false,
   active: false,
-
-  frame: Ember.computed('kind', function() {
-    return `ui-button--${this.get('kind')}`;
-  }),
-
-  classes: Ember.computed('size', function() {
-    return {
-      size: `ui-font-size--${this.get('size')}`,
-      class: this.get('class')
-    }
-  }),
 
   isDisabled: Ember.computed.or('disabled', 'loading'),
 
