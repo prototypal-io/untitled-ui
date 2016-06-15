@@ -13,8 +13,9 @@ export default Ember.Component.extend({
     return `ui-textarea--${this.get('kind')}`;
   }),
 
-  classes: Ember.computed('size', function() {
+  classes: Ember.computed('class', 'size', function() {
     return {
+      class: this.get('class'),
       size: `ui-font-size--${this.get('size')}`
     }
   }),

@@ -10,8 +10,11 @@ export default Ember.Component.extend({
 
   showTooltip: false,
 
-  sizeClass: Ember.computed('size', function() {
-    return `ui-font-size--${this.get('size')}`;
+  classes: Ember.computed('class', 'size', function() {
+    return {
+      class: this.get('class'),
+      size: `ui-font-size--${this.get('size')}`
+    };
   }),
 
   frame: Ember.computed('kind', function() {

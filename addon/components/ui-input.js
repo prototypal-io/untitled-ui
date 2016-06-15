@@ -13,6 +13,13 @@ export default Ember.Component.extend({
     return `ui-input--${this.get('kind')}`;
   }),
 
+  classes: Ember.computed('class', 'size', function() {
+    return {
+      class: this.get('class'),
+      size: `ui-font-size--${this.get('size')}`
+    };
+  }),
+
   classes: Ember.computed('kind', 'size', 'error', 'disabled', function() {
     return {
       size: `ui-font-size--${this.get('size')}`
