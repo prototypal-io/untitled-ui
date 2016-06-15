@@ -1,12 +1,12 @@
 @component() {
-  /* z-index & transition is for :active detection */
+  /* min-width & transition is for :active detection */
   & {
-    z-index: 0;
-    transition: z-index .001s linear;
+    min-width: 0px;
+    transition: min-width .001s linear;
   }
 
   &:active {
-    z-index: 1;
-    transition: z-index .001s linear;
+    min-width: 1px;
+    transition: min-width .001s linear;
   }
 }
