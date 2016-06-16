@@ -1,0 +1,6 @@
+{{#x-select
+  class="ui-select--default"
+  disabled=states.disabled
+  value=value as |xs|}}
+    {{yield (hash option=xs.option)}}
+{{/x-select}}

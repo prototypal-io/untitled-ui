@@ -312,7 +312,17 @@
       {{#x.option value=3}}3{{/x.option}}
     {{/ui-select}}
 
+    <br /><br />
     selected: {{selectedValue}}
+
+    <h2>Disabled</h2>
+
+    {{#ui-select disabled=true as |x|}}
+      {{#x.option value=1}}Disabled{{/x.option}}
+      {{#x.option value=2}}2{{/x.option}}
+      {{#x.option value=3}}3{{/x.option}}
+    {{/ui-select}}
+
   {{/panel.content}}
 {{/ui-panel}}
 
