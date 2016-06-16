@@ -29,18 +29,54 @@
     right: 0.5em;
     width: 1em;
     height: 1em;
-    background: rgba(0, 0, 0, 0.1);
-    box-shadow:
-      inset 1px 1px 0px rgba(0, 0, 0, 0.1),
-      1px 1px 0px rgba(255, 255, 255, 0.4);
-    border-radius: 1em;
-    text-align: center;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    &:hover {
-      background: rgba(0, 0, 0, 0.17);
-      transform: scale(1.15);
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.1);
+      box-shadow:
+        inset 1px 1px 0px rgba(0, 0, 0, 0.1),
+        1px 1px 0px rgba(255, 255, 255, 0.4);
+      transform: scale(0.1);
+      opacity: 0;
+      border-radius: 1em;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    &:hover{
+      &:before {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      &--icon {
+        fill: rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    &--icon {
+      width: 60%;
+      height: 60%;
+      transition: fill 0.2s;
+      fill: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  // TODO Remove this
+  @at-root {
+    .ui-icon--default--ui-message--default--close--icon {
+      width: 60%;
+      height: 60%;
+      fill: rgba(0, 0, 0, 0.5);
     }
   }
 }
