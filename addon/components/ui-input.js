@@ -20,12 +20,6 @@ export default Ember.Component.extend({
     };
   }),
 
-  classes: Ember.computed('kind', 'size', 'error', 'disabled', function() {
-    return {
-      size: `ui-font-size--${this.get('size')}`
-    }
-  }),
-
   states: Ember.computed('disabled', 'error', function() {
     return {
       disabled: this.get('disabled'),
