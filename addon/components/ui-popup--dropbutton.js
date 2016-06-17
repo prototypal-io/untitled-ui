@@ -1,7 +1,6 @@
-import Ember from 'ember';
+import UIKindComponent from './ui-kind';
 import layout from '../templates/components/ui-popup--dropbutton';
 
-export default Ember.Component.extend({
-  layout,
-  tagName: ''
+export default UIKindComponent.extend({
+  layout
 });
