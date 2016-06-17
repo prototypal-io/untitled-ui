@@ -2,9 +2,7 @@
               {{classes.size}}
               {{classes.class}}
               {{unless states.disabled 'enabled'}}
-              {{if states.disabled 'disabled'}}
-              {{if states.checked 'checked'}}
-              {{if states.error 'error'}}">
+              {{ui-state states 'disabled' 'checked' 'error'}}">
   {{input
     class="ui-checkbox--default--input"
     type="checkbox"
