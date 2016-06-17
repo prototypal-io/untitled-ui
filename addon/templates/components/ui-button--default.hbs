@@ -10,7 +10,8 @@
          {{if states.loading 'loading'}}
          {{if group 'group-button'}}
          {{if group.isFirstChild 'first-child'}}
-         {{if group.isLastChild 'last-child'}}">
+         {{if group.isLastChild 'last-child'}}"
+  id="{{id}}">
   <div class="wrapper
              {{if states.active 'wrapper--active'}}">
     <div class="label

@@ -302,6 +302,43 @@
 
 {{#ui-panel as |panel|}}
   {{#panel.titlebar}}
+    Dropbutton
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+
+    {{#ui-dropbutton as |dropbutton|}}
+      {{#dropbutton.trigger}}
+        Actions
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup}}
+        content goes here
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
+    {{#ui-dropbutton as |dropbutton|}}
+      {{#dropbutton.trigger onclick=(action "save")}}
+        Save
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup}}
+        content goes here
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
+    {{#ui-dropbutton size="large" as |dropbutton|}}
+      {{#dropbutton.trigger onclick=(action "save")}}
+        Save
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup}}
+        content goes here
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
     Select
   {{/panel.titlebar}}
 

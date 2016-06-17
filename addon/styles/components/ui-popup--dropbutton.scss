@@ -1,0 +1,99 @@
+@import './ui-tooltip--base';
+
+@component() {
+  &--window {
+    border-radius: 0.2em;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.25) 100%);
+    padding: 1px;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.2);
+
+    &--wrapper {
+      background: #ffffff;
+      border-radius: inherit;
+      color: #433d32;
+      padding: 5px 0;
+      min-width: 50px;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      border: solid 0.6em transparent;
+      position: absolute;
+    }
+  }
+
+  &--element {
+    z-index: 2;
+  }
+
+  &--overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vw;
+  }
+
+
+  &--element-attached-top {
+    .ui-popup--dropbutton--window {
+      animation: ui-popup--dropbutton--show-top 0.3s 1;
+
+      &:before {
+        border-bottom-color: #d3d3d3;
+        top: calc(-1.2em + 1px);
+        right: 10px;
+      }
+
+      &:after {
+        border-bottom-color: #ffffff;
+        top: calc(-1.2em + 2px);
+        right: 10px;
+      }
+    }
+  }
+
+  &--element-attached-bottom {
+    .ui-popup--dropbutton--window {
+      animation: ui-popup--dropbutton--show-bottom 0.3s 1;
+
+      &:before {
+        border-top-color: #d3d3d3;
+        bottom: calc(-1.2em + 1px);
+        right: 10px;
+      }
+
+      &:after {
+        border-top-color: #ffffff;
+        bottom: calc(-1.2em + 2px);
+        right: 10px;
+      }
+    }
+  }
+
+  @at-root {
+    @-webkit-keyframes ui-popup--dropbutton--show-top {
+      from {
+        transform: translateY(-10px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 0.93;
+      }
+    }
+
+    @-webkit-keyframes ui-popup--dropbutton--show-bottom {
+      from {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 0.93;
+      }
+    }
+  }
+}

@@ -6,6 +6,10 @@ export default Ember.Controller.extend({
   actions: {
     toggleMessage() {
       this.toggleProperty('showMessage');
+    },
+
+    save() {
+      window.alert('saving');
     }
   }
 });
