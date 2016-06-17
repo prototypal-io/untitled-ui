@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import UIKindComponent from './ui-kind';
 import layout from '../templates/components/ui-modal-backdrop--modal';
 
-export default Ember.Component.extend({
-  layout,
-
-  tagName: ''
+export default UIKindComponent.extend({
+  layout
 });

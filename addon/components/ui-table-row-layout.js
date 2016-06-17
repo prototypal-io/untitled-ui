@@ -1,9 +1,9 @@
 import Ember from 'ember';
+import UIComponent from './ui-component';
 import layout from '../templates/components/ui-table-row-layout';
 
-export default Ember.Component.extend({
+export default UIComponent.extend({
   layout,
-  tagName: '',
 
   breakpoint: 'all',
 

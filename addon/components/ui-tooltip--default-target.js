@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import UIComponent from './ui-component';
 import layout from '../templates/components/ui-tooltip--default-target';
 
-export default Ember.Component.extend({
-  layout,
-  tagName: ''
+export default UIComponent.extend({
+  layout
 });
+
