@@ -15,6 +15,7 @@ module.exports = {
     this._super.included(app);
 
     app.import('vendor/normalize.css');
+    app.import('vendor/font-awesome/css/font-awesome.css');
   },
 
   setupPreprocessorRegistry: function(type, registry) {
