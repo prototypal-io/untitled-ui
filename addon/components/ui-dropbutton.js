@@ -1,26 +1,13 @@
 import Ember from 'ember';
+import UIComponent from './ui-component';
 import layout from 'untitled-ui/templates/components/ui-dropbutton';
 
-export default Ember.Component.extend({
+export default UIComponent.extend({
   layout,
-  tagName: '',
 
-  kind: 'default',
-  size: 'medium',
   disabled: false,
   loading: false,
   showPopup: false,
-
-  frame: Ember.computed('kind', function() {
-    return `ui-dropbutton--${this.get('kind')}`;
-  }),
-
-  classes: Ember.computed('size', function() {
-    return {
-      size: `ui-font-size--${this.get('size')}`,
-      class: this.get('class')
-    }
-  }),
 
   isDisabled: Ember.computed.or('disabled', 'loading'),
 
