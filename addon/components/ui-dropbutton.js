@@ -11,10 +11,11 @@ export default UIComponent.extend({
 
   isDisabled: Ember.computed.or('disabled', 'loading'),
 
-  states: Ember.computed('isDisabled', 'loading', function() {
+  states: Ember.computed('isDisabled', 'loading', 'showPopup', function() {
     return {
       disabled: this.get('isDisabled'),
-      loading: this.get('loading')
+      loading: this.get('loading'),
+      active: this.get('showPopup')
     }
   }),
 

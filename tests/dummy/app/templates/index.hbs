@@ -325,7 +325,38 @@
       {{/dropbutton.popup}}
     {{/ui-dropbutton}}
 
+    <h2>Sizes</h2>
+
     {{#ui-dropbutton size="large" as |dropbutton|}}
+      {{#dropbutton.trigger}}
+        Actions
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup}}
+        content goes here
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
+    {{#ui-dropbutton size="large" as |dropbutton|}}
+      {{#dropbutton.trigger onclick=(action "save")}}
+        Save
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup}}
+        content goes here
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
+    <h2>Disabled</h2>
+
+    {{#ui-dropbutton disabled=true as |dropbutton|}}
+      {{#dropbutton.trigger}}
+        Actions
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup}}
+        content goes here
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
+    {{#ui-dropbutton disabled=true as |dropbutton|}}
       {{#dropbutton.trigger onclick=(action "save")}}
         Save
       {{/dropbutton.trigger}}

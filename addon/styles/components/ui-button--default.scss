@@ -19,6 +19,7 @@
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   background: linear-gradient(to bottom, lighten($border-color, 15%) 0%, $border-color 100%);
   color: $color;
+  fill: $color;
 
   &--focus {
     background: rgba(0, 107, 255, 0.5); /* make the border part of the shadow */
@@ -35,6 +36,7 @@
     pointer-events: none;
     background: linear-gradient(to bottom, lighten($border-color, 15%) 0%, $border-color 100%);
     color: $disabled-color;
+    fill: $disabled-color;
   }
 
   &--loading {

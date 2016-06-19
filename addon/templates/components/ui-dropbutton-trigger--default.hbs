@@ -1,17 +1,23 @@
 {{#if onclick}}
   {{#ui-button-group size=size id=targetId as |group|}}
-    {{#group.button onclick=onclick}}
+    {{#group.button disabled=states.disabled onclick=onclick}}
       {{yield}}
     {{/group.button}}
 
-    {{#group.button onclick=popup.toggle active=states.active}}
-      {{ui-icon icon="dropbutton" class="ui-dropbutton-trigger--icon"}}
+    {{#group.button disabled=states.disabled onclick=popup.toggle active=states.active}}
+      {{ui-icon
+        icon="dropbutton"
+        class=(concat "ui-dropbutton-trigger--icon "
+                      (if states.disabled "ui-dropbutton-trigger--icon--disabled"))}}
     {{/group.button}}
   {{/ui-button-group}}
 
 {{else}}
-  {{#ui-button size=size id=targetId onclick=popup.toggle active=states.active}}
+  {{#ui-button disabled=states.disabled size=size id=targetId onclick=popup.toggle active=states.active}}
     {{yield}}
-    {{ui-icon icon="dropbutton" class="ui-dropbutton-trigger--icon"}}
+    {{ui-icon
+      icon="dropbutton"
+      class=(concat "ui-dropbutton-trigger--icon "
+                    (if states.disabled "ui-dropbutton-trigger--icon--disabled"))}}
   {{/ui-button}}
 {{/if}}
