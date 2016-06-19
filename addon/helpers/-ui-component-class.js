@@ -19,14 +19,13 @@ export default Ember.Helper.helper(function ([prefix, ...classNames]) {
   return normalizedClassNames.reduce(function(string, name) {
     switch (true) {
       case (name === ':component'):
-        var baseClass = prefix.replace(/(.*)--$/, '$1');
-        return string += `${baseClass} `;
+        return string += `${prefix} `;
       case (FONT_SIZE_PATTERN.test(name)):
         return string += `${name} `;
       case (name === 'fa' || FONTAWESOME_PATTERN.test(name)):
         return string += `${name} `;
       default:
-        return string += `${prefix}${name} `;
+        return string += `${prefix}--${name} `;
     }
   }, '');
 });
