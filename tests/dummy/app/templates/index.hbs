@@ -365,6 +365,26 @@
       {{/dropbutton.popup}}
     {{/ui-dropbutton}}
 
+    <h2>Loading</h2>
+
+    {{#ui-dropbutton loading=true as |dropbutton|}}
+      {{#dropbutton.trigger}}
+        Actions
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup}}
+        content goes here
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
+    {{#ui-dropbutton loading=true as |dropbutton|}}
+      {{#dropbutton.trigger onclick=(action "save")}}
+        Save
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup}}
+        content goes here
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
   {{/panel.content}}
 {{/ui-panel}}
 
