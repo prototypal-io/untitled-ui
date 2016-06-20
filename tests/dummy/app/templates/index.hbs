@@ -309,10 +309,29 @@
 
     {{#ui-dropbutton as |dropbutton|}}
       {{#dropbutton.trigger}}
-        Actions
+        Actions (with icons)
       {{/dropbutton.trigger}}
-      {{#dropbutton.popup}}
-        {{#ui-list kind="selectable" as |list|}}
+      {{#dropbutton.popup as |popup|}}
+        {{#popup.list as |list|}}
+          {{#list.item onclick=(action "save")}}
+            {{ui-icon kind="fontawesome" icon="save"}} Save
+          {{/list.item}}
+          {{#list.item onclick=(action "save")}}
+            {{ui-icon kind="fontawesome" icon="pencil"}} Edit
+          {{/list.item}}
+          {{#list.item onclick=(action "save")}}
+            {{ui-icon kind="fontawesome" icon="trash"}} Delete
+          {{/list.item}}
+        {{/popup.list}}
+      {{/dropbutton.popup}}
+    {{/ui-dropbutton}}
+
+    {{#ui-dropbutton as |dropbutton|}}
+      {{#dropbutton.trigger onclick=(action "save")}}
+        Save
+      {{/dropbutton.trigger}}
+      {{#dropbutton.popup as |popup|}}
+        {{#popup.list as |list|}}
           {{#list.item onclick=(action "save")}}
             Save
           {{/list.item}}
@@ -322,16 +341,7 @@
           {{#list.item onclick=(action "save")}}
             Delete
           {{/list.item}}
-        {{/ui-list}}
-      {{/dropbutton.popup}}
-    {{/ui-dropbutton}}
-
-    {{#ui-dropbutton as |dropbutton|}}
-      {{#dropbutton.trigger onclick=(action "save")}}
-        Save
-      {{/dropbutton.trigger}}
-      {{#dropbutton.popup}}
-        content goes here
+        {{/popup.list}}
       {{/dropbutton.popup}}
     {{/ui-dropbutton}}
 
@@ -339,10 +349,20 @@
 
     {{#ui-dropbutton size="large" as |dropbutton|}}
       {{#dropbutton.trigger}}
-        Actions
+        Actions (with icons)
       {{/dropbutton.trigger}}
-      {{#dropbutton.popup}}
-        content goes here
+      {{#dropbutton.popup as |popup|}}
+        {{#popup.list as |list|}}
+          {{#list.item onclick=(action "save")}}
+            {{ui-icon kind="fontawesome" icon="save"}} Save
+          {{/list.item}}
+          {{#list.item onclick=(action "save")}}
+            {{ui-icon kind="fontawesome" icon="pencil"}} Edit
+          {{/list.item}}
+          {{#list.item onclick=(action "save")}}
+            {{ui-icon kind="fontawesome" icon="trash"}} Delete
+          {{/list.item}}
+        {{/popup.list}}
       {{/dropbutton.popup}}
     {{/ui-dropbutton}}
 
@@ -350,8 +370,18 @@
       {{#dropbutton.trigger onclick=(action "save")}}
         Save
       {{/dropbutton.trigger}}
-      {{#dropbutton.popup}}
-        content goes here
+      {{#dropbutton.popup as |popup|}}
+        {{#popup.list as |list|}}
+          {{#list.item onclick=(action "save")}}
+            Save
+          {{/list.item}}
+          {{#list.item onclick=(action "save")}}
+            Edit
+          {{/list.item}}
+          {{#list.item onclick=(action "save")}}
+            Delete
+          {{/list.item}}
+        {{/popup.list}}
       {{/dropbutton.popup}}
     {{/ui-dropbutton}}
 
@@ -640,18 +670,6 @@
       {{#list.item}}Blue{{/list.item}}
     {{/ui-list}}
 
-    <h3>Selectable</h3>
-    {{#ui-list kind="selectable" as |list|}}
-      {{#list.item onclick=(action "save")}}
-        Save
-      {{/list.item}}
-      {{#list.item onclick=(action "save")}}
-        Edit
-      {{/list.item}}
-      {{#list.item onclick=(action "save")}}
-        Delete
-      {{/list.item}}
-    {{/ui-list}}
   {{/panel.content}}
 {{/ui-panel}}
 
