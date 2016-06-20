@@ -1,0 +1,14 @@
+@component(
+  $border-color: #DAE5E9,
+  $border-style: solid,
+  $border-width: 1px,
+  $padding: 0.5em
+) {
+  display: block;
+  border-top: $border-width $border-style $border-color;
+  padding: $padding;
+
+  &:first-child {
+    border-top: none;
+  }
+}
