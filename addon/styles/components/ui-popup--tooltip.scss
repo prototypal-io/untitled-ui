@@ -42,6 +42,14 @@
     width: 100vw;
     height: 100vw;
     z-index: 1;
+
+    // Makes clickable in iOS
+    cursor: pointer;
+
+    // Disables iOS touch callouts
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    user-select: none;
   }
 
   &--element-attached-left {
