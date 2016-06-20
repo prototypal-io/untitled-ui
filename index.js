@@ -3,6 +3,7 @@
 
 var path = require('path');
 var csso = require('broccoli-csso');
+var fs = require('fs');
 
 var jsPreprocessor = require('./lib/js-preprocessor');
 var templatePreprocessor = require('./lib/template-preprocessor');
@@ -12,10 +13,21 @@ var TransformComponentClasses = require('./lib/transform-component-classes');
 module.exports = {
   name: 'untitled-ui',
 
-  included: function(app) {
+  included: function(app, parentAddon) {
     this._super.included(app);
 
     app.import('vendor/normalize.css');
+
+    var target = (parentAddon || app);
+    var fontsPath = ('vendor/font-awesome/fonts');
+
+    fs.readdirSync(fontsPath).forEach(function(fontFilename){
+      target.import(
+        path.join(fontsPath, fontFilename),
+        { destDir:'/fonts' }
+      );
+    });
+
     app.import('vendor/font-awesome/css/font-awesome.css');
   },
 
