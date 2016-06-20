@@ -312,7 +312,17 @@
         Actions
       {{/dropbutton.trigger}}
       {{#dropbutton.popup}}
-        content goes here
+        {{#ui-list kind="selectable" as |list|}}
+          {{#list.item onclick=(action "save")}}
+            Save
+          {{/list.item}}
+          {{#list.item onclick=(action "save")}}
+            Edit
+          {{/list.item}}
+          {{#list.item onclick=(action "save")}}
+            Delete
+          {{/list.item}}
+        {{/ui-list}}
       {{/dropbutton.popup}}
     {{/ui-dropbutton}}
 
@@ -614,6 +624,34 @@
     {{ui-icon kind="fontawesome" icon="asterisk"}}
     {{ui-icon kind="fontawesome" icon="asterisk" size="3x"}}
 
+  {{/panel.content}}
+{{/ui-panel}}
+
+{{#ui-panel as |panel|}}
+  {{#panel.titlebar}}
+    List
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    <h3>Basic List</h3>
+    {{#ui-list as |list|}}
+      {{#list.item}}Red{{/list.item}}
+      {{#list.item}}Green{{/list.item}}
+      {{#list.item}}Blue{{/list.item}}
+    {{/ui-list}}
+
+    <h3>Selectable</h3>
+    {{#ui-list kind="selectable" as |list|}}
+      {{#list.item onclick=(action "save")}}
+        Save
+      {{/list.item}}
+      {{#list.item onclick=(action "save")}}
+        Edit
+      {{/list.item}}
+      {{#list.item onclick=(action "save")}}
+        Delete
+      {{/list.item}}
+    {{/ui-list}}
   {{/panel.content}}
 {{/ui-panel}}
 
