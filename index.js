@@ -2,6 +2,7 @@
 'use strict';
 
 var path = require('path');
+var csso = require('broccoli-csso');
 
 var jsPreprocessor = require('./lib/js-preprocessor');
 var templatePreprocessor = require('./lib/template-preprocessor');
@@ -90,6 +91,14 @@ module.exports = {
       name: 'transform-component-classes',
       plugin: TransformComponentClasses
     });
+  },
+
+  postprocessTree: function(type, tree) {
+    if (type === 'css') {
+      tree = csso(tree);
+    }
+
+    return tree;
   },
 
   addonRoot: function() {
