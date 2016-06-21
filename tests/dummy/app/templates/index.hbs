@@ -352,17 +352,28 @@
         Actions (with icons)
       {{/dropbutton.trigger}}
       {{#dropbutton.popup as |popup|}}
-        {{#popup.list as |list|}}
-          {{#list.item onclick=(action "save")}}
-            {{ui-icon kind="fontawesome" icon="save"}} Save
-          {{/list.item}}
-          {{#list.item onclick=(action "save")}}
-            {{ui-icon kind="fontawesome" icon="pencil"}} Edit
-          {{/list.item}}
-          {{#list.item onclick=(action "save")}}
-            {{ui-icon kind="fontawesome" icon="trash"}} Delete
-          {{/list.item}}
-        {{/popup.list}}
+        <div style="height: 120px; overflow: auto;">
+          {{#popup.list as |list|}}
+            {{#list.item onclick=(action "save")}}
+              {{ui-icon kind="fontawesome" icon="save"}} Save
+            {{/list.item}}
+            {{#list.item onclick=(action "save")}}
+              {{ui-icon kind="fontawesome" icon="pencil"}} Edit
+            {{/list.item}}
+            {{#list.item onclick=(action "save")}}
+              {{ui-icon kind="fontawesome" icon="trash"}} Delete
+            {{/list.item}}
+            {{#list.item onclick=(action "save")}}
+              {{ui-icon kind="fontawesome" icon="save"}} Save
+            {{/list.item}}
+            {{#list.item onclick=(action "save")}}
+              {{ui-icon kind="fontawesome" icon="pencil"}} Edit
+            {{/list.item}}
+            {{#list.item onclick=(action "save")}}
+              {{ui-icon kind="fontawesome" icon="trash"}} Delete
+            {{/list.item}}
+          {{/popup.list}}
+        </div>
       {{/dropbutton.popup}}
     {{/ui-dropbutton}}
 
