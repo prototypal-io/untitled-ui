@@ -8,7 +8,9 @@ var fs = require('fs');
 var jsPreprocessor = require('./lib/js-preprocessor');
 var templatePreprocessor = require('./lib/template-preprocessor');
 var scssPreprocessor = require('./lib/scss-preprocessor');
+
 var TransformComponentClasses = require('./lib/transform-component-classes');
+var TransformUITableComponents = require('./lib/plugins/transform-ui-table-components');
 
 module.exports = {
   name: 'untitled-ui',
@@ -39,6 +41,11 @@ module.exports = {
       this.setupCssPreprocessing(registry);
       this.setupHtmlTransform(registry);
     }
+
+    registry.add('htmlbars-ast-plugin', {
+      name: 'transform-ui-table-components',
+      plugin: TransformUITableComponents
+    });
   },
 
   setupJsPreprocessing: function(registry, type) {
