@@ -1,13 +1,14 @@
 {{#ember-wormhole to="ui-modal"}}
   <div
     id={{generatedModalId}}
-    class=":component {{classes.class}} {{classes.size}}"
-  >
+    class=":component {{classes.class}} {{classes.size}}">
     <div class="modal">
-      {{yield (hash
-        panel=(component "ui-panel" kind="modal")
-        close=(action "close")
-      )}}
+      {{#ui-prevent-scroll-outside}}
+        {{yield (hash
+          panel=(component "ui-panel" kind="modal")
+          close=(action "close")
+        )}}
+      {{/ui-prevent-scroll-outside}}
     </div>
 
     {{ui-modal-backdrop kind=kind onclick=(action "close")}}
