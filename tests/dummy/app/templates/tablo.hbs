@@ -1,0 +1,27 @@
+<h1>Tablo</h1>
+
+{{#ui-tablo data=data as |t|}}
+  {{#t.layout name="default"}}
+    {{#t.column name="ID" flex=1 as |row|}}
+      {{row.data.id}}
+    {{/t.column}}
+
+    {{#t.column name="Name" flex=4 as |row|}}
+      {{row.data.name}}
+    {{/t.column}}
+
+    {{#t.column name="Email" flex=6 as |row|}}
+      {{row.data.email}}
+    {{/t.column}}
+  {{/t.layout}}
+
+  {{#t.layout name="mobile"}}
+    {{#t.column name="Name" flex=1 as |row|}}
+      {{row.id}}: {{row.name}}
+    {{/t.column}}
+
+    {{#t.column name="Email" flex=2 as |row|}}
+      {{row.email}}
+    {{/t.column}}
+  {{/t.layout}}
+{{/ui-tablo}}
