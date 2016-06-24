@@ -1,9 +1,11 @@
 {{#component frame
   activeLayout=activeLayout
   classes=classes
-  data=data
+  action=(hash sortBy=(action "sortBy"))
+  data=sortedData
   kind=kind
   layouts=layouts
+  sortBy=sortBy
   rowLayout=(component "ui-table-layout" activeLayout=activeLayout)
   size=size as |component|}}
     {{yield component}}

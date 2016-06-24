@@ -1,7 +1,26 @@
 @component() {
   flex: 1;
-  padding: 0 0.2em;
+  padding: 0.8em 0.3em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #8ea1a8;
+  letter-spacing: 1px;
+  font-size: 0.7em;
+  line-height: 1.4em;
+  text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s;
+  border-top: solid 3px transparent;
+  border-bottom: solid 3px transparent;
+
+  &--sortable {
+    &:hover {
+      cursor: pointer;
+      color: #1787e5;
+    }
+  }
+
+  &--sorted {
+    border-bottom: solid 3px #e0eaed;
+  }
 }
