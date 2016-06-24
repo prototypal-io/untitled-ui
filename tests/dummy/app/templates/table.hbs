@@ -1,27 +1,33 @@
 <h1>Table</h1>
 
-{{#ui-table data=data as |t|}}
-  {{#t.layout name="default"}}
-    {{#t.column flex=1 as |row|}}
-      {{row.data.id}}
-    {{/t.column}}
+{{#ui-panel as |panel|}}
+  {{#panel.content}}
 
-    {{#t.column flex=4 name="Name" as |row|}}
-      {{row.data.name}}
-    {{/t.column}}
+    {{#ui-table data=data as |t|}}
+      {{#t.layout name="default"}}
+        {{#t.column flex=1 as |row|}}
+          {{row.data.id}}
+        {{/t.column}}
 
-    {{#t.column name="Email" flex=6 as |row|}}
-      {{row.data.email}}
-    {{/t.column}}
-  {{/t.layout}}
+        {{#t.column flex=4 name="Name" as |row|}}
+          {{row.data.name}}
+        {{/t.column}}
 
-  {{#t.layout name="mobile"}}
-    {{#t.column name="Name" flex=1 as |row|}}
-      {{row.data.id}}: {{row.data.name}}
-    {{/t.column}}
+        {{#t.column name="Email" flex=6 as |row|}}
+          {{row.data.email}}
+        {{/t.column}}
+      {{/t.layout}}
 
-    {{#t.column name="Email" flex=2 as |row|}}
-      {{row.data.email}}
-    {{/t.column}}
-  {{/t.layout}}
-{{/ui-table}}
+      {{#t.layout name="mobile"}}
+        {{#t.column name="Name" flex=1 as |row|}}
+          {{row.data.id}}: {{row.data.name}}
+        {{/t.column}}
+
+        {{#t.column name="Email" flex=2 as |row|}}
+          {{row.data.email}}
+        {{/t.column}}
+      {{/t.layout}}
+    {{/ui-table}}
+    
+  {{/panel.content}}
+{{/ui-panel}}
