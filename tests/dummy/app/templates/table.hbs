@@ -17,11 +17,11 @@
 
   {{#t.layout name="mobile"}}
     {{#t.column name="Name" flex=1 as |row|}}
-      {{row.id}}: {{row.name}}
+      {{row.data.id}}: {{row.data.name}}
     {{/t.column}}
 
     {{#t.column name="Email" flex=2 as |row|}}
-      {{row.email}}
+      {{row.data.email}}
     {{/t.column}}
   {{/t.layout}}
 {{/ui-table}}
