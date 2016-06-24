@@ -1,6 +1,7 @@
-import UIComponent from './ui-component';
-// import layout from '../templates/components/ui-tablo-layout';
+import Ember from 'ember';
+import layout from '../templates/components/ui-table-layout';
 
-export default UIComponent.extend({
-  // layout
+export default Ember.Component.extend({
+  layout,
+  tagName: ''
 });
