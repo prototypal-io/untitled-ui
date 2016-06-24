@@ -9,7 +9,6 @@ Router.map(function() {
   this.route('index', { path: '/' }, function () {
     this.route('modal');
   });
-  this.route('table');
   this.route('tablo');
   this.route('panel', function() {
     this.route('inbox');
