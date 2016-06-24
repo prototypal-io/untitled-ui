@@ -2,11 +2,11 @@
 
 {{#ui-table data=data as |t|}}
   {{#t.layout name="default"}}
-    {{#t.column name="ID" flex=1 as |row|}}
+    {{#t.column flex=1 as |row|}}
       {{row.data.id}}
     {{/t.column}}
 
-    {{#t.column name="Name" flex=4 as |row|}}
+    {{#t.column flex=4 name="Name" as |row|}}
       {{row.data.name}}
     {{/t.column}}
 
