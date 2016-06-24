@@ -1,5 +1,5 @@
 import UIComponent from './ui-component';
-import layout from '../templates/components/ui-tablo';
+import layout from '../templates/components/ui-table';
 
 export default UIComponent.extend({
   layout,

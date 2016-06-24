@@ -1,0 +1,9 @@
+<ul class=":component">
+  {{yield (hash
+    data=data
+    layout=(component "ui-table--default-layout" activeLayout=activeLayout)
+    column=(component "ui-table--default-column")
+    cell=(component "ui-table--default-cell")
+    row=(component "ui-table--default-row")
+  )}}
+</ul>

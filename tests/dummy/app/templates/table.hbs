@@ -1,6 +1,6 @@
-<h1>Tablo</h1>
+<h1>Table</h1>
 
-{{#ui-tablo data=data as |t|}}
+{{#ui-table data=data as |t|}}
   {{#t.layout name="default"}}
     {{#t.column name="ID" flex=1 as |row|}}
       {{row.data.id}}
@@ -24,4 +24,4 @@
       {{row.email}}
     {{/t.column}}
   {{/t.layout}}
-{{/ui-tablo}}
+{{/ui-table}}
