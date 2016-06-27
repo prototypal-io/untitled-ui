@@ -4,7 +4,7 @@
   {{#panel.content}}
 
     {{#ui-table sortBy=sortBy data=data as |t|}}
-      {{#t.layout name="default"}}
+      {{#t.layout breakpoint="all"}}
         {{#t.column size=(hash max="80px" min="80px") as |row|}}
           {{row.data.id}}
         {{/t.column}}
@@ -18,13 +18,16 @@
         {{/t.column}}
       {{/t.layout}}
 
-      {{#t.layout name="mobile"}}
-        {{#t.column name="Name" size=(hash flex=1) as |row|}}
-          {{row.data.id}}: {{row.data.name}}
+      {{#t.layout breakpoint="500"}}
+        {{#t.column size=(hash flex=3) as |row|}}
+          {{row.data.name}}<br />
+          {{row.data.email}}
         {{/t.column}}
 
-        {{#t.column name="Email" size=(hash flex=2) as |row|}}
-          {{row.data.email}}
+        {{#t.column size=(hash flex=1) as |row|}}
+          <div style="text-align: right; opacity: 0.4;">
+            {{row.data.id}}
+          </div>
         {{/t.column}}
       {{/t.layout}}
     {{/ui-table}}
