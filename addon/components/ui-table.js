@@ -7,7 +7,7 @@ export default UIComponent.extend({
   didInsertElement() {
     this._updateContainerSize = Ember.run.bind(this, this.updateContainerSize);
     Ember.$(window).on('resize', this._updateContainerSize);
-    this.updateContainerSize();
+    Ember.run.next(this, this.updateContainerSize);
   },
 
   willDestroyElement() {
