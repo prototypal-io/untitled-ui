@@ -5,25 +5,25 @@
 
     {{#ui-table sortBy=sortBy data=data as |t|}}
       {{#t.layout name="default"}}
-        {{#t.column flex=1 as |row|}}
+        {{#t.column size=(hash max="80px" min="80px") as |row|}}
           {{row.data.id}}
         {{/t.column}}
 
-        {{#t.column flex=4 name="Name" sortedWhen="name" as |row|}}
+        {{#t.column size=(hash flex=4) name="Name" sortedWhen="name" as |row|}}
           {{row.data.name}}
         {{/t.column}}
 
-        {{#t.column name="Email" sortedWhen="email" flex=6 as |row|}}
+        {{#t.column name="Email" sortedWhen="email" size=(hash flex=6) as |row|}}
           {{row.data.email}}
         {{/t.column}}
       {{/t.layout}}
 
       {{#t.layout name="mobile"}}
-        {{#t.column name="Name" flex=1 as |row|}}
+        {{#t.column name="Name" size=(hash flex=1) as |row|}}
           {{row.data.id}}: {{row.data.name}}
         {{/t.column}}
 
-        {{#t.column name="Email" flex=2 as |row|}}
+        {{#t.column name="Email" size=(hash flex=2) as |row|}}
           {{row.data.email}}
         {{/t.column}}
       {{/t.layout}}

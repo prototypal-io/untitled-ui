@@ -12,6 +12,7 @@
   transition: color 0.2s, border-color 0.2s;
   border-top: solid 3px transparent;
   border-bottom: solid 3px transparent;
+  box-sizing: border-box;
 
   &--sortable {
     &:hover {

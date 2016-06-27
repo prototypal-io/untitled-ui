@@ -1,7 +1,7 @@
 <div class=":component
             {{if sortedWhen 'sortable'}}
             {{if (eq sortBy sortedWhen) 'sorted'}}"
-     style="flex: {{flex}};"
+     style="flex: {{size.flex}}; min-width: {{size.min}}; max-width: {{size.max}}"
      {{action action.sortBy sortedWhen}}>
   {{yield}}
 </div>
