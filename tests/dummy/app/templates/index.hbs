@@ -684,4 +684,20 @@
   {{/panel.content}}
 {{/ui-panel}}
 
+{{#ui-panel theme="tomato" as |panel|}}
+  {{#panel.titlebar}}
+    Themed Panel
+  {{/panel.titlebar}}
+
+  {{#panel.content}}
+    <h3>Basic List</h3>
+
+    {{#ui-list as |list|}}
+      {{#list.item}}Red{{/list.item}}
+      {{#list.item}}Green{{/list.item}}
+      {{#list.item}}Blue{{/list.item}}
+    {{/ui-list}}
+  {{/panel.content}}
+{{/ui-panel}}
+
 {{outlet}}

@@ -1,0 +1,12 @@
+// @import './ui-panel--default';
+
+@component {
+  // @include ui-panel--default($background: tomato);
+
+  color: #ffffff;
+  background-image: none;
+
+  &--wrapper {
+    background: tomato;
+ }
+}
