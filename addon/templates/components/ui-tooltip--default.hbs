@@ -1,9 +1,0 @@
-<div class=":component {{classes.class}} {{classes.size}}">
-  {{yield (hash
-    target=(component "ui-tooltip--default-target" tooltip=tooltip)
-    popup=(component "ui-popup" targetId=tooltip.targetId
-                                showPopup=tooltip.showTooltip
-                                show=tooltip.action.show
-                                hide=tooltip.action.hide
-                                toggle=tooltip.action.action.toggle))}}
-</div>
