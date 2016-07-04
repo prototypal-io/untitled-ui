@@ -1,0 +1,17 @@
+{
+  "name": "ui-tomato",
+  "keywords": [
+    "ember-addon"
+  ],
+  "dependencies": {
+    "broccoli-caching-writer": "^2.2.1",
+    "broccoli-funnel": "^1.0.1",
+    "ember-cli-babel": "^5.1.6",
+    "ember-cli-htmlbars": "^1.0.5",
+    "ember-cli-sass": "^5.3.1",
+    "exists-sync": "0.0.3",
+    "mkdirp": "^0.5.1",
+    "symlink-or-copy": "^1.1.3",
+    "walk-sync": "^0.2.6"
+  }
+}
