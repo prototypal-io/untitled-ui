@@ -14,6 +14,16 @@ var TransformComponentClasses = require('./lib/transform-component-classes');
 var TransformUITableComponents = require('./lib/plugins/transform-ui-table-components');
 
 var UITheme = Addon.extend({
+  init: function() {
+    this._super.init.apply(this, arguments);
+    this._originalCompileStyles = this.compileStyles;
+    this.compileStyles = function() {};
+  },
+
+  treeForStyles() {
+    return this._originalCompileStyles(this.treeGenerator('addon/styles'));
+  },
+
   setupPreprocessorRegistry: function(type, registry) {
     this.setupJsPreprocessing(registry, type);
 
@@ -76,10 +86,12 @@ var UITheme = Addon.extend({
   },
 
   setupCssPreprocessing: function(registry) {
+    var self = this;
     registry.add('css', {
       name: 'mixin-classes',
       toTree: function(tree) {
         return scssPreprocessor(tree, {
+          name: self.name,
           components: 'components/*.scss'
         });
       }
