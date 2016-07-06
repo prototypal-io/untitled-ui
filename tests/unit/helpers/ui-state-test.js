@@ -18,3 +18,11 @@ test('skips truthful states that are not asked for', function(assert) {
 
   assert.equal(result, 'active', 'state that was not asked for not included');
 });
+
+test('allows truthy class to be specified', function(assert) {
+  let states = { active: true };
+
+  let result = uiState([states, 'active:foo']);
+
+  assert.equal(result, 'foo', 'truthy states returned');
+});
