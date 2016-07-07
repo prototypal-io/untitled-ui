@@ -21,7 +21,7 @@ var UITheme = Addon.extend({
   },
 
   treeForStyles() {
-    return this._originalCompileStyles(this.treeGenerator('addon/styles'));
+    return this._originalCompileStyles(this.treeGenerator(this.root + '/addon/styles'));
   },
 
   setupPreprocessorRegistry: function(type, registry) {
