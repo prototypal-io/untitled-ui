@@ -19,10 +19,10 @@ test('skips truthful states that are not asked for', function(assert) {
   assert.equal(result, 'active', 'state that was not asked for not included');
 });
 
-test('allows truthy class to be specified', function(assert) {
+test('prefixes classes for a given element', function(assert) {
   let states = { active: true };
 
-  let result = uiState([states, 'active:foo']);
+  let result = uiState([states, 'active'], { el: 'ui-foobar' });
 
-  assert.equal(result, 'foo', 'truthy states returned');
+  assert.equal(result, 'ui-foobar--active', 'truthy states returned');
 });

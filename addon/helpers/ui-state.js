@@ -1,15 +1,16 @@
 import Ember from 'ember';
 
-export function uiState([values, ...states]) {
+export function uiState([values, ...states], options = {}) {
   let classes = [];
+  let el = options.el;
 
   states.forEach((state) => {
-    let parts = state.split(':');
-    let stateName = parts[0];
-    let activeClass = parts[1] || stateName;
-
-    if (values[stateName]) {
-      classes.push(activeClass);
+    if (values[state]) {
+      if (el) {
+        classes.push(`${el}--${state}`);
+      } else {
+        classes.push(state);
+      }
     }
   });
 
