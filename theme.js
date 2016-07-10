@@ -1,37 +1,53 @@
 /* jshint node: true */
 'use strict';
 
-var Addon = require('ember-cli/lib/models/addon');
-
 var path = require('path');
-var csso = require('broccoli-csso');
 
-var jsPreprocessor = require('./lib/js-preprocessor');
-var templatePreprocessor = require('./lib/template-preprocessor');
-var scssPreprocessor = require('./lib/scss-preprocessor');
+var Addon = require('ember-cli/lib/models/addon');
+var ThemeCore = require('./lib/theme-core');
+var TransformComponentClasses = require('./lib/htmlbars-plugins/transform-component-classes');
+var TransformUITableComponents = require('./lib/htmlbars-plugins/transform-ui-table-components');
+var funnel = require('broccoli-funnel');
 
-var TransformComponentClasses = require('./lib/transform-component-classes');
-var TransformUITableComponents = require('./lib/plugins/transform-ui-table-components');
+var themeCore;
 
-var UITheme = Addon.extend({
-  init: function() {
-    this._super.init.apply(this, arguments);
-    this._originalCompileStyles = this.compileStyles;
-    this.compileStyles = function() {};
+var Theme = Addon.extend({
+  themeCore: null,
+  parentTheme: null,
+
+  isDevelopingAddon: function() {
+    return true;
   },
 
-  treeForStyles() {
-    return this._originalCompileStyles(this.treeGenerator(this.root + '/addon/styles'));
+  init: function() {
+    this._super.init.apply(this, arguments);
+
+    this.themeCore = themeCore || new ThemeCore();
+    themeCore = this.themeCore;
+
+    this.parentTheme = this.themeCore.parentTheme;
+    this.themeCore.parentTheme = this;
+
+    this.themeCore.register(this);
   },
 
   setupPreprocessorRegistry: function(type, registry) {
-    this.setupJsPreprocessing(registry, type);
+    // only setup preprocessors for the top level app registry
+    // and not for subthemes that are parents to baser themes
+    if (type === 'parent' && !registry.app.parent) {
+      this.themeCore.setupAppPreprocessors(registry);
+    }
 
     if (type === 'self') {
-      this.setupTemplatePreprocessing(registry);
-      this.setupCssPreprocessing(registry);
-      this.setupHtmlTransform(registry);
+      this.setupHtmlTransforms(registry);
     }
+  },
+
+  setupHtmlTransforms: function(registry) {
+    registry.add('htmlbars-ast-plugin', {
+      name: 'transform-component-classes',
+      plugin: TransformComponentClasses
+    });
 
     registry.add('htmlbars-ast-plugin', {
       name: 'transform-ui-table-components',
@@ -39,79 +55,30 @@ var UITheme = Addon.extend({
     });
   },
 
-  setupJsPreprocessing: function(registry, type) {
-    registry.add('js', {
-      name: 'generate-components-for-scss',
-      ext: 'scss',
-      _addon: this,
-      toTree: function(tree) {
-        var destDir = tree.destDir || (tree.inputTree && tree.inputTree.destDir);
-        var isTests = /tests$/.test(destDir);
-        var isSelf = type === 'self';
-        var isParent = type === 'parent';
-
-        var options = {
-          registryType: type,
-          moduleName: this._addon.name,
-          prefix: isSelf ? ('modules/' + this._addon.name) : registry.app.name,
-          baseDir: path.join(this._addon.root, 'addon'),
-          scss: ['styles/components/*.scss']
-        };
-
-        // TODO need a better way of determining app tree from app tests tree
-        switch (true) {
-          case isTests  : return tree;
-          case isSelf   : return jsPreprocessor(tree, options);
-          case isParent : return jsPreprocessor(tree, options);
-          default       : return tree;
-        }
-      }
-    });
+  scssPath: 'addon/styles',
+  toScssTree: function() {
+    var scssDir = path.join(this._baseDiskDir(), this.scssPath);
+    var tree = this.treeGenerator(scssDir);
+    return funnel(tree, { include: ['**/*.scss'] });
   },
 
-  setupTemplatePreprocessing: function(registry) {
-    registry.add('template', {
-      name: 'generate-templates-for-scss',
-      _addon: this,
-      toTree: function(tree) {
-        var options = {
-          prefix: path.join('modules/', this._addon.name),
-          baseDir: path.join(this._addon.root, 'addon'),
-          scss: ['styles/components/*.scss']
-        };
-
-        return templatePreprocessor(tree, options);
-      }
-    });
+  jsPath: 'addon',
+  toJsTree: function() {
+    var jsDir = path.join(this._baseDiskDir(), this.jsPath);
+    var tree = this.treeGenerator(jsDir);
+    return funnel(tree, { include: ['**/*.js'] });
   },
 
-  setupCssPreprocessing: function(registry) {
-    var self = this;
-    registry.add('css', {
-      name: 'mixin-classes',
-      toTree: function(tree) {
-        return scssPreprocessor(tree, {
-          name: self.name,
-          components: 'components/*.scss'
-        });
-      }
-    });
+  hbsPath: 'addon/templates',
+  toHbsTree: function() {
+    var hbsDir = path.join(this._baseDiskDir(), this.hbsPath);
+    var tree = this.treeGenerator(hbsDir);
+    return funnel(tree, { include: ['**/*.hbs'] });
   },
 
-  setupHtmlTransform: function(registry) {
-    registry.add('htmlbars-ast-plugin', {
-      name: 'transform-component-classes',
-      plugin: TransformComponentClasses
-    });
-  },
-
-  postprocessTree: function(type, tree) {
-    if (type === 'css') {
-      tree = csso(tree);
-    }
-
-    return tree;
+  _baseDiskDir: function() {
+    return this.nodeModulesPath.replace(/\/node_modules$/, '');
   }
 });
 
-module.exports = UITheme;
+module.exports = Theme;
