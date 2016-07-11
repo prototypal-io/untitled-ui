@@ -1,5 +1,8 @@
 /* jshint node: true */
 'use strict';
+var fs = require('fs');
+var bodyParser = require('body-parser');
+var cors = require('cors')
 
 var Addon = require('ember-cli/lib/models/addon');
 
@@ -20,7 +23,7 @@ var UITheme = Addon.extend({
     this.compileStyles = function() {};
   },
 
-  treeForStyles() {
+  treeForStyles: function() {
     return this._originalCompileStyles(this.treeGenerator(this.root + '/addon/styles'));
   },
 
@@ -111,6 +114,62 @@ var UITheme = Addon.extend({
     }
 
     return tree;
+  },
+
+  serverMiddleware: function(config) {
+    var app = config.app;
+    var options = config.options;
+    var project = options.project;
+    var themeFile = path.resolve(path.join(project.root, 'addon', 'styles', 'config.scss'));
+    var themeScss = path.resolve(path.join(project.root, 'tests', 'dummy', 'app', 'styles'), 'vars.scss');
+
+    app.use(bodyParser.json());
+    app.use(cors());
+
+    app.get('/theme', function(req, res, next) {
+      // TODO: read node_modules/*/package.json and extract the metadata for elemental packages
+      // send down something like:
+      /*
+        {
+          components: [
+            {name: 'ele-calendar', themes: [{backgroundColor: 'units'}]}
+          ],
+          theme: {
+            // contents of theme.json
+          }
+        }
+      */
+      if (fs.existsSync(themeFile)) {
+        var data = fs.readFileSync(themeFile);
+        var vars = data.toString().split(/\n+/).map(function(varDecl) {
+          var match = varDecl.match(/\$([^:]+):\s+([^;]+)/);
+          if (!match) {
+            return {unknown: varDecl};
+          }
+          return {name: match[1], value: match[2].replace(" !default", "")};
+        });
+        debugger;
+        res.set('Content-Type', 'application/json');
+        res.json(vars);
+      } else {
+        res.json({});
+      }
+      next();
+    });
+
+    app.post('/theme', function(req, res, next) {
+      console.log('posted ' + Object.keys(req.body));
+      var themeJson = req.body;
+
+      // fs.writeFileSync(themeFile, JSON.stringify(themeJson, null, '  '));
+      var scssSource = Object.keys(themeJson).map(function(key) {
+        return '$' + key + ': ' + themeJson[key] + ';';
+      }).join("\n");
+      console.log("scssSource:", scssSource);
+      fs.writeFileSync(themeScss, scssSource);
+      res.json({theme: req.body});
+      next();
+    });
   }
 });
 

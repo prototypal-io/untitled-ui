@@ -18,7 +18,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "body-parser": "^1.15.2",
     "broccoli-asset-rev": "^2.4.2",
+    "cors": "^2.7.1",
     "ember-ajax": "^2.0.1",
     "ember-autoserve": "0.0.4",
     "ember-better-errors": "0.0.2",
