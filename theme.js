@@ -14,17 +14,16 @@ var themeCore;
 var Theme = Addon.extend({
   themeCore: null,
   parentTheme: null,
+  didSetupThemeCore: false,
 
   isDevelopingAddon: function() {
     return true;
   },
 
   init: function() {
-    this._super.init.apply(this, arguments);
-
-    this.themeCore = themeCore || new ThemeCore();
-    themeCore = this.themeCore;
-
+    // set this theme's parent theme that was saved on themeCore
+    // from the super class, then set the parent theme to the
+    // current theme for the next sub class
     this.parentTheme = this.themeCore.parentTheme;
     this.themeCore.parentTheme = this;
 
@@ -32,15 +31,28 @@ var Theme = Addon.extend({
   },
 
   setupPreprocessorRegistry: function(type, registry) {
-    // only setup preprocessors for the top level app registry
-    // and not for subthemes that are parents to baser themes
+    // this hook runs before init for type === 'self'
+    // so we need to setup the theme here but only do it once
+    this.didSetupThemeCore = this.didSetupThemeCore || this.setupThemeCore(registry);
+
     if (type === 'parent' && !registry.app.parent) {
       this.themeCore.setupAppPreprocessors(registry);
     }
 
     if (type === 'self') {
+      this.themeCore.setupThemePreprocessors(registry, this.name);
       this.setupHtmlTransforms(registry);
     }
+  },
+
+  setupThemeCore: function(registry) {
+    // only instantiate once themeCore for all themes
+    this.themeCore = themeCore || new ThemeCore({
+      projectName: registry.app.project.pkg.name
+    });
+    themeCore = this.themeCore;
+
+    return true;
   },
 
   setupHtmlTransforms: function(registry) {

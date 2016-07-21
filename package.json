@@ -63,6 +63,10 @@
     "walk-sync": "^0.2.6"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "before": [
+      "ember-cli-htmlbars",
+      "ember-cli-babel"
+    ]
   }
 }
