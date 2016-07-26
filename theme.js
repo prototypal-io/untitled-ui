@@ -139,16 +139,18 @@ var UITheme = Addon.extend({
           }
         }
       */
-      if (fs.existsSync(themeFile)) {
-        var data = fs.readFileSync(themeFile);
-        var vars = data.toString().split(/\n+/).map(function(varDecl) {
+
+      let variant = req.query.variant;
+      var themeVarsSassFile = path.resolve(path.join(project.root, 'addon', 'styles', 'config' + (variant ? '-' + variant : '') + '.scss'));
+      if (fs.existsSync(themeVarsSassFile)) {
+        var data = fs.readFileSync(themeVarsSassFile);
+        var vars = data.toString().trim().split(/\n+/).map(function(varDecl) {
           var match = varDecl.match(/\$([^:]+):\s+([^;]+)/);
           if (!match) {
-            return {unknown: varDecl};
+            return {name: varDecl};
           }
           return {name: match[1], value: match[2].replace(" !default", "")};
         });
-        debugger;
         res.set('Content-Type', 'application/json');
         res.json(vars);
       } else {

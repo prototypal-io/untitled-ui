@@ -1,5 +1,9 @@
 /* jshint node: true */
 
 module.exports = {
-  name: 'untitled-ui'
+  name: 'untitled-ui',
+
+  isDevelopingAddon: function() {
+    return true;
+  }
 };
