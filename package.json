@@ -19,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
+    "debug": "^2.2.0",
     "ember-ajax": "^2.0.1",
     "ember-autoserve": "0.0.4",
     "ember-better-errors": "0.0.2",
