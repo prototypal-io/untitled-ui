@@ -21,6 +21,8 @@ var Theme = Addon.extend({
   },
 
   init: function() {
+    this._super.init && this._super.init.apply(this, arguments);
+
     // set this theme's parent theme that was saved on themeCore
     // from the super class, then set the parent theme to the
     // current theme for the next sub class
