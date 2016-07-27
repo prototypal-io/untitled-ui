@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import { animate, stop } from "liquid-fire";
 
+const { $ } = Ember;
+
 export default function(/*options*/) {
   stop(this.oldElement);
 
