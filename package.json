@@ -9,7 +9,9 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "npm run node-tests && npm run ember-tests",
+    "node-tests": "node node-tests/runner.js",
+    "ember-tests": "ember try:each"
   },
   "repository": "",
   "engines": {
@@ -45,7 +47,8 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "flexi": "1.1.7",
-    "loader.js": "^4.0.1"
+    "loader.js": "^4.0.1",
+    "qunit": "^0.9.1"
   },
   "keywords": [
     "ember-addon"
