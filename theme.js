@@ -9,7 +9,6 @@ var ThemeCore = require('./lib/theme-core');
 var TransformComponentClasses = require('./lib/htmlbars-plugins/transform-component-classes');
 var TransformUITableComponents = require('./lib/htmlbars-plugins/transform-ui-table-components');
 var funnel = require('broccoli-funnel');
-var bodyParser = require('body-parser');
 var walkSync = require('walk-sync');
 
 var themeCore;
@@ -93,12 +92,6 @@ var Theme = Addon.extend({
   serverMiddleware: function(config) {
     var app = config.app;
     var themeCore = this.themeCore;
-
-    // do we want the body parser middleware for all
-    // routes or just the route defined below?
-    // i believe there's a way to just add it to that one
-    // @heroiceric
-    app.use(bodyParser.json());
 
     app.get('/__ui/components', function(req, res, next) {
       // var demoComponents =
