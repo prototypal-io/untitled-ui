@@ -1,6 +1,7 @@
 /* jshint node: true */
 'use strict';
 
+var fs = require('fs');
 var path = require('path');
 
 var Addon = require('ember-cli/lib/models/addon');
@@ -8,15 +9,17 @@ var ThemeCore = require('./lib/theme-core');
 var TransformComponentClasses = require('./lib/htmlbars-plugins/transform-component-classes');
 var TransformUITableComponents = require('./lib/htmlbars-plugins/transform-ui-table-components');
 var funnel = require('broccoli-funnel');
+var bodyParser = require('body-parser');
+var walkSync = require('walk-sync');
 
 var themeCore;
-
-var bodyParser = require('body-parser');
-var fs = require('fs');
 
 var Theme = Addon.extend({
   themeCore: null,
   parentTheme: null,
+  jsPath: 'addon',
+  scssPath: 'addon/styles',
+  hbsPath: 'addon/templates',
 
   isDevelopingAddon: function() {
     return true;
@@ -69,51 +72,54 @@ var Theme = Addon.extend({
     });
   },
 
-  scssPath: 'addon/styles',
   toScssTree: function() {
     var scssDir = path.join(this._baseDiskDir(), this.scssPath);
     var tree = this.treeGenerator(scssDir);
     return funnel(tree, { include: ['**/*.scss'] });
   },
 
-  jsPath: 'addon',
   toJsTree: function() {
     var jsDir = path.join(this._baseDiskDir(), this.jsPath);
     var tree = this.treeGenerator(jsDir);
     return funnel(tree, { include: ['**/*.js'] });
   },
 
-  hbsPath: 'addon/templates',
   toHbsTree: function() {
     var hbsDir = path.join(this._baseDiskDir(), this.hbsPath);
     var tree = this.treeGenerator(hbsDir);
     return funnel(tree, { include: ['**/*.hbs'] });
   },
 
-  _baseDiskDir: function() {
-    return this.nodeModulesPath.replace(/\/node_modules$/, '');
-  },
-
   serverMiddleware: function(config) {
     var app = config.app;
-    var options = config.options;
-    var project = options.project;
+    var themeCore = this.themeCore;
 
-    app.use(bodyParser.json())
+    // do we want the body parser middleware for all
+    // routes or just the route defined below?
+    // i believe there's a way to just add it to that one
+    // @heroiceric
+    app.use(bodyParser.json());
 
     app.get('/__ui/components', function(req, res, next) {
-      var demoComponents =
-        fs.readdirSync(path.join(project.root, 'addon', 'components'))
-        .filter(function(component) {
-          return /^demo--(.*).js$/.test(component);
-        })
-        .slice(1);
+      // var demoComponents =
+      //   fs.readdirSync(path.join(project.root, 'addon', 'components'))
+      //   .filter(function(component) {
+      //     return /^demo--(.*).js$/.test(component);
+      //   })
+      //   .slice(1);
 
-      var components = demoComponents.map(function(demoComponent) {
-        return {
-          demoComponent: demoComponent.replace('.js', ''),
-          name: demoComponent.match(/^demo--(.*).js$/)[1]
-        };
+      // var components = demoComponents.map(function(demoComponent) {
+      //   return {
+      //     demoComponent: demoComponent.replace('.js', ''),
+      //     name: demoComponent.match(/^demo--(.*).js$/)[1]
+      //   };
+      // });
+
+      // something like this: it will give you all of the js components
+      // for all the themes, then do with them what you please
+      // you could also get all the scss and hbs files too if needed
+      var components = themeCore.themes.map(function(theme) {
+        return theme.toJsComponentFilesArray();
       });
 
       res.set('Content-Type', 'application/json');
@@ -121,7 +127,16 @@ var Theme = Addon.extend({
 
       next();
     });
-  }
+  },
+
+  toJsComponentFilesArray: function() {
+    var scssDir = path.join(this._baseDiskDir(), this.jsPath);
+    return walkSync(scssDir, { globs: ['components/*.js'] });
+  },
+
+  _baseDiskDir: function() {
+    return this.nodeModulesPath.replace(/\/node_modules$/, '');
+  },
 });
 
 module.exports = Theme;
