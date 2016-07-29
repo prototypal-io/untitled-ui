@@ -11,6 +11,9 @@ var funnel = require('broccoli-funnel');
 
 var themeCore;
 
+var bodyParser = require('body-parser');
+var fs = require('fs');
+
 var Theme = Addon.extend({
   themeCore: null,
   parentTheme: null,
@@ -89,6 +92,35 @@ var Theme = Addon.extend({
 
   _baseDiskDir: function() {
     return this.nodeModulesPath.replace(/\/node_modules$/, '');
+  },
+
+  serverMiddleware: function(config) {
+    var app = config.app;
+    var options = config.options;
+    var project = options.project;
+
+    app.use(bodyParser.json())
+
+    app.get('/__ui/components', function(req, res, next) {
+      var demoComponents =
+        fs.readdirSync(path.join(project.root, 'addon', 'components'))
+        .filter(function(component) {
+          return /^demo--(.*).js$/.test(component);
+        })
+        .slice(1);
+
+      var components = demoComponents.map(function(demoComponent) {
+        return {
+          demoComponent: demoComponent.replace('.js', ''),
+          name: demoComponent.match(/^demo--(.*).js$/)[1]
+        };
+      });
+
+      res.set('Content-Type', 'application/json');
+      res.json(components);
+
+      next();
+    });
   }
 });
 
