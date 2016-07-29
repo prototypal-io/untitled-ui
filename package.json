@@ -51,7 +51,6 @@
     "ember-addon"
   ],
   "dependencies": {
-    "body-parser": "^1.15.2",
     "broccoli-caching-writer": "^2.2.1",
     "broccoli-csso": "^2.0.0",
     "broccoli-funnel": "^1.0.1",

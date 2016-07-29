@@ -92,31 +92,49 @@ var Theme = Addon.extend({
   serverMiddleware: function(config) {
     var app = config.app;
     var themeCore = this.themeCore;
+    var appName = themeCore.appName;
 
-    app.get('/__ui/components', function(req, res, next) {
-      // var demoComponents =
-      //   fs.readdirSync(path.join(project.root, 'addon', 'components'))
-      //   .filter(function(component) {
-      //     return /^demo--(.*).js$/.test(component);
-      //   })
-      //   .slice(1);
+    app.get('/__ui/themes', function(req, res, next) {
+      var themes = themeCore.themes.map(function(theme) {
+        var allComponentFiles = theme.toJsComponentFilesArray();
 
-      // var components = demoComponents.map(function(demoComponent) {
-      //   return {
-      //     demoComponent: demoComponent.replace('.js', ''),
-      //     name: demoComponent.match(/^demo--(.*).js$/)[1]
-      //   };
-      // });
+        var demoComponentFiles = allComponentFiles.filter(function(componentFile) {
+          return /^components\/demo--(.*).js$/.test(componentFile);
+        });
 
-      // something like this: it will give you all of the js components
-      // for all the themes, then do with them what you please
-      // you could also get all the scss and hbs files too if needed
-      var components = themeCore.themes.map(function(theme) {
-        return theme.toJsComponentFilesArray();
+        var componentFiles = allComponentFiles.filter(function(componentFile) {
+          return /^components\/ui-(.*).js$/.test(componentFile);
+        });
+
+        var components = componentFiles.map(function(componentFile) {
+          var modulePath = componentFile.replace(/^(.*).js/, appName + '/$1');
+          var name = componentFile.replace(/^components\/(.*).js$/, '$1');
+
+          var demoComponentFile = demoComponentFiles.find(function(file) {
+            return file.replace(/demo--/, '') === componentFile;
+          });
+
+          var demoComponentName = demoComponentFile && demoComponentFile.replace(/^components\/(.*).js$/, '$1');
+
+          return {
+            name: name,
+            modulePath: modulePath,
+            file: componentFile,
+            demoFile: demoComponentFile,
+            demoName: demoComponentName,
+            kinds: ['default', 'material', 'primary', 'simple'], // TODO: Determine dynamically
+            states: ['active', 'disabled', 'focus', 'loading'] // TODO: Determine dynamically
+          };
+        });
+
+        return {
+          components: components,
+          name: theme.name
+        };
       });
 
       res.set('Content-Type', 'application/json');
-      res.json(components);
+      res.json(themes);
 
       next();
     });
@@ -129,7 +147,7 @@ var Theme = Addon.extend({
 
   _baseDiskDir: function() {
     return this.nodeModulesPath.replace(/\/node_modules$/, '');
-  },
+  }
 });
 
 module.exports = Theme;
