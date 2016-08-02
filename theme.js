@@ -97,6 +97,7 @@ var Theme = Addon.extend({
     app.get('/__ui/themes', function(req, res, next) {
       var themes = themeCore.themes.map(function(theme) {
         var allComponentFiles = theme.toJsComponentFilesArray();
+        var allScssFiles = theme.toScssComponentFilesArray();
 
         var demoComponentFiles = allComponentFiles.filter(function(componentFile) {
           return /^components\/demo--(.*).js$/.test(componentFile);
@@ -116,13 +117,19 @@ var Theme = Addon.extend({
 
           var demoComponentName = demoComponentFile && demoComponentFile.replace(/^components\/(.*).js$/, '$1');
 
+          var kindRegExp = new RegExp('^components/' + name + '--(.*).scss$');
+          var kinds =
+            allScssFiles
+            .filter((scssFile) => scssFile.match(kindRegExp))
+            .map((scssFile) => scssFile.match(kindRegExp)[1]);
+
           return {
             name: name,
             modulePath: modulePath,
             file: componentFile,
             demoFile: demoComponentFile,
             demoComponentName: demoComponentName,
-            kinds: ['default', 'material', 'primary', 'simple'] // TODO: Determine dynamically
+            kinds: kinds
           };
         });
 
@@ -140,8 +147,13 @@ var Theme = Addon.extend({
   },
 
   toJsComponentFilesArray: function() {
-    var scssDir = path.join(this._baseDiskDir(), this.jsPath);
-    return walkSync(scssDir, { globs: ['components/*.js'] });
+    var jsDir = path.join(this._baseDiskDir(), this.jsPath);
+    return walkSync(jsDir, { globs: ['components/*.js'] });
+  },
+
+  toScssComponentFilesArray: function() {
+    var scssDir = path.join(this._baseDiskDir(), this.scssPath);
+    return walkSync(scssDir, { globs: ['components/*.scss'] });
   },
 
   _baseDiskDir: function() {
