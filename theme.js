@@ -121,9 +121,8 @@ var Theme = Addon.extend({
             modulePath: modulePath,
             file: componentFile,
             demoFile: demoComponentFile,
-            demoName: demoComponentName,
-            kinds: ['default', 'material', 'primary', 'simple'], // TODO: Determine dynamically
-            states: ['active', 'disabled', 'focus', 'loading'] // TODO: Determine dynamically
+            demoComponentName: demoComponentName,
+            kinds: ['default', 'material', 'primary', 'simple'] // TODO: Determine dynamically
           };
         });
 
