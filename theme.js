@@ -117,7 +117,7 @@ var Theme = Addon.extend({
 
           var demoComponentName = demoComponentFile && demoComponentFile.replace(/^components\/(.*).js$/, '$1');
 
-          var kindRegExp = new RegExp('^components/' + name + '--(.*).scss$');
+          var kindRegExp = new RegExp('^components/' + name + '--(?!base|-)(.*).scss$');
           var kinds =
             allScssFiles
             .filter((scssFile) => scssFile.match(kindRegExp))
