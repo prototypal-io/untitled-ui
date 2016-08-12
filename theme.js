@@ -7,6 +7,7 @@ var path = require('path');
 var Addon = require('ember-cli/lib/models/addon');
 var ThemeCore = require('./lib/theme-core');
 var TransformComponentClasses = require('./lib/htmlbars-plugins/transform-component-classes');
+var TransformUIRoot = require('./lib/htmlbars-plugins/transform-ui-root');
 var TransformUITableComponents = require('./lib/htmlbars-plugins/transform-ui-table-components');
 var funnel = require('broccoli-funnel');
 var walkSync = require('walk-sync');
@@ -63,6 +64,11 @@ var Theme = Addon.extend({
     registry.add('htmlbars-ast-plugin', {
       name: 'transform-component-classes',
       plugin: TransformComponentClasses
+    });
+
+    registry.add('htmlbars-ast-plugin', {
+      name: 'transform-ui-root',
+      plugin: TransformUIRoot
     });
 
     registry.add('htmlbars-ast-plugin', {
