@@ -52,7 +52,7 @@
   "dependencies": {
     "broccoli-caching-writer": "^2.2.1",
     "broccoli-csso": "^2.0.0",
-    "broccoli-funnel": "^1.0.1",
+    "broccoli-funnel": "^1.0.6",
     "broccoli-merge-trees": "^1.1.1",
     "broccoli-persistent-filter": "^1.2.0",
     "debug": "^2.2.0",
