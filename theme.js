@@ -64,17 +64,20 @@ var Theme = Addon.extend({
   setupHtmlTransforms: function(registry) {
     registry.add('htmlbars-ast-plugin', {
       name: 'transform-component-classes',
-      plugin: TransformComponentClasses
+      plugin: TransformComponentClasses,
+      baseDir: function() { return __dirname }
     });
 
     registry.add('htmlbars-ast-plugin', {
       name: 'transform-ui-root',
-      plugin: TransformUIRoot
+      plugin: TransformUIRoot,
+      baseDir: function() { return __dirname }
     });
 
     registry.add('htmlbars-ast-plugin', {
       name: 'transform-ui-table-components',
-      plugin: TransformUITableComponents
+      plugin: TransformUITableComponents,
+      baseDir: function() { return __dirname }
     });
   },
 
