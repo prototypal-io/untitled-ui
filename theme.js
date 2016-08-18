@@ -9,6 +9,7 @@ var ThemeCore = require('./lib/theme-core');
 var TransformComponentClasses = require('./lib/htmlbars-plugins/transform-component-classes');
 var TransformUIRoot = require('./lib/htmlbars-plugins/transform-ui-root');
 var TransformUITableComponents = require('./lib/htmlbars-plugins/transform-ui-table-components');
+var StyleguideServer = require('./lib/server-middleware/styleguide-server');
 var funnel = require('broccoli-funnel');
 var walkSync = require('walk-sync');
 
@@ -95,61 +96,17 @@ var Theme = Addon.extend({
     return funnel(tree, { include: ['**/*.hbs'] });
   },
 
-  serverMiddleware: function(config) {
-    var app = config.app;
-    var themeCore = this.themeCore;
-    var appName = themeCore.appName;
+  shouldAddServerMiddleware(themeCore) {
+    return !themeCore.didSetupServerMiddleware;
+  },
 
-    app.get('/__ui/themes', function(req, res, next) {
-      var themes = themeCore.themes.map(function(theme) {
-        var allComponentFiles = theme.toJsComponentFilesArray();
-        var allScssFiles = theme.toScssComponentFilesArray();
+  serverMiddleware: function(startOptions) {
+    if (this.shouldAddServerMiddleware(this.themeCore)) {
+      var styleguideServer = new StyleguideServer({ themeCore: this.themeCore });
+      styleguideServer.addServerMiddleware(startOptions);
 
-        var demoComponentFiles = allComponentFiles.filter(function(componentFile) {
-          return /^components\/demo--(.*).js$/.test(componentFile);
-        });
-
-        var componentFiles = allComponentFiles.filter(function(componentFile) {
-          return /^components\/ui-(.*).js$/.test(componentFile);
-        });
-
-        var components = componentFiles.map(function(componentFile) {
-          var modulePath = componentFile.replace(/^(.*).js/, appName + '/$1');
-          var name = componentFile.replace(/^components\/(.*).js$/, '$1');
-
-          var demoComponentFile = demoComponentFiles.find(function(file) {
-            return file.replace(/demo--/, '') === componentFile;
-          });
-
-          var demoComponentName = demoComponentFile && demoComponentFile.replace(/^components\/(.*).js$/, '$1');
-
-          var kindRegExp = new RegExp('^components/' + name + '--(?!base|-)(.*).scss$');
-          var kinds =
-            allScssFiles
-            .filter((scssFile) => scssFile.match(kindRegExp))
-            .map((scssFile) => scssFile.match(kindRegExp)[1]);
-
-          return {
-            name: name,
-            modulePath: modulePath,
-            file: componentFile,
-            demoFile: demoComponentFile,
-            demoComponentName: demoComponentName,
-            kinds: kinds
-          };
-        });
-
-        return {
-          components: components,
-          name: theme.name
-        };
-      });
-
-      res.set('Content-Type', 'application/json');
-      res.json(themes);
-
-      next();
-    });
+      themeCore.didSetupServerMiddleware = true;
+    }
   },
 
   toJsComponentFilesArray: function() {
