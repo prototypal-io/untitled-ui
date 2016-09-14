@@ -8,5 +8,9 @@ module.exports = {
 
   postprocessTree: function(type, tree) {
     return type === 'css' ? csso(tree) : tree;
+  },
+
+  isDevelopingAddon: function() {
+    return true;
   }
 };
